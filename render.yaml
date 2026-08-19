@@ -1,0 +1,7 @@
+﻿services:
+  - type: web
+    name: christ-preachers-church-int-3
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn --workers 1 --threads 4 --timeout 120 run:app
+    healthCheckPath: /
