@@ -42,9 +42,11 @@ def create_app():
     login_manager.login_view = "auth.login"
 
     from app.auth.routes import auth
-    from app.main.routes import main
+    from app.admin.routes import admin
+    from app.branch.routes import branch
 
     app.register_blueprint(auth)
-    app.register_blueprint(main)
+    app.register_blueprint(admin)
+    app.register_blueprint(branch)
 
     return app
