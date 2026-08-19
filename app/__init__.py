@@ -10,6 +10,12 @@ migrate = Migrate()
 login_manager = LoginManager()
 
 
+@login_manager.user_loader
+def load_user(user_id):
+    from app.models import User
+    return db.session.get(User, int(user_id))
+
+
 def create_app():
     load_dotenv()
 

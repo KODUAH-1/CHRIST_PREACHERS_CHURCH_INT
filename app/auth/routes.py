@@ -1,11 +1,9 @@
 ﻿from flask import Blueprint, render_template, redirect, url_for, flash
-from flask_login import LoginManager, login_user, logout_user, login_required, current_user
+from flask_login import login_user, logout_user, login_required, current_user
 
 from .forms import LoginForm
 from ..models import User
 
-
-login_manager = LoginManager()
 
 auth = Blueprint(
     "auth",
@@ -138,4 +136,3 @@ def logout():
     return redirect(
         url_for("auth.login")
     )
-
