@@ -1,0 +1,202 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Users | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span> Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                <span>▦</span> Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span> Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link">
+                <span>✓</span> Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link">
+                <span>◈</span> Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link">
+                <span>▤</span> Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link active">
+                <span>♙</span> Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link">
+                <span>⚙</span> Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                <span>↪</span> Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+                <div class="section-label">USER MANAGEMENT</div>
+
+                <h1>System Users</h1>
+
+                <p>
+                    View all administrator and branch user accounts.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <div class="section-label">USER DIRECTORY</div>
+
+                    <h2>Registered Users</h2>
+
+                    <p>
+                        Review system users and their access status.
+                    </p>
+                </div>
+
+                <div class="branch-count">
+                    {{ users|length }}
+                    <span>users</span>
+                </div>
+
+            </div>
+
+            {% if users %}
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+                        <tr>
+                            <th>Username</th>
+                            <th>Role</th>
+                            <th>Branch</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for user in users %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ user.username }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                {{ user.role|capitalize }}
+                            </td>
+
+                            <td>
+                                {% if user.branch %}
+                                    {{ user.branch.name }}
+                                {% else %}
+                                    Central Administration
+                                {% endif %}
+                            </td>
+
+                            <td>
+
+                                {% if user.is_active %}
+
+                                <span class="professional-status active">
+                                    <span class="status-dot"></span>
+                                    Active
+                                </span>
+
+                                {% else %}
+
+                                <span class="professional-status">
+                                    <span class="status-dot"></span>
+                                    Inactive
+                                </span>
+
+                                {% endif %}
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-state">
+
+                <h3>No users registered</h3>
+
+                <p>
+                    User accounts will appear here when they are created.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="branch-footer-note">
+
+            <div class="database-status">
+                <span class="online-dot"></span>
+                PostgreSQL Database Connected
+            </div>
+
+            <span>
+                User management system is online
+            </span>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+

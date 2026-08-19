@@ -1,0 +1,60 @@
+﻿<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>{% block title %}Christ Preachers Church INT{% endblock %}</title>
+
+    <link
+        rel="stylesheet"
+        href="{{ url_for('static', filename='css/style.css') }}"
+    >
+
+    {% block extra_head %}{% endblock %}
+</head>
+
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="logo-placeholder">CPC</div>
+
+            <div>
+                <div class="brand-name">
+                    CHRIST PREACHERS CHURCH INT
+                </div>
+
+                <div class="brand-subtitle">
+                    Church Management System
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <main class="page-container">
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+            {% if messages %}
+                <div class="flash-container">
+                    {% for category, message in messages %}
+                        <div class="flash flash-{{ category }}">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                </div>
+            {% endif %}
+        {% endwith %}
+
+        {% block content %}{% endblock %}
+
+    </main>
+
+    <footer class="footer">
+        <p>
+            © 2026 CHRIST PREACHERS CHURCH INT
+        </p>
+    </footer>
+
+</body>
+</html>

@@ -1,0 +1,1432 @@
+﻿{% extends "base.html" %}
+
+{% block title %}CPC INT | Executive Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="cpc-executive-dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="cpc-executive-sidebar">
+
+        <div class="cpc-executive-brand">
+            <div class="cpc-executive-logo">CPC</div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <span>Administration</span>
+            </div>
+        </div>
+
+        <div class="cpc-executive-menu-label">MAIN MENU</div>
+
+        <nav class="cpc-executive-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}">
+                <span>▦</span>
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}">
+                <span>₵</span>
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}">
+                <span>✓</span>
+                Attendance
+            </a>
+
+        </nav>
+
+        <div class="cpc-executive-menu-label second">
+            MANAGEMENT
+        </div>
+
+        <nav class="cpc-executive-nav">
+
+            <a href="{{ url_for('admin.analytics') }}">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="{{ url_for("admin.reports") }}">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for("admin.users") }}">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="{{ url_for("admin.settings") }}">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="cpc-executive-sidebar-bottom">
+
+            <div class="cpc-executive-status">
+                <i></i>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>PostgreSQL Connected</small>
+                </div>
+            </div>
+
+            <a
+                href="{{ url_for('auth.logout') }}"
+                class="cpc-executive-logout"
+            >
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="cpc-executive-main">
+
+        <!-- HEADER -->
+        <header class="cpc-executive-header">
+
+            <div>
+                <div class="cpc-executive-kicker">
+                    CHRIST PREACHERS CHURCH INT
+                </div>
+
+                <h1>Executive Dashboard</h1>
+
+                <p>
+                    Central administration and church performance overview
+                </p>
+            </div>
+
+            <div class="cpc-executive-profile">
+
+                <div class="cpc-executive-avatar">
+                    {{ current_user.username[:1]|upper }}
+                </div>
+
+                <div>
+                    <strong>{{ current_user.username }}</strong>
+                    <small>Administrator</small>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+        <section class="cpc-executive-welcome">
+
+            <div>
+                <span>WELCOME BACK</span>
+
+                <h2>{{ current_user.username }}</h2>
+
+                <p>
+                    Here's your current church administration overview.
+                    Monitor branches, funds and attendance from one place.
+                </p>
+            </div>
+
+            <div class="cpc-executive-live">
+                <i></i>
+                LIVE SYSTEM
+            </div>
+
+        </section>
+
+
+        <!-- KPI CARDS -->
+        <section class="cpc-executive-kpis">
+
+            <div class="cpc-executive-kpi branches">
+
+                <div class="kpi-icon">▦</div>
+
+                <div class="kpi-content">
+                    <span>TOTAL BRANCHES</span>
+
+                    <strong>
+                        {{ total_branches }}
+                    </strong>
+
+                    <small>
+                        Registered church branches
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-executive-kpi evangelical">
+
+                <div class="kpi-icon">₵</div>
+
+                <div class="kpi-content">
+                    <span>EVANGELICAL FUND</span>
+
+                    <strong>
+                        GH₵ {{ "%.2f"|format(evangelical_total) }}
+                    </strong>
+
+                    <small>
+                        Total recorded
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-executive-kpi national">
+
+                <div class="kpi-icon">₵</div>
+
+                <div class="kpi-content">
+                    <span>NATIONAL FUND</span>
+
+                    <strong>
+                        GH₵ {{ "%.2f"|format(national_total) }}
+                    </strong>
+
+                    <small>
+                        Total recorded
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-executive-kpi attendance">
+
+                <div class="kpi-icon">✓</div>
+
+                <div class="kpi-content">
+                    <span>TOTAL ATTENDANCE</span>
+
+                    <strong>
+                        {{ attendance_total }}
+                    </strong>
+
+                    <small>
+                        Recorded attendance
+                    </small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHARTS -->
+        <section class="cpc-executive-chart-grid">
+
+            <!-- BAR CHART -->
+            <div class="cpc-executive-card">
+
+                <div class="executive-card-header">
+
+                    <div>
+                        <span>BRANCH PERFORMANCE</span>
+                        <h2>Funds by Branch</h2>
+                        <p>
+                            Evangelical and National Fund contribution
+                        </p>
+                    </div>
+
+                    <div class="chart-badge">
+                        ₵ FUNDS
+                    </div>
+
+                </div>
+
+
+                {% if branch_data %}
+
+                <div class="cpc-bar-chart">
+
+                    {% for branch in branch_data %}
+
+                    {% set branch_total =
+                        branch.evangelical + branch.national
+                    %}
+
+                    <div class="cpc-bar-column">
+
+                        <div class="cpc-bar-value">
+                            GH₵ {{ "%.0f"|format(branch_total) }}
+                        </div>
+
+                        <div
+                            class="cpc-bar"
+                            data-value="{{ branch_total }}"
+                        ></div>
+
+                        <div class="cpc-bar-label">
+                            {{ branch.name[:14] }}
+                        </div>
+
+                    </div>
+
+                    {% endfor %}
+
+                </div>
+
+                <div class="cpc-chart-legend">
+
+                    <span>
+                        <i class="legend-blue"></i>
+                        Total branch funds
+                    </span>
+
+                    <span>
+                        <i class="legend-light"></i>
+                        Based on recorded transactions
+                    </span>
+
+                </div>
+
+                {% else %}
+
+                <div class="cpc-empty-chart">
+                    <div>
+                        <div class="empty-chart-icon">▥</div>
+                        <strong>No branch data yet</strong>
+                        <p>
+                            Branch fund performance will appear here
+                            after records are entered.
+                        </p>
+                    </div>
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <!-- PIE CHART -->
+            <div class="cpc-executive-card">
+
+                <div class="executive-card-header">
+
+                    <div>
+                        <span>FUND DISTRIBUTION</span>
+                        <h2>Fund Composition</h2>
+                        <p>
+                            Evangelical Fund vs National Fund
+                        </p>
+                    </div>
+
+                    <div class="chart-badge">
+                        TOTAL
+                    </div>
+
+                </div>
+
+
+                {% set fund_total =
+                    evangelical_total + national_total
+                %}
+
+                {% if fund_total > 0 %}
+
+                    {% set evangelical_percent =
+                        (evangelical_total / fund_total * 100)
+                    %}
+
+                    {% set national_percent =
+                        (national_total / fund_total * 100)
+                    %}
+
+                {% else %}
+
+                    {% set evangelical_percent = 50 %}
+                    {% set national_percent = 50 %}
+
+                {% endif %}
+
+
+                <div class="cpc-pie-section">
+
+                    <div
+                        class="cpc-pie-chart"
+                        style="
+                            --evangelical:
+                            {{ evangelical_percent }}%;
+                        "
+                    >
+
+                        <div class="cpc-pie-center">
+                            <strong>
+                                GH₵ {{ "%.0f"|format(fund_total) }}
+                            </strong>
+                            <span>Total Funds</span>
+                        </div>
+
+                    </div>
+
+
+                    <div class="cpc-pie-legend">
+
+                        <div class="pie-legend-item">
+
+                            <div>
+                                <i class="pie-blue"></i>
+                                Evangelical Fund
+                            </div>
+
+                            <strong>
+                                {{ "%.1f"|format(evangelical_percent) }}%
+                            </strong>
+
+                        </div>
+
+
+                        <div class="pie-legend-item">
+
+                            <div>
+                                <i class="pie-light"></i>
+                                National Fund
+                            </div>
+
+                            <strong>
+                                {{ "%.1f"|format(national_percent) }}%
+                            </strong>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- LOWER SECTION -->
+        <section class="cpc-executive-lower-grid">
+
+
+            <!-- ATTENDANCE -->
+            <div class="cpc-executive-card attendance-overview">
+
+                <div class="executive-card-header">
+
+                    <div>
+                        <span>ATTENDANCE Analytics</span>
+                        <h2>Attendance Overview</h2>
+                    </div>
+
+                    <span class="small-blue-badge">
+                        PEOPLE
+                    </span>
+
+                </div>
+
+
+                <div class="attendance-metrics">
+
+                    <div class="attendance-metric">
+
+                        <span>Today</span>
+
+                        <strong>
+                            {{ daily_attendance }}
+                        </strong>
+
+                        <small>
+                            People
+                        </small>
+
+                    </div>
+
+
+                    <div class="attendance-metric">
+
+                        <span>This Week</span>
+
+                        <strong>
+                            {{ weekly_attendance }}
+                        </strong>
+
+                        <small>
+                            People
+                        </small>
+
+                    </div>
+
+
+                    <div class="attendance-metric">
+
+                        <span>This Month</span>
+
+                        <strong>
+                            {{ monthly_attendance }}
+                        </strong>
+
+                        <small>
+                            People
+                        </small>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- QUICK ACTIONS -->
+            <div class="cpc-executive-card">
+
+                <div class="executive-card-header">
+
+                    <div>
+                        <span>ADMINISTRATION</span>
+                        <h2>Quick Actions</h2>
+                    </div>
+
+                </div>
+
+
+                <div class="cpc-quick-actions">
+
+                    <a href="{{ url_for('admin.branches') }}">
+                        <span>▦</span>
+                        <div>
+                            <strong>Manage Branches</strong>
+                            <small>View church branches</small>
+                        </div>
+                        <b>→</b>
+                    </a>
+
+
+                    <a href="{{ url_for('admin.funds') }}">
+                        <span>₵</span>
+                        <div>
+                            <strong>Manage Funds</strong>
+                            <small>Enter financial records</small>
+                        </div>
+                        <b>→</b>
+                    </a>
+
+
+                    <a href="{{ url_for('admin.attendance') }}">
+                        <span>✓</span>
+                        <div>
+                            <strong>Attendance</strong>
+                            <small>Record attendance</small>
+                        </div>
+                        <b>→</b>
+                    </a>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="cpc-executive-footer">
+
+            <div>
+                <i></i>
+                <strong>PostgreSQL Database Connected</strong>
+                <span>
+                    CPC INT management system is operational
+                </span>
+            </div>
+
+            <strong>ONLINE</strong>
+
+        </footer>
+
+
+        <div class="cpc-executive-copyright">
+            © 2026 CHRIST PREACHERS CHURCH INT
+            • Central Administration System
+        </div>
+
+    </main>
+
+</div>
+
+
+<style>
+
+/* =========================================================
+   CPC INT EXECUTIVE DASHBOARD
+   Dashboard-only styling
+   ========================================================= */
+
+.cpc-executive-dashboard {
+    min-height: 100vh;
+    background: #eef7ff;
+    color: #173b5c;
+}
+
+.cpc-executive-dashboard * {
+    box-sizing: border-box;
+}
+
+
+/* SIDEBAR */
+
+.cpc-executive-sidebar {
+    position: fixed;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 250px;
+    padding: 24px 15px;
+    background: linear-gradient(
+        180deg,
+        #07569f 0%,
+        #0875c4 58%,
+        #1492da 100%
+    );
+    color: white;
+    display: flex;
+    flex-direction: column;
+    z-index: 20;
+    box-shadow: 7px 0 28px rgba(10,83,137,.12);
+}
+
+.cpc-executive-brand {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 3px 10px 25px;
+    border-bottom: 1px solid rgba(255,255,255,.18);
+}
+
+.cpc-executive-logo {
+    width: 47px;
+    height: 47px;
+    border-radius: 14px;
+    background: white;
+    color: #07569f;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+    font-size: 13px;
+}
+
+.cpc-executive-brand strong {
+    display: block;
+    font-size: 16px;
+}
+
+.cpc-executive-brand span {
+    display: block;
+    font-size: 10px;
+    opacity: .75;
+    margin-top: 3px;
+}
+
+.cpc-executive-menu-label {
+    padding: 23px 11px 8px;
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    font-weight: 800;
+    opacity: .58;
+}
+
+.cpc-executive-menu-label.second {
+    padding-top: 25px;
+}
+
+.cpc-executive-nav {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+}
+
+.cpc-executive-nav a {
+    text-decoration: none;
+    color: rgba(255,255,255,.86);
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 11px 12px;
+    border-radius: 10px;
+    font-size: 13px;
+    font-weight: 600;
+    transition: .2s;
+}
+
+.cpc-executive-nav a span {
+    width: 24px;
+    text-align: center;
+    font-size: 16px;
+}
+
+.cpc-executive-nav a:hover,
+.cpc-executive-nav a.active {
+    background: rgba(255,255,255,.17);
+    color: white;
+}
+
+.cpc-executive-sidebar-bottom {
+    margin-top: auto;
+}
+
+.cpc-executive-status {
+    padding: 12px;
+    border: 1px solid rgba(255,255,255,.14);
+    background: rgba(255,255,255,.08);
+    border-radius: 11px;
+    display: flex;
+    align-items: center;
+    gap: 9px;
+    margin-bottom: 9px;
+}
+
+.cpc-executive-status i,
+.cpc-executive-footer i {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: #4be38b;
+    display: inline-block;
+}
+
+.cpc-executive-status strong {
+    display: block;
+    font-size: 11px;
+}
+
+.cpc-executive-status small {
+    display: block;
+    font-size: 9px;
+    opacity: .68;
+    margin-top: 2px;
+}
+
+.cpc-executive-logout {
+    justify-content: center;
+    background: rgba(255,255,255,.07);
+}
+
+
+/* MAIN */
+
+.cpc-executive-main {
+    margin-left: 250px;
+    padding: 28px 34px 35px;
+    min-height: 100vh;
+}
+
+.cpc-executive-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 22px;
+}
+
+.cpc-executive-kicker {
+    color: #1483ca;
+    font-size: 10px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+}
+
+.cpc-executive-header h1 {
+    margin: 4px 0 3px;
+    color: #143c60;
+    font-size: 28px;
+}
+
+.cpc-executive-header p {
+    margin: 0;
+    color: #7d98ab;
+    font-size: 11px;
+}
+
+.cpc-executive-profile {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    background: white;
+    border: 1px solid #dcebf6;
+    padding: 7px 13px 7px 7px;
+    border-radius: 13px;
+    box-shadow: 0 5px 20px rgba(20,83,123,.05);
+}
+
+.cpc-executive-avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 11px;
+    background: linear-gradient(135deg,#42afe8,#0864aa);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.cpc-executive-profile strong {
+    display: block;
+    color: #183e60;
+    font-size: 11px;
+}
+
+.cpc-executive-profile small {
+    display: block;
+    color: #8ba1b0;
+    font-size: 9px;
+    margin-top: 2px;
+}
+
+
+/* WELCOME */
+
+.cpc-executive-welcome {
+    padding: 24px 27px;
+    border-radius: 18px;
+    color: white;
+    background: linear-gradient(
+        110deg,
+        #07569f,
+        #1188d1
+    );
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 18px;
+    box-shadow: 0 12px 28px rgba(11,106,174,.16);
+}
+
+.cpc-executive-welcome span {
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    opacity: .72;
+}
+
+.cpc-executive-welcome h2 {
+    margin: 5px 0;
+    font-size: 22px;
+}
+
+.cpc-executive-welcome p {
+    margin: 0;
+    font-size: 11px;
+    opacity: .82;
+}
+
+.cpc-executive-live {
+    padding: 10px 14px;
+    border: 1px solid rgba(255,255,255,.2);
+    border-radius: 30px;
+    background: rgba(255,255,255,.12);
+    font-size: 9px;
+    font-weight: 900;
+    white-space: nowrap;
+}
+
+.cpc-executive-live i {
+    display: inline-block;
+    width: 7px;
+    height: 7px;
+    background: #56e997;
+    border-radius: 50%;
+    margin-right: 5px;
+}
+
+
+/* KPI */
+
+.cpc-executive-kpis {
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+    gap: 14px;
+    margin-bottom: 18px;
+}
+
+.cpc-executive-kpi {
+    background: white;
+    border: 1px solid #dcecf7;
+    border-radius: 15px;
+    padding: 16px;
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    box-shadow: 0 5px 18px rgba(26,89,131,.045);
+}
+
+.kpi-icon {
+    width: 42px;
+    height: 42px;
+    flex-shrink: 0;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #e8f5ff;
+    color: #0875c2;
+    font-size: 18px;
+    font-weight: 900;
+}
+
+.kpi-content span {
+    display: block;
+    color: #8199aa;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1px;
+}
+
+.kpi-content strong {
+    display: block;
+    margin-top: 5px;
+    color: #163f62;
+    font-size: 20px;
+}
+
+.kpi-content small {
+    display: block;
+    margin-top: 2px;
+    color: #9aadb9;
+    font-size: 9px;
+}
+
+
+/* CARDS */
+
+.cpc-executive-chart-grid {
+    display: grid;
+    grid-template-columns: 1.45fr 1fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.cpc-executive-card {
+    background: white;
+    border: 1px solid #dcebf6;
+    border-radius: 17px;
+    padding: 19px;
+    box-shadow: 0 5px 18px rgba(25,88,129,.04);
+}
+
+.executive-card-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    margin-bottom: 17px;
+}
+
+.executive-card-header span {
+    color: #1882c8;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: 1.2px;
+}
+
+.executive-card-header h2 {
+    margin: 4px 0 2px;
+    color: #173f61;
+    font-size: 16px;
+}
+
+.executive-card-header p {
+    margin: 0;
+    color: #8da2b0;
+    font-size: 9px;
+}
+
+.chart-badge,
+.small-blue-badge {
+    background: #e9f6ff;
+    color: #0875c2 !important;
+    padding: 6px 9px;
+    border-radius: 7px;
+    font-size: 8px !important;
+}
+
+
+/* BAR CHART */
+
+.cpc-bar-chart {
+    height: 220px;
+    display: flex;
+    align-items: flex-end;
+    gap: 15px;
+    padding: 10px 10px 27px;
+    border-bottom: 1px solid #dfedf6;
+    overflow-x: auto;
+}
+
+.cpc-bar-column {
+    flex: 1;
+    min-width: 55px;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    justify-content: flex-end;
+    position: relative;
+}
+
+.cpc-bar {
+    width: min(42px,75%);
+    height: 10%;
+    min-height: 7px;
+    background: linear-gradient(
+        180deg,
+        #41b2ec,
+        #086bb5
+    );
+    border-radius: 7px 7px 2px 2px;
+    transition: height .7s ease;
+    box-shadow: 0 5px 12px rgba(8,107,181,.15);
+}
+
+.cpc-bar-value {
+    color: #52758e;
+    font-size: 8px;
+    margin-bottom: 5px;
+    white-space: nowrap;
+}
+
+.cpc-bar-label {
+    position: absolute;
+    bottom: -23px;
+    color: #7893a6;
+    font-size: 8px;
+    white-space: nowrap;
+}
+
+.cpc-chart-legend {
+    display: flex;
+    gap: 15px;
+    margin-top: 13px;
+    color: #8198a9;
+    font-size: 8px;
+}
+
+.cpc-chart-legend i {
+    width: 7px;
+    height: 7px;
+    border-radius: 2px;
+    display: inline-block;
+    margin-right: 4px;
+}
+
+.legend-blue {
+    background: #0875c2;
+}
+
+.legend-light {
+    background: #9bd9f7;
+}
+
+
+/* PIE */
+
+.cpc-pie-section {
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+}
+
+.cpc-pie-chart {
+    width: 155px;
+    height: 155px;
+    flex-shrink: 0;
+    border-radius: 50%;
+    background:
+        conic-gradient(
+            #0875c2 0 var(--evangelical),
+            #83cff1 var(--evangelical) 100%
+        );
+    position: relative;
+    box-shadow: 0 9px 23px rgba(12,101,163,.13);
+}
+
+.cpc-pie-center {
+    position: absolute;
+    inset: 34px;
+    border-radius: 50%;
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.cpc-pie-center strong {
+    color: #173f61;
+    font-size: 15px;
+}
+
+.cpc-pie-center span {
+    color: #91a5b3;
+    font-size: 8px;
+    margin-top: 3px;
+}
+
+.cpc-pie-legend {
+    display: flex;
+    flex-direction: column;
+    gap: 17px;
+    min-width: 125px;
+}
+
+.pie-legend-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    color: #607f95;
+    font-size: 9px;
+}
+
+.pie-legend-item div {
+    display: flex;
+    align-items: center;
+}
+
+.pie-legend-item i {
+    width: 9px;
+    height: 9px;
+    border-radius: 3px;
+    margin-right: 7px;
+}
+
+.pie-blue {
+    background: #0875c2;
+}
+
+.pie-light {
+    background: #83cff1;
+}
+
+.pie-legend-item strong {
+    color: #173f61;
+}
+
+
+/* LOWER */
+
+.cpc-executive-lower-grid {
+    display: grid;
+    grid-template-columns: 1.2fr .8fr;
+    gap: 16px;
+    margin-bottom: 16px;
+}
+
+.attendance-metrics {
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 12px;
+}
+
+.attendance-metric {
+    background: #f5faff;
+    border: 1px solid #e1eff8;
+    border-radius: 12px;
+    padding: 15px;
+}
+
+.attendance-metric span {
+    display: block;
+    color: #1882c8;
+    font-size: 9px;
+    font-weight: 800;
+}
+
+.attendance-metric strong {
+    display: block;
+    color: #153f62;
+    font-size: 25px;
+    margin-top: 8px;
+}
+
+.attendance-metric small {
+    color: #91a6b5;
+    font-size: 8px;
+}
+
+
+/* QUICK ACTIONS */
+
+.cpc-quick-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.cpc-quick-actions a {
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 9px;
+    border: 1px solid #e1eef7;
+    border-radius: 10px;
+    color: #183f61;
+    background: #fbfdff;
+}
+
+.cpc-quick-actions a:hover {
+    border-color: #8ac9ed;
+    background: #f2faff;
+}
+
+.cpc-quick-actions a > span {
+    width: 31px;
+    height: 31px;
+    border-radius: 9px;
+    background: #e7f5ff;
+    color: #0875c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 900;
+}
+
+.cpc-quick-actions strong {
+    display: block;
+    font-size: 10px;
+}
+
+.cpc-quick-actions small {
+    display: block;
+    color: #91a5b3;
+    font-size: 8px;
+    margin-top: 2px;
+}
+
+.cpc-quick-actions b {
+    margin-left: auto;
+    color: #1882c8;
+}
+
+
+/* EMPTY */
+
+.cpc-empty-chart {
+    min-height: 220px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #91a6b5;
+}
+
+.empty-chart-icon {
+    width: 45px;
+    height: 45px;
+    margin: 0 auto 10px;
+    border-radius: 12px;
+    background: #eaf6ff;
+    color: #0875c2;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 20px;
+}
+
+.cpc-empty-chart strong {
+    display: block;
+    color: #54758c;
+    font-size: 12px;
+}
+
+.cpc-empty-chart p {
+    max-width: 230px;
+    margin: 5px auto 0;
+    font-size: 9px;
+}
+
+
+/* FOOTER */
+
+.cpc-executive-footer {
+    background: white;
+    border: 1px solid #dcebf6;
+    border-radius: 12px;
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #7f98a9;
+    font-size: 9px;
+}
+
+.cpc-executive-footer div {
+    display: flex;
+    align-items: center;
+    gap: 7px;
+}
+
+.cpc-executive-footer strong {
+    color: #49728b;
+}
+
+.cpc-executive-footer span {
+    margin-left: 5px;
+}
+
+.cpc-executive-copyright {
+    text-align: center;
+    color: #9aafbd;
+    font-size: 8px;
+    padding-top: 13px;
+}
+
+
+/* RESPONSIVE */
+
+@media(max-width:1100px) {
+
+    .cpc-executive-kpis {
+        grid-template-columns: repeat(2,1fr);
+    }
+
+    .cpc-executive-chart-grid,
+    .cpc-executive-lower-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media(max-width:800px) {
+
+    .cpc-executive-sidebar {
+        width: 210px;
+    }
+
+    .cpc-executive-main {
+        margin-left: 210px;
+        padding: 20px;
+    }
+}
+
+@media(max-width:650px) {
+
+    .cpc-executive-sidebar {
+        position: relative;
+        width: 100%;
+        min-height: auto;
+    }
+
+    .cpc-executive-main {
+        margin-left: 0;
+    }
+
+    .cpc-executive-header {
+        display: block;
+    }
+
+    .cpc-executive-profile {
+        margin-top: 12px;
+        width: fit-content;
+    }
+
+    .cpc-executive-welcome {
+        display: block;
+    }
+
+    .cpc-executive-live {
+        display: inline-block;
+        margin-top: 15px;
+    }
+
+    .cpc-executive-kpis {
+        grid-template-columns: 1fr;
+    }
+
+    .cpc-pie-section {
+        flex-direction: column;
+    }
+
+    .attendance-metrics {
+        grid-template-columns: 1fr;
+    }
+
+    .cpc-executive-footer {
+        display: block;
+    }
+
+    .cpc-executive-footer > strong {
+        display: block;
+        margin-top: 8px;
+    }
+}
+
+</style>
+
+
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+
+    const bars = document.querySelectorAll(".cpc-bar");
+
+    if (!bars.length) {
+        return;
+    }
+
+    let maximum = 0;
+
+    bars.forEach(function (bar) {
+        const value = parseFloat(
+            bar.getAttribute("data-value")
+        ) || 0;
+
+        if (value > maximum) {
+            maximum = value;
+        }
+    });
+
+    bars.forEach(function (bar) {
+
+        const value = parseFloat(
+            bar.getAttribute("data-value")
+        ) || 0;
+
+        let percentage = 8;
+
+        if (maximum > 0) {
+            percentage = (value / maximum) * 88;
+
+            if (percentage < 8) {
+                percentage = 8;
+            }
+        }
+
+        bar.style.height = percentage + "%";
+    });
+
+});
+</script>
+
+{% endblock %}
+
+
+
+
+
+
+
+

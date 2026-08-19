@@ -1,0 +1,324 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Funds | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link active">
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link">
+                Attendance
+            </a>
+
+            <a href="#" class="nav-link">
+                Analytics
+            </a>
+
+            <a href="#" class="nav-link">
+                Reports
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+                <h1>Fund Records</h1>
+
+                <p>
+                    Enter and manage Evangelical Fund and National Fund
+                    for all church branches.
+                </p>
+            </div>
+
+            <div class="branch-date">
+                {{ today.strftime("%d %B %Y") }}
+            </div>
+
+        </div>
+
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                {% for category, message in messages %}
+
+                    <div class="alert alert-{{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Enter Fund Record</h2>
+
+                    <p>
+                        Only administrators can enter church financial records.
+                    </p>
+                </div>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('admin.create_fund') }}"
+                class="admin-form"
+            >
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="branch_id">
+                            Church Branch
+                        </label>
+
+                        <select
+                            id="branch_id"
+                            name="branch_id"
+                            required
+                        >
+
+                            <option value="">
+                                Select branch
+                            </option>
+
+                            {% for branch in branches %}
+
+                            <option value="{{ branch.id }}">
+                                {{ branch.name }}
+                                {% if branch.code %}
+                                    ({{ branch.code }})
+                                {% endif %}
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="record_date">
+                            Record Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="record_date"
+                            name="record_date"
+                            value="{{ today.isoformat() }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="evangelical_fund">
+                            Evangelical Fund (GH₵)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="evangelical_fund"
+                            name="evangelical_fund"
+                            min="0"
+                            step="0.01"
+                            value="0.00"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="national_fund">
+                            National Fund (GH₵)
+                        </label>
+
+                        <input
+                            type="number"
+                            id="national_fund"
+                            name="national_fund"
+                            min="0"
+                            step="0.01"
+                            value="0.00"
+                            required
+                        >
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn-primary"
+                    >
+                        Save Fund Record
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <h2>Fund History</h2>
+
+                    <p>
+                        All fund records entered by the administrator.
+                    </p>
+                </div>
+
+            </div>
+
+
+            {% if records %}
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Date</th>
+                            <th>Branch</th>
+                            <th>Evangelical Fund</th>
+                            <th>National Fund</th>
+                            <th>Total</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for record in records %}
+
+                        <tr>
+
+                            <td>
+                                {{ record.record_date.strftime("%d/%m/%Y") }}
+                            </td>
+
+                            <td>
+                                <strong>
+                                    {{ record.branch.name }}
+                                </strong>
+
+                                <small>
+                                    {{ record.branch.code }}
+                                </small>
+                            </td>
+
+                            <td>
+                                GH₵ {{ "%.2f"|format(record.evangelical_fund) }}
+                            </td>
+
+                            <td>
+                                GH₵ {{ "%.2f"|format(record.national_fund) }}
+                            </td>
+
+                            <td>
+                                <strong>
+                                    GH₵ {{ "%.2f"|format(record.total_fund) }}
+                                </strong>
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-state">
+
+                <h3>No fund records yet</h3>
+
+                <p>
+                    Fund records entered by the administrator will appear here.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

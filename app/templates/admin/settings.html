@@ -1,0 +1,248 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Settings | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span> Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                <span>▦</span> Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span> Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link">
+                <span>✓</span> Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link">
+                <span>◈</span> Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link">
+                <span>▤</span> Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link">
+                <span>♙</span> Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link active">
+                <span>⚙</span> Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                <span>↪</span> Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+                <div class="section-label">SYSTEM CONFIGURATION</div>
+
+                <h1>Settings</h1>
+
+                <p>
+                    View the current church management system configuration.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <div class="section-label">CHURCH INFORMATION</div>
+
+                    <h2>Organization Details</h2>
+
+                    <p>
+                        Current organization information.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="form-grid">
+
+                <div class="form-group">
+
+                    <label>Organization Name</label>
+
+                    <input
+                        type="text"
+                        value="CHRIST PREACHERS CHURCH INT"
+                        readonly
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Administration System</label>
+
+                    <input
+                        type="text"
+                        value="CPC INT Administration"
+                        readonly
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Currency</label>
+
+                    <input
+                        type="text"
+                        value="Ghana Cedi (GH₵)"
+                        readonly
+                    >
+
+                </div>
+
+                <div class="form-group">
+
+                    <label>Database</label>
+
+                    <input
+                        type="text"
+                        value="PostgreSQL"
+                        readonly
+                    >
+
+                </div>
+
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <div class="section-label">SYSTEM STATUS</div>
+
+                    <h2>System Information</h2>
+
+                    <p>
+                        Current status of the administration system.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+                        <tr>
+                            <th>System Component</th>
+                            <th>Status</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+
+                            <td>
+                                <strong>Church Management System</strong>
+                            </td>
+
+                            <td>
+                                <span class="professional-status active">
+                                    <span class="status-dot"></span>
+                                    Online
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <strong>PostgreSQL Database</strong>
+                            </td>
+
+                            <td>
+                                <span class="professional-status active">
+                                    <span class="status-dot"></span>
+                                    Connected
+                                </span>
+                            </td>
+
+                        </tr>
+
+                        <tr>
+
+                            <td>
+                                <strong>Administration Module</strong>
+                            </td>
+
+                            <td>
+                                <span class="professional-status active">
+                                    <span class="status-dot"></span>
+                                    Active
+                                </span>
+                            </td>
+
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="branch-footer-note">
+
+            <div class="database-status">
+                <span class="online-dot"></span>
+                PostgreSQL Database Connected
+            </div>
+
+            <span>
+                System configuration is online
+            </span>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+

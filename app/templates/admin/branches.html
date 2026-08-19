@@ -1,0 +1,369 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Branches | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link active">
+                <span>▦</span>
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span>
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+                <div class="page-kicker">
+                    CHURCH ADMINISTRATION
+                </div>
+
+                <h1>Church Branches</h1>
+
+                <p>
+                    Manage registered branches, branch access and
+                    administrative status from one place.
+                </p>
+            </div>
+
+            <a
+                href="{{ url_for('admin.create_branch') }}"
+                class="action-button"
+            >
+                <span>+</span>
+                Add New Branch
+            </a>
+
+        </div>
+
+
+        <div class="branch-summary-grid">
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ▦
+                </div>
+
+                <div>
+                    <span class="summary-label">
+                        TOTAL BRANCHES
+                    </span>
+
+                    <strong>
+                        {{ branches|length }}
+                    </strong>
+
+                    <small>
+                        Registered branches
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ✓
+                </div>
+
+                <div>
+                    <span class="summary-label">
+                        ACTIVE BRANCHES
+                    </span>
+
+                    <strong>
+                        {{ branches|selectattr('is_active')|list|length }}
+                    </strong>
+
+                    <small>
+                        Currently operational
+                    </small>
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ♙
+                </div>
+
+                <div>
+                    <span class="summary-label">
+                        BRANCH USERS
+                    </span>
+
+                    <strong>
+                        {{ branches|map(attribute='users')|map('length')|sum }}
+                    </strong>
+
+                    <small>
+                        Registered branch accounts
+                    </small>
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel branch-panel">
+
+            <div class="panel-header branch-panel-header">
+
+                <div>
+                    <div class="section-label">
+                        BRANCH DIRECTORY
+                    </div>
+
+                    <h2>Registered Branches</h2>
+
+                    <p>
+                        View and manage every CHRIST PREACHERS CHURCH INT
+                        branch registered in the system.
+                    </p>
+                </div>
+
+                <div class="branch-count">
+                    {{ branches|length }}
+                    <span>branches</span>
+                </div>
+
+            </div>
+
+
+            {% if branches %}
+
+            <div class="branch-list">
+
+                {% for branch in branches %}
+
+                <div class="branch-row">
+
+                    <div class="branch-identity">
+
+                        <div class="branch-avatar">
+                            {{ branch.code[:3]|upper }}
+                        </div>
+
+                        <div class="branch-details">
+
+                            <strong>
+                                {{ branch.name }}
+                            </strong>
+
+                            <span>
+                                {{ branch.location or "Location not specified" }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="branch-info">
+
+                        <span class="info-label">
+                            BRANCH CODE
+                        </span>
+
+                        <span class="code-badge">
+                            {{ branch.code }}
+                        </span>
+
+                    </div>
+
+
+                    <div class="branch-info">
+
+                        <span class="info-label">
+                            USERS
+                        </span>
+
+                        <strong class="user-count">
+                            {{ branch.users|length }}
+                        </strong>
+
+                    </div>
+
+
+                    <div class="branch-info">
+
+                        <span class="info-label">
+                            STATUS
+                        </span>
+
+                        {% if branch.is_active %}
+
+                        <span class="professional-status active">
+                            <span class="status-dot"></span>
+                            Active
+                        </span>
+
+                        {% else %}
+
+                        <span class="professional-status inactive">
+                            <span class="status-dot"></span>
+                            Inactive
+                        </span>
+
+                        {% endif %}
+
+                    </div>
+
+
+                    <div class="branch-action">
+
+                        <form
+                            method="POST"
+                            action="{{ url_for(
+                                'admin.toggle_branch',
+                                branch_id=branch.id
+                            ) }}"
+                        >
+
+                            <button
+                                type="submit"
+                                class="branch-action-button
+                                {% if branch.is_active %}
+                                    deactivate
+                                {% else %}
+                                    activate
+                                {% endif %}"
+                            >
+
+                                {% if branch.is_active %}
+                                    Deactivate
+                                {% else %}
+                                    Activate
+                                {% endif %}
+
+                            </button>
+
+                        </form>
+
+                    </div>
+
+                </div>
+
+                {% endfor %}
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ▦
+                </div>
+
+                <h3>No branches registered</h3>
+
+                <p>
+                    Create your first church branch to begin managing
+                    branch funds, attendance and records.
+                </p>
+
+                <a
+                    href="{{ url_for('admin.create_branch') }}"
+                    class="action-button"
+                >
+                    + Create First Branch
+                </a>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="branch-footer-note">
+
+            <div class="database-status">
+                <span class="online-dot"></span>
+                PostgreSQL Database Connected
+            </div>
+
+            <span>
+                Branch management system is online
+            </span>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

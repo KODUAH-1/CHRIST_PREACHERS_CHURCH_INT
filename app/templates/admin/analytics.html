@@ -1,0 +1,665 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Analytics | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                CPC
+            </div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+
+        </div>
+
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                <span>▦</span>
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span>
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link active">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}"
+               class="nav-link logout-link">
+
+                <span>↪</span>
+                Logout
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <section class="dashboard-main">
+
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <div class="page-kicker">
+                    CHURCH ADMINISTRATION
+                </div>
+
+                <h1>Church Analytics</h1>
+
+                <p>
+                    Review church funds, attendance and branch performance
+                    from one central management view.
+                </p>
+
+            </div>
+
+            <div class="branch-date">
+                {{ today.strftime("%d %B %Y") if today is defined else "" }}
+            </div>
+
+        </div>
+
+
+        <!-- SUMMARY -->
+
+        <div class="branch-summary-grid">
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ▦
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        TOTAL BRANCHES
+                    </span>
+
+                    <strong>
+                        {{ total_branches }}
+                    </strong>
+
+                    <small>
+                        {{ active_branches }} active branches
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ₵
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        TOTAL FUNDS
+                    </span>
+
+                    <strong>
+                        GH₵ {{ "%.2f"|format(total_funds) }}
+                    </strong>
+
+                    <small>
+                        Evangelical + National
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        TOTAL ATTENDANCE
+                    </span>
+
+                    <strong>
+                        {{ attendance_total }}
+                    </strong>
+
+                    <small>
+                        Recorded attendance
+                    </small>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        <!-- FUND ANALYSIS -->
+
+        <div class="panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <div class="section-label">
+                        FINANCIAL ANALYSIS
+                    </div>
+
+                    <h2>Fund Distribution</h2>
+
+                    <p>
+                        Comparison of Evangelical Fund and National Fund
+                        across all registered branches.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="Analytics-simple-grid">
+
+
+                <div class="Analytics-box">
+
+                    <div class="Analytics-box-icon">
+                        ₵
+                    </div>
+
+                    <span class="Analytics-label">
+                        EVANGELICAL FUND
+                    </span>
+
+                    <strong>
+                        GH₵ {{ "%.2f"|format(evangelical_total) }}
+                    </strong>
+
+                    <small>
+                        Total recorded
+                    </small>
+
+                </div>
+
+
+                <div class="Analytics-box">
+
+                    <div class="Analytics-box-icon">
+                        ₵
+                    </div>
+
+                    <span class="Analytics-label">
+                        NATIONAL FUND
+                    </span>
+
+                    <strong>
+                        GH₵ {{ "%.2f"|format(national_total) }}
+                    </strong>
+
+                    <small>
+                        Total recorded
+                    </small>
+
+                </div>
+
+
+                <div class="Analytics-box">
+
+                    <div class="Analytics-box-icon">
+                        ₵
+                    </div>
+
+                    <span class="Analytics-label">
+                        COMBINED FUNDS
+                    </span>
+
+                    <strong>
+                        GH₵ {{ "%.2f"|format(total_funds) }}
+                    </strong>
+
+                    <small>
+                        All church funds
+                    </small>
+
+                </div>
+
+
+            </div>
+
+
+            <div class="Analytics-distribution">
+
+                <div class="Analytics-distribution-title">
+                    Fund Distribution
+                </div>
+
+
+                {% set fund_max = [
+                    evangelical_total,
+                    national_total
+                ]|max %}
+
+
+                <div class="Analytics-bar-row">
+
+                    <div class="Analytics-bar-label">
+                        <strong>Evangelical Fund</strong>
+                        <span>
+                            GH₵ {{ "%.2f"|format(evangelical_total) }}
+                        </span>
+                    </div>
+
+                    <div class="Analytics-bar-track">
+
+                        {% if fund_max > 0 %}
+
+                            {% set evangelical_width =
+                                (evangelical_total / fund_max) * 100
+                            %}
+
+                        {% else %}
+
+                            {% set evangelical_width = 0 %}
+
+                        {% endif %}
+
+                        <div
+                            class="Analytics-bar evangelical"
+                            style="width: {{ evangelical_width }}%;"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="Analytics-bar-row">
+
+                    <div class="Analytics-bar-label">
+                        <strong>National Fund</strong>
+                        <span>
+                            GH₵ {{ "%.2f"|format(national_total) }}
+                        </span>
+                    </div>
+
+                    <div class="Analytics-bar-track">
+
+                        {% if fund_max > 0 %}
+
+                            {% set national_width =
+                                (national_total / fund_max) * 100
+                            %}
+
+                        {% else %}
+
+                            {% set national_width = 0 %}
+
+                        {% endif %}
+
+                        <div
+                            class="Analytics-bar national"
+                            style="width: {{ national_width }}%;"
+                        ></div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <!-- BRANCH PERFORMANCE -->
+
+        <div class="panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <div class="section-label">
+                        BRANCH PERFORMANCE
+                    </div>
+
+                    <h2>Branch Financial Performance</h2>
+
+                    <p>
+                        Compare total funds recorded for every branch.
+                    </p>
+
+                </div>
+
+                <div class="branch-count">
+                    {{ branch_data|length }}
+                    <span>branches</span>
+                </div>
+
+            </div>
+
+
+            {% if branch_data %}
+
+
+            <div class="Analytics-branch-list">
+
+
+                {% set maximum_funds =
+                    branch_data|map(attribute='total_funds')|max
+                %}
+
+
+                {% for branch in branch_data %}
+
+                <div class="Analytics-branch-row">
+
+
+                    <div class="Analytics-branch-identity">
+
+                        <div class="branch-avatar">
+                            {{ branch.code[:3]|upper }}
+                        </div>
+
+                        <div>
+
+                            <strong>
+                                {{ branch.name }}
+                            </strong>
+
+                            <span>
+                                {{ branch.code }}
+                            </span>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="Analytics-performance">
+
+                        <div class="performance-heading">
+
+                            <span>
+                                Total Funds
+                            </span>
+
+                            <strong>
+                                GH₵ {{ "%.2f"|format(branch.total_funds) }}
+                            </strong>
+
+                        </div>
+
+
+                        <div class="performance-track">
+
+                            {% if maximum_funds > 0 %}
+
+                                {% set branch_width =
+                                    (branch.total_funds / maximum_funds) * 100
+                                %}
+
+                            {% else %}
+
+                                {% set branch_width = 0 %}
+
+                            {% endif %}
+
+                            <div
+                                class="performance-fill"
+                                style="width: {{ branch_width }}%;"
+                            ></div>
+
+                        </div>
+
+                    </div>
+
+
+                    <div class="Analytics-attendance">
+
+                        <span>
+                            ATTENDANCE
+                        </span>
+
+                        <strong>
+                            {{ branch.attendance }}
+                        </strong>
+
+                    </div>
+
+
+                </div>
+
+                {% endfor %}
+
+
+            </div>
+
+
+            {% else %}
+
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ◈
+                </div>
+
+                <h3>No branch Analytics yet</h3>
+
+                <p>
+                    Branch performance will appear here after fund and
+                    attendance records are entered.
+                </p>
+
+            </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <!-- DETAILED TABLE -->
+
+        <div class="panel">
+
+
+            <div class="panel-header">
+
+                <div>
+
+                    <div class="section-label">
+                        Analytics TABLE
+                    </div>
+
+                    <h2>Branch Performance Details</h2>
+
+                    <p>
+                        Detailed financial and attendance information
+                        for each church branch.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            {% if branch_data %}
+
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Branch</th>
+                            <th>Code</th>
+                            <th>Evangelical Fund</th>
+                            <th>National Fund</th>
+                            <th>Total Funds</th>
+                            <th>Attendance</th>
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% for branch in branch_data %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ branch.name }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                <span class="code-badge">
+                                    {{ branch.code }}
+                                </span>
+                            </td>
+
+                            <td>
+                                GH₵ {{ "%.2f"|format(branch.evangelical) }}
+                            </td>
+
+                            <td>
+                                GH₵ {{ "%.2f"|format(branch.national) }}
+                            </td>
+
+                            <td>
+                                <strong>
+                                    GH₵ {{ "%.2f"|format(branch.total_funds) }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                <strong class="user-count">
+                                    {{ branch.attendance }}
+                                </strong>
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+
+            {% else %}
+
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ◈
+                </div>
+
+                <h3>No Analytics records yet</h3>
+
+                <p>
+                    Analytics will automatically populate when branches,
+                    funds and attendance records are entered.
+                </p>
+
+            </div>
+
+
+            {% endif %}
+
+
+        </div>
+
+
+        <div class="branch-footer-note">
+
+            <div class="database-status">
+
+                <span class="online-dot"></span>
+
+                PostgreSQL Database Connected
+
+            </div>
+
+            <span>
+                Church Analytics system is online
+            </span>
+
+        </div>
+
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+

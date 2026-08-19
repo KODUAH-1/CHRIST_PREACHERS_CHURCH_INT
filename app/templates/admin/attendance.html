@@ -1,0 +1,482 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Attendance | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                <span>▦</span>
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span>
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link active">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <div class="page-kicker">
+                    CHURCH ADMINISTRATION
+                </div>
+
+                <h1>Attendance Management</h1>
+
+                <p>
+                    Record and monitor male, female and total church attendance
+                    across all branches.
+                </p>
+
+            </div>
+
+            <div class="branch-date">
+                {{ today.strftime("%d %B %Y") }}
+            </div>
+
+        </div>
+
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div class="flash flash-{{ category }}">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <div class="branch-summary-grid">
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ♂
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        MALE
+                    </span>
+
+                    <strong>
+                        {{ records|sum(attribute='male') }}
+                    </strong>
+
+                    <small>
+                        Total male attendance
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ♀
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        FEMALE
+                    </span>
+
+                    <strong>
+                        {{ records|sum(attribute='female') }}
+                    </strong>
+
+                    <small>
+                        Total female attendance
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        TOTAL
+                    </span>
+
+                    <strong>
+                        {{ records|sum(attribute='attendance') }}
+                    </strong>
+
+                    <small>
+                        Total church attendance
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <div class="section-label">
+                        NEW RECORD
+                    </div>
+
+                    <h2>Record Church Attendance</h2>
+
+                    <p>
+                        Enter the male and female attendance for a church branch.
+                        The total is calculated automatically.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('admin.create_attendance') }}"
+                class="form-grid"
+            >
+
+                <div class="form-group">
+
+                    <label for="branch_id">
+                        Branch
+                    </label>
+
+                    <select
+                        id="branch_id"
+                        name="branch_id"
+                        required
+                    >
+
+                        <option value="">
+                            Select branch
+                        </option>
+
+                        {% for branch in branches %}
+
+                            <option value="{{ branch.id }}">
+                                {{ branch.name }}
+                            </option>
+
+                        {% endfor %}
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="record_date">
+                        Date
+                    </label>
+
+                    <input
+                        type="date"
+                        id="record_date"
+                        name="record_date"
+                        value="{{ today.isoformat() }}"
+                        required
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="male">
+                        Male
+                    </label>
+
+                    <input
+                        type="number"
+                        id="male"
+                        name="male"
+                        min="0"
+                        value="0"
+                        required
+                        oninput="calculateAttendanceTotal()"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="female">
+                        Female
+                    </label>
+
+                    <input
+                        type="number"
+                        id="female"
+                        name="female"
+                        min="0"
+                        value="0"
+                        required
+                        oninput="calculateAttendanceTotal()"
+                    >
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="attendance_total">
+                        Total
+                    </label>
+
+                    <input
+                        type="number"
+                        id="attendance_total"
+                        value="0"
+                        readonly
+                    >
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Save Attendance
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <div class="section-label">
+                        ATTENDANCE RECORDS
+                    </div>
+
+                    <h2>Attendance Register</h2>
+
+                    <p>
+                        Male, female and total attendance by branch and date.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <div class="table-responsive">
+
+                <table>
+
+                    <thead>
+
+                        <tr>
+
+                            <th>
+                                Date
+                            </th>
+
+                            <th>
+                                Branch
+                            </th>
+
+                            <th>
+                                Male
+                            </th>
+
+                            <th>
+                                Female
+                            </th>
+
+                            <th>
+                                Total
+                            </th>
+
+                        </tr>
+
+                    </thead>
+
+
+                    <tbody>
+
+                        {% if records %}
+
+                            {% for record in records %}
+
+                                <tr>
+
+                                    <td>
+                                        {{ record.record_date.strftime("%d %B %Y") }}
+                                    </td>
+
+                                    <td>
+                                        {{ record.branch.name }}
+                                    </td>
+
+                                    <td>
+                                        {{ record.male }}
+                                    </td>
+
+                                    <td>
+                                        {{ record.female }}
+                                    </td>
+
+                                    <td>
+                                        <strong>
+                                            {{ record.attendance }}
+                                        </strong>
+                                    </td>
+
+                                </tr>
+
+                            {% endfor %}
+
+                        {% else %}
+
+                            <tr>
+
+                                <td
+                                    colspan="5"
+                                    style="text-align:center;"
+                                >
+                                    No attendance records have been entered yet.
+                                </td>
+
+                            </tr>
+
+                        {% endif %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+
+<script>
+
+function calculateAttendanceTotal() {
+
+    const male =
+        parseInt(
+            document.getElementById("male").value
+        ) || 0;
+
+    const female =
+        parseInt(
+            document.getElementById("female").value
+        ) || 0;
+
+    document.getElementById(
+        "attendance_total"
+    ).value = male + female;
+
+}
+
+calculateAttendanceTotal();
+
+</script>
+
+{% endblock %}

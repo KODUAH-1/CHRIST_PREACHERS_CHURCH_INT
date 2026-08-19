@@ -1,0 +1,324 @@
+﻿
+{% extends "base.html" %}
+
+{% block title %}Reports | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span> Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                <span>▦</span> Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span> Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link">
+                <span>✓</span> Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link">
+                <span>◈</span> Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link active">
+                <span>▤</span> Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link">
+                <span>♙</span> Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link">
+                <span>⚙</span> Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                <span>↪</span> Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+                <div class="section-label">REPORTING</div>
+
+                <h1>Church Reports</h1>
+
+                <p>
+                    Review church financial and attendance records.
+                </p>
+            </div>
+
+        </div>
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+                <span class="stat-icon">▦</span>
+
+                <div>
+                    <small>TOTAL BRANCHES</small>
+
+                    <strong>
+                        {{ branches|length }}
+                    </strong>
+
+                    <span>Registered branches</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">₵</span>
+
+                <div>
+                    <small>TOTAL FUNDS</small>
+
+                    <strong>
+                        GH₵ {{ "%.2f"|format(total_funds) }}
+                    </strong>
+
+                    <span>All recorded funds</span>
+                </div>
+            </div>
+
+            <div class="stat-card">
+                <span class="stat-icon">✓</span>
+
+                <div>
+                    <small>ATTENDANCE</small>
+
+                    <strong>
+                        {{ attendance_total }}
+                    </strong>
+
+                    <span>Total attendance</span>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <div class="section-label">FINANCIAL REPORT</div>
+
+                    <h2>Fund Summary</h2>
+
+                    <p>
+                        Consolidated fund records from all branches.
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+                        <tr>
+                            <th>Fund Type</th>
+                            <th>Amount</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        <tr>
+                            <td>
+                                <strong>Evangelical Fund</strong>
+                            </td>
+
+                            <td>
+                                <strong>
+                                    GH₵ {{ "%.2f"|format(evangelical_total) }}
+                                </strong>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>National Fund</strong>
+                            </td>
+
+                            <td>
+                                <strong>
+                                    GH₵ {{ "%.2f"|format(national_total) }}
+                                </strong>
+                            </td>
+                        </tr>
+
+                        <tr>
+                            <td>
+                                <strong>Total Funds</strong>
+                            </td>
+
+                            <td>
+                                <strong>
+                                    GH₵ {{ "%.2f"|format(total_funds) }}
+                                </strong>
+                            </td>
+                        </tr>
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+                    <div class="section-label">ATTENDANCE REPORT</div>
+
+                    <h2>Attendance Records</h2>
+
+                    <p>
+                        Attendance records entered for all branches.
+                    </p>
+                </div>
+
+                <div style="display: flex; align-items: center; gap: 15px;">
+
+                    <a
+                        href="{{ url_for('admin.download_attendance_report') }}"
+                        class="btn btn-primary"
+                        download
+                    >
+                        ↓ Download Attendance Report
+                    </a>
+
+                    <div class="branch-count">
+                        {{ attendance_records|length }}
+                        <span>records</span>
+                    </div>
+
+                </div>
+
+            </div>
+
+            {% if attendance_records %}
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Branch</th>
+                            <th>Location</th>
+                            <th>Attendance</th>
+                        </tr>
+                    </thead>
+
+                    <tbody>
+
+                        {% for record in attendance_records %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ record.record_date.strftime("%d/%m/%Y") }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                <strong>
+                                    {{ record.branch.name }}
+                                </strong>
+
+                                <small>
+                                    {{ record.branch.code }}
+                                </small>
+                            </td>
+
+                            <td>
+                                {{ record.branch.location or "—" }}
+                            </td>
+
+                            <td>
+                                <strong class="user-count">
+                                    {{ record.attendance }}
+                                </strong>
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-state">
+
+                <h3>No attendance records yet</h3>
+
+                <p>
+                    Attendance records will appear here after they are entered.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+        <div class="branch-footer-note">
+
+            <div class="database-status">
+                <span class="online-dot"></span>
+                PostgreSQL Database Connected
+            </div>
+
+            <span>
+                Reporting system is online
+            </span>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+

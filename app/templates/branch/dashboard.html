@@ -1,0 +1,372 @@
+﻿{% extends "base.html" %}
+
+{% block title %}{{ branch.name }} Dashboard | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+
+            <div class="sidebar-logo">
+                CPC
+            </div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Branch Portal</small>
+            </div>
+
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a
+                href="{{ url_for('branch.dashboard') }}"
+                class="nav-link active"
+            >
+                Dashboard
+            </a>
+
+            <a href="#" class="nav-link">
+                Evangelical Fund
+            </a>
+
+            <a href="#" class="nav-link">
+                National Fund
+            </a>
+
+            <a href="#" class="nav-link">
+                Attendance
+            </a>
+
+            <a href="#" class="nav-link">
+                Reports
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+                <h1>{{ branch.name }}</h1>
+
+                <p>
+                    {{ branch.location or "Church Branch" }}
+                    · Branch Code: {{ branch.code }}
+                </p>
+            </div>
+
+            <div class="branch-date">
+                {{ today.strftime("%d %B %Y") }}
+            </div>
+
+        </div>
+
+
+        <div class="welcome-banner">
+
+            <div>
+                <h2>Welcome, {{ current_user.username }}</h2>
+
+                <p>
+                    Manage your branch funds and attendance records.
+                </p>
+            </div>
+
+        </div>
+
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Today's Evangelical Fund
+                </div>
+
+                <div class="stat-value">
+                    GH₵ {{ "%.2f"|format(today_evangelical) }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Today's National Fund
+                </div>
+
+                <div class="stat-value">
+                    GH₵ {{ "%.2f"|format(today_national) }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Today's Total Fund
+                </div>
+
+                <div class="stat-value">
+                    GH₵ {{ "%.2f"|format(today_total_fund) }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Today's Attendance
+                </div>
+
+                <div class="stat-value">
+                    {{ today_attendance }}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <h2 class="section-title">
+            Monthly Performance
+        </h2>
+
+
+        <div class="stats-grid">
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Monthly Evangelical Fund
+                </div>
+
+                <div class="stat-value">
+                    GH₵ {{ "%.2f"|format(monthly_evangelical) }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Monthly National Fund
+                </div>
+
+                <div class="stat-value">
+                    GH₵ {{ "%.2f"|format(monthly_national) }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Monthly Total Fund
+                </div>
+
+                <div class="stat-value">
+                    GH₵ {{ "%.2f"|format(monthly_total_fund) }}
+                </div>
+
+            </div>
+
+
+            <div class="stat-card">
+
+                <div class="stat-label">
+                    Monthly Attendance
+                </div>
+
+                <div class="stat-value">
+                    {{ monthly_attendance }}
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="content-grid">
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Recent Fund Records</h2>
+
+                        <p>
+                            Latest records for {{ branch.name }}.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                {% if recent_funds %}
+
+                <div class="table-wrapper">
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Date</th>
+                                <th>Evangelical</th>
+                                <th>National</th>
+                                <th>Total</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for record in recent_funds %}
+
+                            <tr>
+
+                                <td>
+                                    {{ record.record_date.strftime("%d/%m/%Y") }}
+                                </td>
+
+                                <td>
+                                    GH₵ {{ "%.2f"|format(record.evangelical_fund) }}
+                                </td>
+
+                                <td>
+                                    GH₵ {{ "%.2f"|format(record.national_fund) }}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        GH₵ {{ "%.2f"|format(record.total_fund) }}
+                                    </strong>
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <div class="empty-state">
+
+                    <h3>No fund records yet</h3>
+
+                    <p>
+                        Your branch has not entered any fund records.
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
+                        <h2>Recent Attendance</h2>
+
+                        <p>
+                            Latest attendance records.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                {% if recent_attendance %}
+
+                <div class="table-wrapper">
+
+                    <table class="data-table">
+
+                        <thead>
+
+                            <tr>
+                                <th>Date</th>
+                                <th>Attendance</th>
+                            </tr>
+
+                        </thead>
+
+                        <tbody>
+
+                            {% for record in recent_attendance %}
+
+                            <tr>
+
+                                <td>
+                                    {{ record.record_date.strftime("%d/%m/%Y") }}
+                                </td>
+
+                                <td>
+                                    <strong>
+                                        {{ record.attendance }}
+                                    </strong>
+                                </td>
+
+                            </tr>
+
+                            {% endfor %}
+
+                        </tbody>
+
+                    </table>
+
+                </div>
+
+                {% else %}
+
+                <div class="empty-state">
+
+                    <h3>No attendance records yet</h3>
+
+                    <p>
+                        Your branch has not entered attendance records.
+                    </p>
+
+                </div>
+
+                {% endif %}
+
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}

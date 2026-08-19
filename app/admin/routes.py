@@ -1,0 +1,1231 @@
+﻿import csv
+import io
+from datetime import date, timedelta
+
+from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask_login import login_required, current_user
+
+from .. import db
+from ..models import (
+    Branch,
+    FundRecord,
+    AttendanceRecord,
+    User
+)
+
+
+admin = Blueprint(
+    "admin",
+    __name__,
+    url_prefix="/admin"
+)
+
+
+def admin_required():
+    return (
+        current_user.is_authenticated
+        and current_user.is_admin
+    )
+
+
+@admin.route("/dashboard")
+@login_required
+def dashboard():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    total_branches = Branch.query.count()
+
+    evangelical_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(FundRecord.evangelical_fund),
+                0
+            )
+        ).scalar()
+    )
+
+    national_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(FundRecord.national_fund),
+                0
+            )
+        ).scalar()
+    )
+
+    attendance_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(AttendanceRecord.attendance),
+                0
+            )
+        ).scalar()
+    )
+
+    branch_data = []
+
+    branches = (
+        Branch.query
+        .order_by(Branch.name.asc())
+        .all()
+    )
+
+    for branch in branches:
+
+        evangelical = (
+            db.session.query(
+                db.func.coalesce(
+                    db.func.sum(FundRecord.evangelical_fund),
+                    0
+                )
+            )
+            .filter(
+                FundRecord.branch_id == branch.id
+            )
+            .scalar()
+        )
+
+        national = (
+            db.session.query(
+                db.func.coalesce(
+                    db.func.sum(FundRecord.national_fund),
+                    0
+                )
+            )
+            .filter(
+                FundRecord.branch_id == branch.id
+            )
+            .scalar()
+        )
+
+        attendance = (
+            db.session.query(
+                db.func.coalesce(
+                    db.func.sum(AttendanceRecord.attendance),
+                    0
+                )
+            )
+            .filter(
+                AttendanceRecord.branch_id == branch.id
+            )
+            .scalar()
+        )
+
+        branch_data.append({
+            "name": branch.name,
+            "evangelical": float(evangelical or 0),
+            "national": float(national or 0),
+            "attendance": int(attendance or 0)
+        })
+
+    today = date.today()
+
+    week_start = today - timedelta(days=today.weekday())
+
+    monthly_start = today.replace(day=1)
+
+    daily_attendance = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(AttendanceRecord.attendance),
+                0
+            )
+        )
+        .filter(
+            AttendanceRecord.record_date == today
+        )
+        .scalar()
+    )
+
+    weekly_attendance = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(AttendanceRecord.attendance),
+                0
+            )
+        )
+        .filter(
+            AttendanceRecord.record_date >= week_start,
+            AttendanceRecord.record_date <= today
+        )
+        .scalar()
+    )
+
+    monthly_attendance = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(AttendanceRecord.attendance),
+                0
+            )
+        )
+        .filter(
+            AttendanceRecord.record_date >= monthly_start,
+            AttendanceRecord.record_date <= today
+        )
+        .scalar()
+    )
+
+    return render_template(
+        "admin/dashboard.html",
+        total_branches=total_branches,
+        evangelical_total=float(evangelical_total or 0),
+        national_total=float(national_total or 0),
+        attendance_total=int(attendance_total or 0),
+        branch_data=branch_data,
+        daily_attendance=int(daily_attendance or 0),
+        weekly_attendance=int(weekly_attendance or 0),
+        monthly_attendance=int(monthly_attendance or 0)
+    )
+
+
+@admin.route("/branches")
+@login_required
+def branches():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branches = (
+        Branch.query
+        .order_by(Branch.name.asc())
+        .all()
+    )
+
+    return render_template(
+        "admin/branches.html",
+        branches=branches
+    )
+
+
+@admin.route(
+    "/branches/create",
+    methods=["GET", "POST"]
+)
+@login_required
+def create_branch():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    if request.method == "POST":
+
+        name = request.form.get(
+            "name",
+            ""
+        ).strip()
+
+        location = request.form.get(
+            "location",
+            ""
+        ).strip()
+
+        code = request.form.get(
+            "code",
+            ""
+        ).strip()
+
+        username = request.form.get(
+            "username",
+            ""
+        ).strip()
+
+        password = request.form.get(
+            "password",
+            ""
+        )
+
+        if not name or not code or not username or not password:
+            flash(
+                "Branch name, code, username and password are required.",
+                "danger"
+            )
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if len(password) < 8:
+            flash(
+                "Branch password must contain at least 8 characters.",
+                "danger"
+            )
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if Branch.query.filter_by(
+            name=name
+        ).first():
+
+            flash(
+                "A branch with this name already exists.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if Branch.query.filter_by(
+            code=code
+        ).first():
+
+            flash(
+                "A branch with this code already exists.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if User.query.filter_by(
+            username=username
+        ).first():
+
+            flash(
+                "That username is already in use.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        branch = Branch(
+            name=name,
+            location=location,
+            code=code,
+            is_active=True
+        )
+
+        db.session.add(branch)
+        db.session.flush()
+
+        branch_user = User(
+            username=username,
+            role="branch",
+            branch_id=branch.id,
+            is_active=True
+        )
+
+        branch_user.set_password(password)
+
+        db.session.add(branch_user)
+        db.session.commit()
+
+        flash(
+            f"Branch '{name}' created successfully.",
+            "success"
+        )
+
+        return redirect(
+            url_for("admin.branches")
+        )
+
+    return render_template(
+        "admin/create_branch.html"
+    )
+
+
+
+@admin.route(
+    "/branches/<int:branch_id>/edit",
+    methods=["GET", "POST"]
+)
+@login_required
+def edit_branch(branch_id):
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+        flash(
+            "Branch not found.",
+            "danger"
+        )
+        return redirect(
+            url_for("admin.branches")
+        )
+
+    branch_user = (
+        User.query
+        .filter_by(branch_id=branch.id)
+        .first()
+    )
+
+    if request.method == "POST":
+
+        name = request.form.get(
+            "name",
+            ""
+        ).strip()
+
+        location = request.form.get(
+            "location",
+            ""
+        ).strip()
+
+        code = request.form.get(
+            "code",
+            ""
+        ).strip()
+
+        username = request.form.get(
+            "username",
+            ""
+        ).strip()
+
+        password = request.form.get(
+            "password",
+            ""
+        )
+
+        if not name or not code:
+            flash(
+                "Branch name and code are required.",
+                "danger"
+            )
+            return render_template(
+                "admin/edit_branch.html",
+                branch=branch,
+                branch_user=branch_user
+            )
+
+        existing_name = (
+            Branch.query
+            .filter(
+                Branch.name == name,
+                Branch.id != branch.id
+            )
+            .first()
+        )
+
+        if existing_name:
+            flash(
+                "A branch with this name already exists.",
+                "danger"
+            )
+            return render_template(
+                "admin/edit_branch.html",
+                branch=branch,
+                branch_user=branch_user
+            )
+
+        existing_code = (
+            Branch.query
+            .filter(
+                Branch.code == code,
+                Branch.id != branch.id
+            )
+            .first()
+        )
+
+        if existing_code:
+            flash(
+                "A branch with this code already exists.",
+                "danger"
+            )
+            return render_template(
+                "admin/edit_branch.html",
+                branch=branch,
+                branch_user=branch_user
+            )
+
+        if username:
+
+            existing_user = (
+                User.query
+                .filter(
+                    User.username == username,
+                    User.id != (
+                        branch_user.id
+                        if branch_user
+                        else -1
+                    )
+                )
+                .first()
+            )
+
+            if existing_user:
+                flash(
+                    "That username is already in use.",
+                    "danger"
+                )
+                return render_template(
+                    "admin/edit_branch.html",
+                    branch=branch,
+                    branch_user=branch_user
+                )
+
+        if password and len(password) < 8:
+            flash(
+                "Password must contain at least 8 characters.",
+                "danger"
+            )
+            return render_template(
+                "admin/edit_branch.html",
+                branch=branch,
+                branch_user=branch_user
+            )
+
+        branch.name = name
+        branch.location = location
+        branch.code = code
+
+        if branch_user:
+
+            if username:
+                branch_user.username = username
+
+            if password:
+                branch_user.set_password(password)
+
+        elif username and password:
+
+            branch_user = User(
+                username=username,
+                role="branch",
+                branch_id=branch.id,
+                is_active=branch.is_active
+            )
+
+            branch_user.set_password(password)
+
+            db.session.add(branch_user)
+
+        db.session.commit()
+
+        flash(
+            f"Branch '{branch.name}' updated successfully.",
+            "success"
+        )
+
+        return redirect(
+            url_for("admin.branches")
+        )
+
+    return render_template(
+        "admin/edit_branch.html",
+        branch=branch,
+        branch_user=branch_user
+    )
+
+
+@admin.route(
+    "/branches/<int:branch_id>/delete",
+    methods=["POST"]
+)
+@login_required
+def delete_branch(branch_id):
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+        flash(
+            "Branch not found.",
+            "danger"
+        )
+        return redirect(
+            url_for("admin.branches")
+        )
+
+    branch_name = branch.name
+
+    AttendanceRecord.query.filter_by(
+        branch_id=branch.id
+    ).delete(
+        synchronize_session=False
+    )
+
+    FundRecord.query.filter_by(
+        branch_id=branch.id
+    ).delete(
+        synchronize_session=False
+    )
+
+    User.query.filter_by(
+        branch_id=branch.id
+    ).delete(
+        synchronize_session=False
+    )
+
+    db.session.delete(branch)
+    db.session.commit()
+
+    flash(
+        f"Branch '{branch_name}' and its associated records were deleted.",
+        "success"
+    )
+
+    return redirect(
+        url_for("admin.branches")
+    )
+
+
+@admin.route(
+    "/branches/<int:branch_id>/toggle",
+    methods=["POST"]
+)
+@login_required
+def toggle_branch(branch_id):
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+
+        flash(
+            "Branch not found.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.branches")
+        )
+
+    branch.is_active = not branch.is_active
+
+    for user in branch.users:
+        user.is_active = branch.is_active
+
+    db.session.commit()
+
+    status = (
+        "activated"
+        if branch.is_active
+        else "deactivated"
+    )
+
+    flash(
+        f"Branch '{branch.name}' has been {status}.",
+        "success"
+    )
+
+    return redirect(
+        url_for("admin.branches")
+    )
+
+
+@admin.route("/funds")
+@login_required
+def funds():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    records = (
+        FundRecord.query
+        .join(Branch)
+        .order_by(
+            FundRecord.record_date.desc(),
+            FundRecord.id.desc()
+        )
+        .all()
+    )
+
+    branches = (
+        Branch.query
+        .filter_by(is_active=True)
+        .order_by(Branch.name.asc())
+        .all()
+    )
+
+    return render_template(
+        "admin/funds.html",
+        records=records,
+        branches=branches,
+        today=date.today()
+    )
+
+
+@admin.route(
+    "/funds/create",
+    methods=["POST"]
+)
+@login_required
+def create_fund():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branch_id = request.form.get(
+        "branch_id",
+        ""
+    )
+
+    record_date = request.form.get(
+        "record_date",
+        ""
+    )
+
+    evangelical = request.form.get(
+        "evangelical_fund",
+        "0"
+    )
+
+    national = request.form.get(
+        "national_fund",
+        "0"
+    )
+
+    if not branch_id or not record_date:
+
+        flash(
+            "Branch and date are required.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.funds")
+        )
+
+    try:
+
+        branch_id = int(branch_id)
+
+        record_date = date.fromisoformat(
+            record_date
+        )
+
+        evangelical = float(evangelical or 0)
+
+        national = float(national or 0)
+
+        if evangelical < 0 or national < 0:
+            raise ValueError
+
+    except ValueError:
+
+        flash(
+            "Please enter valid fund amounts and date.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.funds")
+        )
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+
+        flash(
+            "Selected branch was not found.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.funds")
+        )
+
+    record = FundRecord(
+        branch_id=branch.id,
+        record_date=record_date,
+        evangelical_fund=evangelical,
+        national_fund=national,
+        created_by=current_user.id
+    )
+
+    db.session.add(record)
+    db.session.commit()
+
+    flash(
+        f"Fund record for {branch.name} saved successfully.",
+        "success"
+    )
+
+    return redirect(
+        url_for("admin.funds")
+    )
+
+
+@admin.route("/attendance")
+@login_required
+def attendance():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    records = (
+        AttendanceRecord.query
+        .join(Branch)
+        .order_by(
+            AttendanceRecord.record_date.desc(),
+            AttendanceRecord.id.desc()
+        )
+        .all()
+    )
+
+    branches = (
+        Branch.query
+        .filter_by(is_active=True)
+        .order_by(Branch.name.asc())
+        .all()
+    )
+
+    return render_template(
+        "admin/attendance.html",
+        records=records,
+        branches=branches,
+        today=date.today()
+    )
+
+
+@admin.route(
+    "/attendance/create",
+    methods=["POST"]
+)
+@login_required
+def create_attendance():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branch_id = request.form.get(
+        "branch_id",
+        ""
+    )
+
+    record_date = request.form.get(
+        "record_date",
+        ""
+    )
+
+    male_value = request.form.get(
+        "male",
+        "0"
+    )
+
+    female_value = request.form.get(
+        "female",
+        "0"
+    )
+
+    try:
+
+        branch_id = int(branch_id)
+
+        record_date = date.fromisoformat(
+            record_date
+        )
+
+        male_value = int(male_value or 0)
+        female_value = int(female_value or 0)
+
+        if male_value < 0 or female_value < 0:
+            raise ValueError
+
+        attendance_value = male_value + female_value
+
+    except (ValueError, TypeError):
+
+        flash(
+            "Please enter valid male and female attendance figures.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.attendance")
+        )
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+
+        flash(
+            "Selected branch was not found.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.attendance")
+        )
+
+    record = AttendanceRecord(
+        branch_id=branch.id,
+        record_date=record_date,
+        male=male_value,
+        female=female_value,
+        attendance=attendance_value,
+        created_by=current_user.id
+    )
+
+    db.session.add(record)
+    db.session.commit()
+
+    flash(
+        f"Attendance for {branch.name} saved successfully. Total: {attendance_value}.",
+        "success"
+    )
+
+    return redirect(
+        url_for("admin.attendance")
+    )
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+
+        flash(
+            "Selected branch was not found.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.attendance")
+        )
+
+    record = AttendanceRecord(
+        branch_id=branch.id,
+        record_date=record_date,
+        male=male_value,
+        female=female_value,
+        attendance=attendance_value,
+        created_by=current_user.id
+    )
+
+    db.session.add(record)
+    db.session.commit()
+
+    flash(
+        f"Attendance for {branch.name} saved successfully.",
+        "success"
+    )
+
+    return redirect(
+        url_for("admin.attendance")
+    )
+
+@admin.route("/analytics")
+@login_required
+def analytics():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branches = (
+        Branch.query
+        .order_by(Branch.name.asc())
+        .all()
+    )
+
+    total_branches = len(branches)
+
+    active_branches = sum(
+        1 for branch in branches
+        if branch.is_active
+    )
+
+    evangelical_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(FundRecord.evangelical_fund),
+                0
+            )
+        ).scalar()
+    )
+
+    national_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(FundRecord.national_fund),
+                0
+            )
+        ).scalar()
+    )
+
+    attendance_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(AttendanceRecord.attendance),
+                0
+            )
+        ).scalar()
+    )
+
+    branch_data = []
+
+    for branch in branches:
+
+        evangelical = (
+            db.session.query(
+                db.func.coalesce(
+                    db.func.sum(FundRecord.evangelical_fund),
+                    0
+                )
+            )
+            .filter(
+                FundRecord.branch_id == branch.id
+            )
+            .scalar()
+        )
+
+        national = (
+            db.session.query(
+                db.func.coalesce(
+                    db.func.sum(FundRecord.national_fund),
+                    0
+                )
+            )
+            .filter(
+                FundRecord.branch_id == branch.id
+            )
+            .scalar()
+        )
+
+        attendance = (
+            db.session.query(
+                db.func.coalesce(
+                    db.func.sum(AttendanceRecord.attendance),
+                    0
+                )
+            )
+            .filter(
+                AttendanceRecord.branch_id == branch.id
+            )
+            .scalar()
+        )
+
+        evangelical = float(evangelical or 0)
+        national = float(national or 0)
+        attendance = int(attendance or 0)
+
+        branch_data.append({
+            "name": branch.name,
+            "code": branch.code,
+            "evangelical": evangelical,
+            "national": national,
+            "total_funds": evangelical + national,
+            "attendance": attendance
+        })
+
+    total_funds = (
+        float(evangelical_total or 0)
+        + float(national_total or 0)
+    )
+
+    return render_template(
+        "admin/analytics.html",
+        branches=branches,
+        branch_data=branch_data,
+        total_branches=total_branches,
+        active_branches=active_branches,
+        evangelical_total=float(evangelical_total or 0),
+        national_total=float(national_total or 0),
+        total_funds=total_funds,
+        attendance_total=int(attendance_total or 0)
+    )
+
+
+@admin.route("/reports")
+@login_required
+def reports():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branches = (
+        Branch.query
+        .order_by(Branch.name.asc())
+        .all()
+    )
+
+    fund_records = (
+        FundRecord.query
+        .join(Branch)
+        .order_by(
+            FundRecord.record_date.desc(),
+            FundRecord.id.desc()
+        )
+        .all()
+    )
+
+    attendance_records = (
+        AttendanceRecord.query
+        .join(Branch)
+        .order_by(
+            AttendanceRecord.record_date.desc(),
+            AttendanceRecord.id.desc()
+        )
+        .all()
+    )
+
+    evangelical_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(FundRecord.evangelical_fund),
+                0
+            )
+        ).scalar()
+    )
+
+    national_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(FundRecord.national_fund),
+                0
+            )
+        ).scalar()
+    )
+
+    attendance_total = (
+        db.session.query(
+            db.func.coalesce(
+                db.func.sum(AttendanceRecord.attendance),
+                0
+            )
+        ).scalar()
+    )
+
+    total_funds = (
+        float(evangelical_total or 0)
+        + float(national_total or 0)
+    )
+
+    return render_template(
+        "admin/reports.html",
+        branches=branches,
+        fund_records=fund_records,
+        attendance_records=attendance_records,
+        evangelical_total=float(evangelical_total or 0),
+        national_total=float(national_total or 0),
+        total_funds=total_funds,
+        attendance_total=int(attendance_total or 0)
+    )
+
+
+@admin.route("/users")
+@login_required
+def users():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    users = (
+        User.query
+        .order_by(User.username.asc())
+        .all()
+    )
+
+    return render_template(
+        "admin/users.html",
+        users=users
+    )
+
+
+@admin.route("/settings")
+@login_required
+def settings():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    return render_template(
+        "admin/settings.html"
+    )
+
+
+
+
+
+@admin.route(
+    "/reports/download/attendance",
+    methods=["GET"]
+)
+@login_required
+def download_attendance_report():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    records = (
+        AttendanceRecord.query
+        .join(
+            Branch,
+            AttendanceRecord.branch_id == Branch.id
+        )
+        .order_by(
+            AttendanceRecord.record_date.desc(),
+            Branch.name.asc()
+        )
+        .all()
+    )
+
+    output = io.StringIO()
+
+    writer = csv.writer(output)
+
+    writer.writerow([
+        "Date",
+        "Branch",
+        "Male",
+        "Female",
+        "Total"
+    ])
+
+    for record in records:
+
+        branch = db.session.get(
+            Branch,
+            record.branch_id
+        )
+
+        branch_name = (
+            branch.name
+            if branch
+            else "Unknown Branch"
+        )
+
+        male = record.male or 0
+        female = record.female or 0
+        total = male + female
+
+        writer.writerow([
+            record.record_date.strftime("%Y-%m-%d"),
+            branch_name,
+            male,
+            female,
+            total
+        ])
+
+    response = make_response(
+        output.getvalue()
+    )
+
+    response.headers["Content-Type"] = (
+        "text/csv; charset=utf-8"
+    )
+
+    response.headers["Content-Disposition"] = (
+        "attachment; filename=church_attendance_report.csv"
+    )
+
+    return response
+

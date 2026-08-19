@@ -1,0 +1,35 @@
+﻿.env
+.venv/
+__pycache__/
+*.py[cod]
+instance/
+*.sqlite
+*.sqlite3
+
+# Local import/workbook files
+*.xlsx
+*.csv
+historical_import_dry_run.py
+import_church_funds_attendance.py
+import_records_dry_run.py
+inspect_admin_records.py
+inspect_admin_structure.py
+inspect_core_import_mapping.py
+inspect_final_admin_sheets.py
+inspect_remaining_admin.py
+ACCESS_AUDIT.txt
+ADMIN_RECORDS_STRUCTURE.txt
+national_fund_inspection.txt
+fund_normalization_preview.csv
+
+# Backups / historical copies
+BACKUP_*/
+*.backup
+*.bak
+*.html.backup
+*.py.backup
+*.css.backup
+*_backup.*
+*_before_*.*
+
+*_backup*.*
