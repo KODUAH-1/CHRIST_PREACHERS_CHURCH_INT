@@ -1,0 +1,472 @@
+﻿{% extends "base.html" %}
+
+{% block title %}CPC INT | Admin Dashboard{% endblock %}
+
+{% block content %}
+
+<div class="cpc-dashboard">
+
+    <!-- SIDEBAR -->
+    <aside class="cpc-sidebar">
+
+        <div class="cpc-brand">
+            <div class="cpc-logo">CPC</div>
+            <div>
+                <strong>CPC INT</strong>
+                <span>Administration</span>
+            </div>
+        </div>
+
+        <div class="cpc-menu-label">MAIN MENU</div>
+
+        <nav class="cpc-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="cpc-nav-link active">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="cpc-nav-link">
+                <span>▦</span>
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="cpc-nav-link">
+                <span>₵</span>
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="cpc-nav-link">
+                <span>✓</span>
+                Attendance
+            </a>
+
+        </nav>
+
+        <div class="cpc-menu-label">MANAGEMENT</div>
+
+        <nav class="cpc-nav">
+
+            <a href="#" class="cpc-nav-link">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="#" class="cpc-nav-link">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="#" class="cpc-nav-link">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="#" class="cpc-nav-link">
+                <span>⚙</span>
+                Settings
+            </a>
+
+        </nav>
+
+        <div class="cpc-sidebar-bottom">
+
+            <div class="cpc-online">
+                <span class="online-dot"></span>
+                <div>
+                    <strong>System Online</strong>
+                    <small>PostgreSQL Connected</small>
+                </div>
+            </div>
+
+            <a href="{{ url_for('auth.logout') }}" class="cpc-logout">
+                ↪ Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN -->
+    <main class="cpc-main">
+
+        <header class="cpc-header">
+
+            <div>
+                <span class="cpc-eyebrow">CHURCH ADMINISTRATION</span>
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="cpc-user">
+
+                <div class="cpc-avatar">
+                    {{ current_user.username[:1]|upper }}
+                </div>
+
+                <div>
+                    <strong>{{ current_user.username }}</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+        <section class="cpc-welcome">
+
+            <div>
+
+                <span>WELCOME BACK</span>
+
+                <h2>
+                    {{ current_user.username }}
+                </h2>
+
+                <p>
+                    Manage church branches, funds and attendance
+                    from your central administration dashboard.
+                </p>
+
+            </div>
+
+            <div class="welcome-status">
+                <span></span>
+                SYSTEM ONLINE
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="cpc-stats">
+
+            <div class="cpc-stat blue">
+
+                <div class="stat-icon">▦</div>
+
+                <div>
+                    <span>Total Branches</span>
+                    <strong>
+                        {{ branches|length if branches is defined else 0 }}
+                    </strong>
+                    <small>Registered church branches</small>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-stat cyan">
+
+                <div class="stat-icon">₵</div>
+
+                <div>
+                    <span>Evangelical Fund</span>
+                    <strong>GH₵ 0.00</strong>
+                    <small>Total from all branches</small>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-stat purple">
+
+                <div class="stat-icon">₵</div>
+
+                <div>
+                    <span>National Fund</span>
+                    <strong>GH₵ 0.00</strong>
+                    <small>Total from all branches</small>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-stat green">
+
+                <div class="stat-icon">✓</div>
+
+                <div>
+                    <span>Attendance</span>
+                    <strong>0</strong>
+                    <small>Attendance records</small>
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="cpc-section">
+
+            <div class="section-title">
+                <span>MANAGEMENT</span>
+                <h2>Quick Actions</h2>
+            </div>
+
+            <div class="quick-actions">
+
+                <a href="{{ url_for('admin.create_branch') }}" class="quick-card">
+                    <div class="quick-icon blue-icon">+</div>
+                    <div>
+                        <h3>Add Branch</h3>
+                        <p>Register a new church branch</p>
+                    </div>
+                    <b>→</b>
+                </a>
+
+                <a href="{{ url_for('admin.funds') }}" class="quick-card">
+                    <div class="quick-icon cyan-icon">₵</div>
+                    <div>
+                        <h3>Manage Funds</h3>
+                        <p>Enter and review fund records</p>
+                    </div>
+                    <b>→</b>
+                </a>
+
+                <a href="{{ url_for('admin.attendance') }}" class="quick-card">
+                    <div class="quick-icon green-icon">✓</div>
+                    <div>
+                        <h3>Record Attendance</h3>
+                        <p>Manage church attendance</p>
+                    </div>
+                    <b>→</b>
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- CHARTS -->
+        <section class="cpc-section">
+
+            <div class="section-title chart-title">
+
+                <div>
+                    <span>PERFORMANCE</span>
+                    <h2>Church Overview</h2>
+                </div>
+
+                <div class="chart-periods">
+                    <button class="active">Daily</button>
+                    <button>Weekly</button>
+                    <button>Monthly</button>
+                </div>
+
+            </div>
+
+
+            <div class="chart-grid">
+
+                <!-- BAR CHART -->
+                <div class="chart-card">
+
+                    <div class="chart-card-header">
+
+                        <div>
+                            <h3>Branch Performance</h3>
+                            <p>Funds and attendance by branch</p>
+                        </div>
+
+                        <div class="chart-small-icon">
+                            ▥
+                        </div>
+
+                    </div>
+
+                    <div class="chart-container">
+                        <canvas id="branchChart"></canvas>
+                    </div>
+
+                    {% if not branches %}
+                    <div class="chart-empty">
+                        <strong>No branch records yet</strong>
+                        <span>
+                            Branch performance will appear here
+                            after records are entered.
+                        </span>
+                    </div>
+                    {% endif %}
+
+                </div>
+
+
+                <!-- PIE CHART -->
+                <div class="chart-card">
+
+                    <div class="chart-card-header">
+
+                        <div>
+                            <h3>Fund Distribution</h3>
+                            <p>Evangelical vs National Fund</p>
+                        </div>
+
+                        <div class="chart-small-icon">
+                            ◕
+                        </div>
+
+                    </div>
+
+                    <div class="pie-container">
+                        <canvas id="fundChart"></canvas>
+                    </div>
+
+                    <div class="fund-legend">
+
+                        <div>
+                            <span class="legend-blue"></span>
+                            Evangelical Fund
+                        </div>
+
+                        <div>
+                            <span class="legend-cyan"></span>
+                            National Fund
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER -->
+        <footer class="cpc-footer">
+
+            <div>
+                <span class="footer-dot"></span>
+
+                <div>
+                    <strong>PostgreSQL Database Connected</strong>
+                    <span>
+                        Church management system is ready for administration
+                        and record entry.
+                    </span>
+                </div>
+            </div>
+
+            <strong>ONLINE</strong>
+
+        </footer>
+
+        <div class="cpc-copyright">
+            © 2026 CHRIST PREACHERS CHURCH INT • Administration System
+        </div>
+
+    </main>
+
+</div>
+
+
+<!-- CHART.JS -->
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<script>
+
+const branchCanvas = document.getElementById("branchChart");
+
+if (branchCanvas) {
+
+    new Chart(branchCanvas, {
+        type: "bar",
+
+        data: {
+            labels: ["Branches"],
+
+            datasets: [
+                {
+                    label: "Funds",
+                    data: [0],
+                    backgroundColor: "#2878d4",
+                    borderRadius: 8
+                },
+                {
+                    label: "Attendance",
+                    data: [0],
+                    backgroundColor: "#38bdf8",
+                    borderRadius: 8
+                }
+            ]
+        },
+
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+
+            plugins: {
+                legend: {
+                    position: "bottom"
+                }
+            },
+
+            scales: {
+                y: {
+                    beginAtZero: true
+                }
+            }
+        }
+    });
+
+}
+
+
+const fundCanvas = document.getElementById("fundChart");
+
+if (fundCanvas) {
+
+    new Chart(fundCanvas, {
+
+        type: "doughnut",
+
+        data: {
+
+            labels: [
+                "Evangelical Fund",
+                "National Fund"
+            ],
+
+            datasets: [
+                {
+                    data: [0, 0],
+
+                    backgroundColor: [
+                        "#2878d4",
+                        "#38bdf8"
+                    ],
+
+                    borderWidth: 0
+                }
+            ]
+
+        },
+
+        options: {
+
+            responsive: true,
+
+            maintainAspectRatio: false,
+
+            cutout: "68%",
+
+            plugins: {
+                legend: {
+                    display: false
+                }
+            }
+
+        }
+
+    });
+
+}
+
+</script>
+
+{% endblock %}
+

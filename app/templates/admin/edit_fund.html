@@ -1,0 +1,180 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Edit Fund Record | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-main">
+
+    <div class="dashboard-header">
+
+        <div>
+            <div class="page-kicker">
+                CHURCH ADMINISTRATION
+            </div>
+
+            <h1>Edit Fund Record</h1>
+
+            <p>
+                Correct the branch, date or fund figures for this record.
+            </p>
+        </div>
+
+    </div>
+
+
+    {% with messages = get_flashed_messages(with_categories=true) %}
+
+        {% if messages %}
+
+            <div class="flash-container">
+
+                {% for category, message in messages %}
+
+                    <div class="flash flash-{{ category }}">
+                        {{ message }}
+                    </div>
+
+                {% endfor %}
+
+            </div>
+
+        {% endif %}
+
+    {% endwith %}
+
+
+    <div class="panel">
+
+        <div class="panel-header">
+
+            <div>
+                <div class="section-label">
+                    FUND RECORD
+                </div>
+
+                <h2>Update Financial Figures</h2>
+
+            </div>
+
+        </div>
+
+
+        <form
+            method="POST"
+            action="{{ url_for('admin.edit_fund', record_id=record.id) }}"
+            class="form-grid"
+        >
+
+            <div class="form-group">
+
+                <label for="branch_id">
+                    Church Branch
+                </label>
+
+                <select
+                    id="branch_id"
+                    name="branch_id"
+                    required
+                >
+
+                    {% for branch in branches %}
+
+                        <option
+                            value="{{ branch.id }}"
+                            {% if branch.id == record.branch_id %}selected{% endif %}
+                        >
+                            {{ branch.name }}
+                            {% if branch.code %}
+                                ({{ branch.code }})
+                            {% endif %}
+                        </option>
+
+                    {% endfor %}
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="record_date">
+                    Record Date
+                </label>
+
+                <input
+                    type="date"
+                    id="record_date"
+                    name="record_date"
+                    value="{{ record.record_date.isoformat() }}"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="evangelical_fund">
+                    Evangelical Fund (GH₵)
+                </label>
+
+                <input
+                    type="number"
+                    id="evangelical_fund"
+                    name="evangelical_fund"
+                    min="0"
+                    step="0.01"
+                    value="{{ "%.2f"|format(record.evangelical_fund) }}"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="national_fund">
+                    National Fund (GH₵)
+                </label>
+
+                <input
+                    type="number"
+                    id="national_fund"
+                    name="national_fund"
+                    min="0"
+                    step="0.01"
+                    value="{{ "%.2f"|format(record.national_fund) }}"
+                    required
+                >
+
+            </div>
+
+
+            <div class="form-actions">
+
+                <button
+                    type="submit"
+                    class="btn btn-primary"
+                >
+                    Save Fund Changes
+                </button>
+
+                <a
+                    href="{{ url_for('admin.funds') }}"
+                    class="btn"
+                >
+                    Cancel
+                </a>
+
+            </div>
+
+        </form>
+
+    </div>
+
+</div>
+
+{% endblock %}
+

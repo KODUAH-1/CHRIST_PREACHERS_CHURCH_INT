@@ -1,0 +1,239 @@
+﻿from flask import (
+    Blueprint,
+    flash,
+    redirect,
+    render_template,
+    request,
+    url_for
+)
+
+from flask_login import current_user, login_required
+
+from .. import db
+from ..models import Branch, User
+
+
+admin = Blueprint(
+    "admin",
+    __name__,
+    url_prefix="/admin"
+)
+
+
+def admin_required():
+    return (
+        current_user.is_authenticated
+        and current_user.is_admin
+    )
+
+
+@admin.route("/dashboard")
+@login_required
+def dashboard():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branches = Branch.query.order_by(
+        Branch.name.asc()
+    ).all()
+
+    return render_template(
+        "admin/dashboard.html",
+        branches=branches
+    )
+
+
+@admin.route("/branches")
+@login_required
+def branches():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branches = Branch.query.order_by(
+        Branch.name.asc()
+    ).all()
+
+    return render_template(
+        "admin/branches.html",
+        branches=branches
+    )
+
+
+@admin.route("/branches/create", methods=["GET", "POST"])
+@login_required
+def create_branch():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    if request.method == "POST":
+
+        name = request.form.get(
+            "name",
+            ""
+        ).strip()
+
+        location = request.form.get(
+            "location",
+            ""
+        ).strip()
+
+        code = request.form.get(
+            "code",
+            ""
+        ).strip().upper()
+
+        username = request.form.get(
+            "username",
+            ""
+        ).strip()
+
+        password = request.form.get(
+            "password",
+            ""
+        )
+
+        if not name or not code or not username or not password:
+            flash(
+                "Branch name, code, username and password are required.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if len(password) < 8:
+            flash(
+                "Branch password must contain at least 8 characters.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if Branch.query.filter_by(
+            name=name
+        ).first():
+
+            flash(
+                "A branch with this name already exists.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if Branch.query.filter_by(
+            code=code
+        ).first():
+
+            flash(
+                "A branch with this code already exists.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        if User.query.filter_by(
+            username=username
+        ).first():
+
+            flash(
+                "That username is already in use.",
+                "danger"
+            )
+
+            return render_template(
+                "admin/create_branch.html"
+            )
+
+        branch = Branch(
+            name=name,
+            location=location,
+            code=code,
+            is_active=True
+        )
+
+        db.session.add(branch)
+        db.session.flush()
+
+        branch_user = User(
+            username=username,
+            role="branch",
+            branch_id=branch.id,
+            is_active=True
+        )
+
+        branch_user.set_password(password)
+
+        db.session.add(branch_user)
+        db.session.commit()
+
+        flash(
+            f"Branch '{name}' created successfully.",
+            "success"
+        )
+
+        return redirect(
+            url_for("admin.branches")
+        )
+
+    return render_template(
+        "admin/create_branch.html"
+    )
+
+
+@admin.route(
+    "/branches/<int:branch_id>/toggle",
+    methods=["POST"]
+)
+@login_required
+def toggle_branch(branch_id):
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+
+        flash(
+            "Branch not found.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.branches")
+        )
+
+    branch.is_active = not branch.is_active
+
+    for user in branch.users:
+        user.is_active = branch.is_active
+
+    db.session.commit()
+
+    status = (
+        "activated"
+        if branch.is_active
+        else "deactivated"
+    )
+
+    flash(
+        f"Branch '{branch.name}' has been {status}.",
+        "success"
+    )
+
+    return redirect(
+        url_for("admin.branches")
+    )

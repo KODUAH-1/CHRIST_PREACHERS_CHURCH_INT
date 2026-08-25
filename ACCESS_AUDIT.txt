@@ -1,0 +1,544 @@
+﻿========== LOGIN / ROLE / BRANCH ACCESS ==========
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models.py : 69 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models.py : 126 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models.py : 190 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_attendance_upgrade_2.py : 69 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_attendance_upgrade_2.py : 126 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_attendance_upgrade_2.py : 190 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_attendance.py : 69 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_attendance.py : 126 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_attendance.py : 190 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_final.py : 69 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_final.py : 126 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_final.py : 190 :     branch_id = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 24 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 35 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 85 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 98 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 111 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 187 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 209 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 309 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 334 :     "/branches/<int:branch_id>/edit",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 338 : def edit_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 340 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 345 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 359 :         .filter_by(branch_id=branch.id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 495 :                 branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 522 :     "/branches/<int:branch_id>/delete",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 526 : def delete_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 528 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 533 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 548 :         branch_id=branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 554 :         branch_id=branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 560 :         branch_id=branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 579 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 583 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 585 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 590 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 631 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 666 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 669 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 670 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 689 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 702 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 728 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 743 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 767 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 802 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 805 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 806 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 827 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 854 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 869 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 891 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 906 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 930 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 985 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 998 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 1011 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 1051 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 1128 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 1147 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 1165 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 1172 :             AttendanceRecord.branch_id == Branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 1197 :             record.branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 574 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 600 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 615 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 637 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 692 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 705 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 718 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 574 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 600 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 615 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 579 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 611 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 626 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 650 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 705 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 718 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 731 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 771 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 848 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 867 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 24 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 35 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 85 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 98 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 111 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 187 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 209 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 309 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 333 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 337 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 339 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 344 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 385 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 420 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 423 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 424 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 443 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 456 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 482 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 497 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 521 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 556 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 559 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 560 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 581 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 608 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 623 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 645 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 660 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 684 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 739 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 752 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 765 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 805 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 882 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 901 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 919 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 926 :             AttendanceRecord.branch_id == Branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 951 :             record.branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 574 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 600 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 615 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 637 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 692 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 705 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 718 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 758 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 835 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 854 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 579 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 611 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 626 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 650 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 705 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 718 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 731 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 771 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 848 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 867 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 579 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 611 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 626 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 650 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 705 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 718 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 731 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 771 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 848 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 867 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 579 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 611 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 626 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 650 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 705 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 718 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 731 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 771 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 848 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 867 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 22 : def admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 33 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 83 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 96 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 109 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 185 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 207 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 307 :             branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 331 :     "/branches/<int:branch_id>/toggle",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 335 : def toggle_branch(branch_id):
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 337 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 342 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 383 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 418 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 421 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 422 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 441 :     if not branch_id or not record_date:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 454 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 480 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 495 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 519 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 554 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 557 :     branch_id = request.form.get(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 558 :         "branch_id",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 579 :         branch_id = int(branch_id)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 606 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 621 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 643 :         branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 658 :         branch_id=branch.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 682 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 737 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 750 :                 FundRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 763 :                 AttendanceRecord.branch_id == branch.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 803 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 880 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 899 :     if not admin_required():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\auth\routes.py : 12 :     login_user,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\auth\routes.py : 13 :     logout_user
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\auth\routes.py : 93 : def login():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\auth\routes.py : 112 :             login_user(user)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\auth\routes.py : 137 :     logout_user()
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 39 :     if not current_user.branch_id:
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 44 :         current_user.branch_id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 59 :             FundRecord.branch_id == branch_obj.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 89 :             AttendanceRecord.branch_id == branch_obj.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 110 :             FundRecord.branch_id == branch_obj.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 133 :             AttendanceRecord.branch_id == branch_obj.id,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 144 :             branch_id=branch_obj.id
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 157 :             branch_id=branch_obj.id
+
+========== USER MODEL ==========
+
+    def __repr__(self):
+        return f"<Branch {self.name}>"
+
+
+class User(UserMixin, db.Model):
+    __tablename__ = "users"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+    username = db.Column(
+        db.String(100),
+        nullable=False,
+        unique=True,
+        index=True
+    )
+
+    password_hash = db.Column(
+        db.String(255),
+        nullable=False
+    )
+
+    role = db.Column(
+        db.String(20),
+        nullable=False,
+        default="branch"
+    )
+
+    branch_id = db.Column(
+        db.Integer,
+        db.ForeignKey("branches.id"),
+        nullable=True
+    )
+
+    is_active = db.Column(
+        db.Boolean,
+        nullable=False,
+        default=True
+    )
+
+    created_at = db.Column(
+        db.DateTime,
+        nullable=False,
+        default=datetime.utcnow
+    )
+
+    branch = db.relationship(
+        "Branch",
+        back_populates="users"
+    )
+
+    fund_records = db.relationship(
+        "FundRecord",
+        back_populates="created_by_user",
+        lazy=True
+    )
+
+    attendance_records = db.relationship(
+        "AttendanceRecord",
+        back_populates="created_by_user",
+        lazy=True
+    )
+
+    def set_password(self, password):
+        self.password_hash = generate_password_hash(password)
+
+    def check_password(self, password):
+        return check_password_hash(
+            self.password_hash,
+            password
+        )
+
+    @property
+    def is_admin(self):
+        return self.role == "admin"
+
+    def __repr__(self):
+        return f"<User {self.username}>"
+
+
+class FundRecord(db.Model):
+    __tablename__ = "fund_records"
+
+    id = db.Column(db.Integer, primary_key=True)
+
+
+========== DASHBOARD ROUTES ==========
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 31 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 33 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 31 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_branch_edit_delete.py : 33 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 29 : @admin.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 31 : def dashboard():
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 30 : @branch.route("/dashboard")
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 32 : def dashboard():
+
+========== AUTH FILES ==========
+
+========== ADMIN PROTECTION ==========
+24 : def admin_required():
+31 : @admin.route("/dashboard")
+32 : @login_required
+35 :     if not admin_required():
+183 : @admin.route("/branches")
+184 : @login_required
+187 :     if not admin_required():
+202 : @admin.route(
+206 : @login_required
+209 :     if not admin_required():
+333 : @admin.route(
+337 : @login_required
+340 :     if not admin_required():
+521 : @admin.route(
+525 : @login_required
+528 :     if not admin_required():
+578 : @admin.route(
+582 : @login_required
+585 :     if not admin_required():
+627 : @admin.route("/funds")
+628 : @login_required
+631 :     if not admin_required():
+659 : @admin.route(
+663 : @login_required
+666 :     if not admin_required():
+763 : @admin.route("/attendance")
+764 : @login_required
+767 :     if not admin_required():
+795 : @admin.route(
+799 : @login_required
+802 :     if not admin_required():
+926 : @admin.route("/analytics")
+927 : @login_required
+930 :     if not admin_required():
+1047 : @admin.route("/reports")
+1048 : @login_required
+1051 :     if not admin_required():
+1124 : @admin.route("/users")
+1125 : @login_required
+1128 :     if not admin_required():
+1143 : @admin.route("/settings")
+1144 : @login_required
+1147 :     if not admin_required():
+1158 : @admin.route(
+1162 : @login_required
+1165 :     if not admin_required():
+
+========== END ==========

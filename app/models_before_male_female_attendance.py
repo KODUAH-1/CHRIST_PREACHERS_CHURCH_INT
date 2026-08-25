@@ -201,37 +201,6 @@ class AttendanceRecord(db.Model):
         index=True
     )
 
-    male = db.Column(
-        db.Integer,
-        nullable=False,
-        default=0
-    )
-
-    female = db.Column(
-        db.Integer,
-        nullable=False,
-        default=0
-    )
-
-    # Children attendance.
-    # Kept separate from the original adult attendance fields.
-    children = db.Column(
-        db.Integer,
-        nullable=False,
-        default=0
-    )
-
-    # Week number within the month: 1, 2, 3, 4 or 5.
-    # Week 5 is supported for months that contain a fifth attendance week.
-    week_number = db.Column(
-        db.Integer,
-        nullable=False,
-        default=1
-    )
-
-    # Total adult attendance = male + female.
-    # Kept for compatibility with existing dashboard calculations.
-    # Kept for compatibility with existing dashboard calculations.
     attendance = db.Column(
         db.Integer,
         nullable=False,
@@ -262,5 +231,3 @@ class AttendanceRecord(db.Model):
 
     def __repr__(self):
         return f"<AttendanceRecord {self.record_date}>"
-
-

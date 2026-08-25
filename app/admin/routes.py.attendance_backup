@@ -822,11 +822,6 @@ def create_attendance():
         "0"
     )
 
-    children_value = request.form.get(
-        "children",
-        "0"
-    )
-
     try:
 
         branch_id = int(branch_id)
@@ -837,27 +832,16 @@ def create_attendance():
 
         male_value = int(male_value or 0)
         female_value = int(female_value or 0)
-        children_value = int(children_value or 0)
 
-        if (
-            male_value < 0
-            or female_value < 0
-            or children_value < 0
-        ):
+        if male_value < 0 or female_value < 0:
             raise ValueError
 
-        attendance_value = (
-            male_value + female_value
-        )
-
-        week_number = (
-            ((record_date.day - 1) // 7) + 1
-        )
+        attendance_value = male_value + female_value
 
     except (ValueError, TypeError):
 
         flash(
-            "Please enter valid attendance figures and date.",
+            "Please enter valid male and female attendance figures.",
             "danger"
         )
 
@@ -886,8 +870,6 @@ def create_attendance():
         record_date=record_date,
         male=male_value,
         female=female_value,
-        children=children_value,
-        week_number=week_number,
         attendance=attendance_value,
         created_by=current_user.id
     )
@@ -903,6 +885,7 @@ def create_attendance():
     return redirect(
         url_for("admin.attendance")
     )
+
 
 @admin.route(
     "/attendance/<int:record_id>/edit",
@@ -958,11 +941,6 @@ def edit_attendance(record_id):
             "0"
         )
 
-        children_value = request.form.get(
-            "children",
-            "0"
-        )
-
         try:
 
             branch_id = int(branch_id)
@@ -973,13 +951,8 @@ def edit_attendance(record_id):
 
             male_value = int(male_value or 0)
             female_value = int(female_value or 0)
-            children_value = int(children_value or 0)
 
-            if (
-                male_value < 0
-                or female_value < 0
-                or children_value < 0
-            ):
+            if male_value < 0 or female_value < 0:
                 raise ValueError
 
             attendance_value = male_value + female_value
@@ -1019,7 +992,6 @@ def edit_attendance(record_id):
         record.record_date = record_date
         record.male = male_value
         record.female = female_value
-        record.children = children_value
         record.attendance = attendance_value
 
         db.session.commit()
@@ -1562,7 +1534,5 @@ def delete_fund(record_id):
     return redirect(
         url_for("admin.funds")
     )
-
-
 
 

@@ -846,18 +846,14 @@ def create_attendance():
         ):
             raise ValueError
 
-        attendance_value = (
-            male_value + female_value
-        )
+        attendance_value = male_value + female_value
 
-        week_number = (
-            ((record_date.day - 1) // 7) + 1
-        )
+        week_number = ((record_date.day - 1) // 7) + 1
 
     except (ValueError, TypeError):
 
         flash(
-            "Please enter valid attendance figures and date.",
+            "Please enter valid male and female attendance figures.",
             "danger"
         )
 
@@ -904,7 +900,9 @@ def create_attendance():
         url_for("admin.attendance")
     )
 
+
 @admin.route(
+    "@admin.route(
     "/attendance/<int:record_id>/edit",
     methods=["GET", "POST"]
 )
@@ -920,12 +918,10 @@ def edit_attendance(record_id):
     )
 
     if record is None:
-
         flash(
             "Attendance record not found.",
             "danger"
         )
-
         return redirect(
             url_for("admin.attendance")
         )
@@ -964,7 +960,6 @@ def edit_attendance(record_id):
         )
 
         try:
-
             branch_id = int(branch_id)
 
             record_date = date.fromisoformat(
@@ -982,7 +977,13 @@ def edit_attendance(record_id):
             ):
                 raise ValueError
 
-            attendance_value = male_value + female_value
+            attendance_value = (
+                male_value + female_value
+            )
+
+            week_number = (
+                ((record_date.day - 1) // 7) + 1
+            )
 
         except (ValueError, TypeError):
 
@@ -1020,12 +1021,13 @@ def edit_attendance(record_id):
         record.male = male_value
         record.female = female_value
         record.children = children_value
+        record.week_number = week_number
         record.attendance = attendance_value
 
         db.session.commit()
 
         flash(
-            f"Attendance record for {branch.name} updated successfully. Total: {attendance_value}.",
+            f"Attendance record for {branch.name} updated successfully. Total adults: {attendance_value}.",
             "success"
         )
 
@@ -1039,9 +1041,7 @@ def edit_attendance(record_id):
         branches=branches
     )
 
-
-@admin.route(
-    "/attendance/<int:record_id>/delete",
+/attendance/<int:record_id>/delete",
     methods=["POST"]
 )
 @login_required

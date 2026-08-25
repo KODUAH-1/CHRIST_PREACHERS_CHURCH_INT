@@ -276,17 +276,6 @@
 
                     <div class="branch-action">
 
-                        <a
-                            href="{{ url_for(
-                                'admin.edit_branch',
-                                branch_id=branch.id
-                            ) }}"
-                            class="branch-action-button"
-                        >
-                            Edit
-                        </a>
-
-
                         <form
                             method="POST"
                             action="{{ url_for(
@@ -311,27 +300,6 @@
                                     Activate
                                 {% endif %}
 
-                            </button>
-
-                        </form>
-
-
-                        <form
-                            method="POST"
-                            action="{{ url_for(
-                                'admin.delete_branch',
-                                branch_id=branch.id
-                            ) }}"
-                            onsubmit="return confirm(
-                                'Delete {{ branch.name }}? This will also delete its associated fund records, attendance records and branch user.'
-                            );"
-                        >
-
-                            <button
-                                type="submit"
-                                class="branch-action-button deactivate"
-                            >
-                                Delete
                             </button>
 
                         </form>
@@ -391,7 +359,6 @@
 </div>
 
 {% endblock %}
-
 
 
 

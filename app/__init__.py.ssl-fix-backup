@@ -3,7 +3,9 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_migrate import Migrate
 from flask_login import LoginManager
 from dotenv import load_dotenv
+from sqlalchemy.pool import NullPool
 import os
+
 
 db = SQLAlchemy()
 migrate = Migrate()
@@ -34,21 +36,29 @@ def create_app():
             1
         )
 
+    if database_url.startswith("postgresql://"):
+        database_url = database_url.replace(
+            "postgresql://",
+            "postgresql+psycopg2://",
+            1
+        )
+
     if not secret_key:
         raise RuntimeError("SECRET_KEY environment variable is missing.")
 
     app.config["SECRET_KEY"] = secret_key
-    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
-    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    # Render PostgreSQL external connections require TLS.
+    app.config["SQLALCHEMY_DATABASE_URI"] = database_url
+
     app.config["SQLALCHEMY_ENGINE_OPTIONS"] = {
+        "poolclass": NullPool,
         "connect_args": {
             "sslmode": "require",
-            "connect_timeout": 20
-        },
-        "pool_pre_ping": True,
+            "connect_timeout": 15
+        }
     }
+
+    app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
     db.init_app(app)
     migrate.init_app(app, db)

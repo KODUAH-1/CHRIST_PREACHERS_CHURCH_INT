@@ -822,11 +822,6 @@ def create_attendance():
         "0"
     )
 
-    children_value = request.form.get(
-        "children",
-        "0"
-    )
-
     try:
 
         branch_id = int(branch_id)
@@ -837,27 +832,16 @@ def create_attendance():
 
         male_value = int(male_value or 0)
         female_value = int(female_value or 0)
-        children_value = int(children_value or 0)
 
-        if (
-            male_value < 0
-            or female_value < 0
-            or children_value < 0
-        ):
+        if male_value < 0 or female_value < 0:
             raise ValueError
 
-        attendance_value = (
-            male_value + female_value
-        )
-
-        week_number = (
-            ((record_date.day - 1) // 7) + 1
-        )
+        attendance_value = male_value + female_value
 
     except (ValueError, TypeError):
 
         flash(
-            "Please enter valid attendance figures and date.",
+            "Please enter valid male and female attendance figures.",
             "danger"
         )
 
@@ -886,8 +870,6 @@ def create_attendance():
         record_date=record_date,
         male=male_value,
         female=female_value,
-        children=children_value,
-        week_number=week_number,
         attendance=attendance_value,
         created_by=current_user.id
     )
@@ -904,25 +886,15 @@ def create_attendance():
         url_for("admin.attendance")
     )
 
-@admin.route(
-    "/attendance/<int:record_id>/edit",
-    methods=["GET", "POST"]
-)
-@login_required
-def edit_attendance(record_id):
-
-    if not admin_required():
-        return "Administrator access required.", 403
-
-    record = db.session.get(
-        AttendanceRecord,
-        record_id
+    branch = db.session.get(
+        Branch,
+        branch_id
     )
 
-    if record is None:
+    if branch is None:
 
         flash(
-            "Attendance record not found.",
+            "Selected branch was not found.",
             "danger"
         )
 
@@ -930,154 +902,20 @@ def edit_attendance(record_id):
             url_for("admin.attendance")
         )
 
-    branches = (
-        Branch.query
-        .order_by(Branch.name.asc())
-        .all()
+    record = AttendanceRecord(
+        branch_id=branch.id,
+        record_date=record_date,
+        male=male_value,
+        female=female_value,
+        attendance=attendance_value,
+        created_by=current_user.id
     )
 
-    if request.method == "POST":
-
-        branch_id = request.form.get(
-            "branch_id",
-            ""
-        )
-
-        record_date = request.form.get(
-            "record_date",
-            ""
-        )
-
-        male_value = request.form.get(
-            "male",
-            "0"
-        )
-
-        female_value = request.form.get(
-            "female",
-            "0"
-        )
-
-        children_value = request.form.get(
-            "children",
-            "0"
-        )
-
-        try:
-
-            branch_id = int(branch_id)
-
-            record_date = date.fromisoformat(
-                record_date
-            )
-
-            male_value = int(male_value or 0)
-            female_value = int(female_value or 0)
-            children_value = int(children_value or 0)
-
-            if (
-                male_value < 0
-                or female_value < 0
-                or children_value < 0
-            ):
-                raise ValueError
-
-            attendance_value = male_value + female_value
-
-        except (ValueError, TypeError):
-
-            flash(
-                "Please enter valid attendance figures and date.",
-                "danger"
-            )
-
-            return render_template(
-                "admin/edit_attendance.html",
-                record=record,
-                branches=branches
-            )
-
-        branch = db.session.get(
-            Branch,
-            branch_id
-        )
-
-        if branch is None:
-
-            flash(
-                "Selected branch was not found.",
-                "danger"
-            )
-
-            return render_template(
-                "admin/edit_attendance.html",
-                record=record,
-                branches=branches
-            )
-
-        record.branch_id = branch.id
-        record.record_date = record_date
-        record.male = male_value
-        record.female = female_value
-        record.children = children_value
-        record.attendance = attendance_value
-
-        db.session.commit()
-
-        flash(
-            f"Attendance record for {branch.name} updated successfully. Total: {attendance_value}.",
-            "success"
-        )
-
-        return redirect(
-            url_for("admin.attendance")
-        )
-
-    return render_template(
-        "admin/edit_attendance.html",
-        record=record,
-        branches=branches
-    )
-
-
-@admin.route(
-    "/attendance/<int:record_id>/delete",
-    methods=["POST"]
-)
-@login_required
-def delete_attendance(record_id):
-
-    if not admin_required():
-        return "Administrator access required.", 403
-
-    record = db.session.get(
-        AttendanceRecord,
-        record_id
-    )
-
-    if record is None:
-
-        flash(
-            "Attendance record not found.",
-            "danger"
-        )
-
-        return redirect(
-            url_for("admin.attendance")
-        )
-
-    record_date = record.record_date
-    branch_name = (
-        record.branch.name
-        if record.branch
-        else "Unknown branch"
-    )
-
-    db.session.delete(record)
+    db.session.add(record)
     db.session.commit()
 
     flash(
-        f"Attendance record for {branch_name} on {record_date.strftime('%d %B %Y')} was deleted.",
+        f"Attendance for {branch.name} saved successfully.",
         "success"
     )
 
@@ -1562,7 +1400,4 @@ def delete_fund(record_id):
     return redirect(
         url_for("admin.funds")
     )
-
-
-
 

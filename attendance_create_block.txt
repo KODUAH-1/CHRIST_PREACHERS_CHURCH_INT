@@ -1,0 +1,93 @@
+﻿@admin.route(
+    "/attendance/create",
+    methods=["POST"]
+)
+@login_required
+def create_attendance():
+
+    if not admin_required():
+        return "Administrator access required.", 403
+
+    branch_id = request.form.get(
+        "branch_id",
+        ""
+    )
+
+    record_date = request.form.get(
+        "record_date",
+        ""
+    )
+
+    male_value = request.form.get(
+        "male",
+        "0"
+    )
+
+    female_value = request.form.get(
+        "female",
+        "0"
+    )
+
+    try:
+
+        branch_id = int(branch_id)
+
+        record_date = date.fromisoformat(
+            record_date
+        )
+
+        male_value = int(male_value or 0)
+        female_value = int(female_value or 0)
+
+        if male_value < 0 or female_value < 0:
+            raise ValueError
+
+        attendance_value = male_value + female_value
+
+    except (ValueError, TypeError):
+
+        flash(
+            "Please enter valid male and female attendance figures.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.attendance")
+        )
+
+    branch = db.session.get(
+        Branch,
+        branch_id
+    )
+
+    if branch is None:
+
+        flash(
+            "Selected branch was not found.",
+            "danger"
+        )
+
+        return redirect(
+            url_for("admin.attendance")
+        )
+
+    record = AttendanceRecord(
+        branch_id=branch.id,
+        record_date=record_date,
+        male=male_value,
+        female=female_value,
+        attendance=attendance_value,
+        created_by=current_user.id
+    )
+
+    db.session.add(record)
+    db.session.commit()
+
+    flash(
+        f"Attendance for {branch.name} saved successfully. Total: {attendance_value}.",
+        "success"
+    )
+
+    return redirect(
+        url_for("admin.attendance")
+    )

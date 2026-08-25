@@ -1,0 +1,204 @@
+﻿========== PROJECT ROOT ==========
+d----- | 1 | .venv
+d----- | 1 | app
+d----- | 1 | instance
+d----- | 1 | migrations
+d----- | 1 | __pycache__
+-a---- | 218 | .env
+-a---- | 14 | .gitignore
+-a---- | 53398 | ADMIN_RECORDS_STRUCTURE.txt
+-a---- | 221861 | CHURCH_NATIONAL_FUND_2024_2026.xlsx
+-a---- | 86627 | fund_normalization_preview.csv
+-a---- | 16703 | historical_import_dry_run.py
+-a---- | 0 | import_church_funds_attendance.py
+-a---- | 6861 | import_records_dry_run.py
+-a---- | 1228 | inspect_admin_records.py
+-a---- | 1130 | inspect_admin_structure.py
+-a---- | 1329 | inspect_core_import_mapping.py
+-a---- | 1126 | inspect_final_admin_sheets.py
+-a---- | 1130 | inspect_remaining_admin.py
+-a---- | 752 | requirements.txt
+-a---- | 104 | run.py
+
+========== PYTHON FILES ==========
+historical_import_dry_run.py
+import_church_funds_attendance.py
+import_records_dry_run.py
+inspect_admin_records.py
+inspect_admin_structure.py
+inspect_core_import_mapping.py
+inspect_final_admin_sheets.py
+inspect_remaining_admin.py
+run.py
+app\models.py
+app\models_before_attendance_upgrade_2.py
+app\models_before_male_female_attendance.py
+app\models_before_male_female_final.py
+app\__init__.py
+app\admin\routes.py
+app\admin\routes_before_3_pages.py
+app\admin\routes_before_analytics.py
+app\admin\routes_before_attendance_upgrade_2.py
+app\admin\routes_before_male_female_attendance.py
+app\admin\routes_before_male_female_final.py
+app\admin\routes_before_male_female_final2.py
+app\admin\routes_before_male_female_final3.py
+app\admin\routes_before_report_download.py
+app\auth\forms.py
+app\auth\routes.py
+app\branch\routes.py
+migrations\env.py
+migrations\versions\c6376d2e2b74_initial_church_management_database.py
+
+========== NATIONAL FUND REFERENCES ==========
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 14 : [N. FUND] ROW 1: 0=NATIONAL FUND CONTRIBUTION FOR 2024
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 29 : [Sheet1] ROW 2: 2=NATIONAL FUND
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 176 : [ STATEMENT OF ACCOUNT] ROW 6: 0=National fund | 3=2015.5 | 4=3391 | 5=5406.5
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 184 : [TRANSFERS] ROW 4: 0=2024-02-23 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=1010 | 3=7.5 | 4=9.1 | 5=1026.6 | 6=TRIP TO SUNYANI | 7=DIRECT TRANSFER | 9=2024-03-22 00:00:00 | 10=AXIM A/C- HUBTEL | 11=NATIONAL FUND | 12=Amount wrongly sent thru the USS Code | 13=90 | 16=2024-07-19 00:00:00 | 17=AP. MICHAEL ANKRAH | 18=1300 | 20=13 | 21=1313 | 22=TRIP TO TAKORADI
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 187 : [TRANSFERS] ROW 7: 0=2024-08-14 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=300 | 3=3 | 5=303 | 6=TRIP TO ELUBO | 7=GOLDMAN | 9=2024-05-09 00:00:00 | 10=MTN | 11=NATIONAL FUND | 12=JAN TO MARCH INTEREST | 13=122.62 | 16=2024-07-21 00:00:00 | 17=PS. JOSEPH B. ARMAH | 18=700 | 20=6 | 21=706 | 22=TRIP TO TAKORADI
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 188 : [TRANSFERS] ROW 8: 0=2004-08-30 00:00:00 | 1=QUICK RETURNS | 2=5000 | 3=20 | 5=5020 | 6=QUICK RETURNS | 7=GOLDMAN | 9=2024-08-15 00:00:00 | 10=MTN | 11=NATIONAL FUND | 12=APRIL TO JUNE INTEREST | 13=303.38 | 16=2024-07-25 00:00:00 | 17=PS. JOSEPH B. ARMAH | 18=1000 | 20=10 | 21=1010 | 22=TRIP TO TAKORADI
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 189 : [TRANSFERS] ROW 9: 0=2004-09-03 00:00:00 | 1=QUICK RETURNS | 2=10050 | 3=20 | 5=10070 | 6=QUICK RETURNS | 7=GOLDMAN | 9=2024-10-31 00:00:00 | 10=MTN | 11=NATIONAL FUND | 12=JULY TO SEPTEMBER INTEREST | 13=479.78 | 16=2024-07-30 00:00:00 | 17=AUNTY NAOMI | 18=4300 | 19=10 | 20=43 | 21=4353 | 22=FOOD - NATIONAL CONFERENCE
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\ADMIN_RECORDS_STRUCTURE.txt : 190 : [TRANSFERS] ROW 10: 0=2024-09-11 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=3000 | 3=20 | 5=3020 | 6=TRIP TO  ELUBO | 7=GOLDMAN | 11=NATIONAL FUND | 12=OCTOBER TO DECEMBER | 13=534.04 | 16=2024-11-01 00:00:00 | 17=JOSEPH ADDO | 18=900 | 20=8 | 21=908 | 22=TRIP TO SUNYANI
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\historical_import_dry_run.py : 413 : "NATIONAL FUND"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models.py : 146 : national_fund = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models.py : 178 : self.national_fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_attendance_upgrade_2.py : 146 : national_fund = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_attendance_upgrade_2.py : 178 : self.national_fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_attendance.py : 146 : national_fund = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_attendance.py : 178 : self.national_fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_final.py : 146 : national_fund = db.Column(
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\models_before_male_female_final.py : 178 : self.national_fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 52 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 93 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 439 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 500 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 712 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 747 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes.py : 846 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 665 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_3_pages.py : 700 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_analytics.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 678 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 713 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_attendance_upgrade_2.py : 812 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 665 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 700 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_attendance.py : 799 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 678 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 713 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final.py : 812 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 678 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 713 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final2.py : 812 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 678 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 713 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_male_female_final3.py : 812 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 50 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 91 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 437 : "national_fund",
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 498 : national_fund=national,
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 710 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 745 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\admin\routes_before_report_download.py : 844 : db.func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 71 : (record.national_fund or 0)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\branch\routes.py : 105 : func.sum(FundRecord.national_fund),
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics.html : 206 : Comparison of Evangelical Fund and National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics.html : 246 : NATIONAL FUND
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics.html : 333 : <strong>National Fund</strong>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics.html : 556 : <th>National Fund</th>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics_before_uniform_style.html : 186 : <span class="stat-tag">NATIONAL FUND</span>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics_before_uniform_style.html : 246 : <p>Evangelical Fund vs National Fund</p>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics_before_uniform_style.html : 270 : National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\analytics_before_uniform_style.html : 448 : <th>National Fund</th>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard.html : 201 : <span>NATIONAL FUND</span>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard.html : 248 : Evangelical and National Fund contribution
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard.html : 331 : Evangelical Fund vs National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard.html : 404 : National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_backup.html : 207 : NATIONAL FUND
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_backup.html : 389 : Evangelical vs National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_analytics_link.html : 201 : <span>NATIONAL FUND</span>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_analytics_link.html : 248 : Evangelical and National Fund contribution
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_analytics_link.html : 331 : Evangelical Fund vs National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_analytics_link.html : 404 : National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_blue.html : 198 : <span class="stat-tag">NATIONAL FUND</span>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_blue.html : 352 : <p>Evangelical vs National Fund</p>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_final_redesign.html : 179 : <span>National Fund</span>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_final_redesign.html : 305 : <p>Evangelical vs National Fund</p>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_final_redesign.html : 327 : National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\dashboard_before_final_redesign.html : 431 : "National Fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds.html : 62 : Enter and manage Evangelical Fund and National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds.html : 184 : <label for="national_fund">
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds.html : 185 : National Fund (GH₵)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds.html : 190 : id="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds.html : 191 : name="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds.html : 246 : <th>National Fund</th>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds.html : 277 : GH₵ {{ "%.2f"|format(record.national_fund) }}
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_backup2.html : 62 : Enter and manage Evangelical Fund and National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_backup2.html : 184 : <label for="national_fund">
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_backup2.html : 185 : National Fund (GH₵)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_backup2.html : 190 : id="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_backup2.html : 191 : name="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_backup2.html : 246 : <th>National Fund</th>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_backup2.html : 277 : GH₵ {{ "%.2f"|format(record.national_fund) }}
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_analytics_link.html : 62 : Enter and manage Evangelical Fund and National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_analytics_link.html : 184 : <label for="national_fund">
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_analytics_link.html : 185 : National Fund (GH₵)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_analytics_link.html : 190 : id="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_analytics_link.html : 191 : name="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_analytics_link.html : 246 : <th>National Fund</th>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_analytics_link.html : 277 : GH₵ {{ "%.2f"|format(record.national_fund) }}
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_bank_style.html : 62 : Enter and manage Evangelical Fund and National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_bank_style.html : 184 : <label for="national_fund">
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_bank_style.html : 185 : National Fund (GH₵)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_bank_style.html : 190 : id="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_bank_style.html : 191 : name="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_bank_style.html : 246 : <th>National Fund</th>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_bank_style.html : 277 : GH₵ {{ "%.2f"|format(record.national_fund) }}
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_redesign.html : 62 : Enter and manage Evangelical Fund and National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_redesign.html : 184 : <label for="national_fund">
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_redesign.html : 185 : National Fund (GH₵)
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_redesign.html : 190 : id="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_redesign.html : 191 : name="national_fund"
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_redesign.html : 246 : <th>National Fund</th>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\funds_before_redesign.html : 277 : GH₵ {{ "%.2f"|format(record.national_fund) }}
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\reports.html : 168 : <strong>National Fund</strong>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\reports_before_download_button.html : 177 : <strong>National Fund</strong>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\reports_before_download_button_final.html : 177 : <strong>National Fund</strong>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\reports_before_download_fix.html : 177 : <strong>National Fund</strong>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\admin\reports_before_report_download.html : 167 : <strong>National Fund</strong>
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\branch\dashboard.html : 38 : National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\branch\dashboard.html : 109 : Today's National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\branch\dashboard.html : 170 : Monthly National Fund
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\app\templates\branch\dashboard.html : 258 : GH₵ {{ "%.2f"|format(record.national_fund) }}
+C:\Users\CHURCH\PycharmProjects\CHRIST_PREACHERS_CHURCH_INT\migrations\versions\c6376d2e2b74_initial_church_management_database.py : 66 : sa.Column('national_fund', sa.Numeric(precision=12, scale=2), nullable=False),
+
+========== DATABASE FILES ==========
+
+========== END ==========

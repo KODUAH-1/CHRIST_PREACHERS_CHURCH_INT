@@ -1,0 +1,278 @@
+[rec] ROW 0: 0=date | 1=branch | 2=amt
+[rec] ROW 1: 0=2025-04-25 00:00:00 | 1=NKAWKAW | 3=1000.0 | 4=CAPTURED | 6=NOT ENTERED
+[rec] ROW 2: 0=2025-06-02 00:00:00 | 1=EFFIDUASE:
+[rec] ROW 3: 1=4/5/ | 2=72 EF
+[rec] ROW 4: 1=11/5/ | 2=52 EF
+[rec] ROW 5: 1=18/5/ | 2=55 EF
+[rec] ROW 6: 1=1/6/ | 2=65 EF
+[rec] ROW 7: 2=110 NF | 4=FOR APRIL
+[rec] ROW 8: 2=TOTAL | 3=350.0 | 4=CAPTURED | 6=NOT ENTERED
+[rec] ROW 10: 0=2025-06-29 00:00:00 | 1=COALTAR DIST | 2=303 NF | 3=303.0 | 4=CAPTURED | 6=NOT ENTERED
+[rec] ROW 11: 0=2025-06-30 00:00:00 | 1=TAKORADI | 2=480NF | 3=480.0
+[rec] ROW 13: 3=2133.0
+[N. FUND] ROW 0: 1=2024
+[N. FUND] ROW 1: 0=NATIONAL FUND CONTRIBUTION FOR 2024
+[N. FUND] ROW 2: 1=Region / Branch
+[N. FUND] ROW 3: 1=Greater Accra | 2=Zone | 3=JAN | 4=FEB | 5=MAR | 6=APRIL | 7=MAY | 8=JUNE | 9=JULY | 10=AUG | 11=SEPT | 12=OCT | 13=NOV | 14=DEC | 15=GHc
+[N. FUND] ROW 4: 0=1 | 1=Accra Newtown | 2=zone 1 | 3=119 | 4=200 | 5=400 | 6=160 | 7=200 | 8=200 | 10=225 | 11=200 | 12=400 | 13=345 | 15=2449 | 16=2449.0
+[N. FUND] ROW 5: 0=2 | 1=Kasoa | 2=zone 1 | 4=200 | 5=200 | 7=300 | 8=320 | 9=199 | 10=149 | 11=173 | 12=200 | 13=149 | 14=120 | 15=2010 | 16=2010.0
+[N. FUND] ROW 6: 0=3 | 1=Sapeiman | 2=zone 1 | 3=30 | 4=50 | 5=49 | 6=50 | 8=99 | 9=49 | 10=99 | 11=178 | 12=70 | 13=99 | 14=119 | 15=892 | 16=892.0
+[N. FUND] ROW 7: 0=4 | 1=Oshuiman | 2=zone 1 | 3=41 | 4=50 | 5=49 | 6=49 | 7=49 | 8=40 | 9=49 | 10=59 | 11=49 | 12=49 | 13=50 | 14=39 | 15=573 | 16=573.0
+[N. FUND] ROW 8: 0=5 | 1=Taifa | 2=zone 1 | 5=70 | 6=92 | 7=82 | 10=107 | 11=106 | 13=119 | 14=48 | 15=624 | 16=624.0
+[N. FUND] ROW 9: 0=6 | 1=Nyanyano | 2=zone 1 | 3=30 | 4=30 | 5=20 | 6=30 | 7=30 | 8=30 | 9=30 | 10=50 | 11=40 | 12=40 | 13=41 | 14=40 | 15=411 | 16=411.0
+[N. FUND] ROW 10: 0=7 | 1=Teshie | 2=zone2 | 4=20 | 5=60 | 6=30 | 8=69 | 9=50 | 11=80 | 12=100 | 14=100 | 15=509 | 16=509.0
+[N. FUND] ROW 11: 0=8 | 1=Madina | 2=zone 2 | 3=40 | 4=30 | 5=218 | 6=112 | 7=288 | 8=129 | 9=149 | 10=199 | 11=299 | 12=154 | 13=143 | 14=206 | 15=1967 | 16=1967.0
+[N. FUND] ROW 12: 0=9 | 1=Prampram | 2=zone 2 | 15=0
+[N. FUND] ROW 13: 0=10 | 1=Mampong | 2=zone 2 | 7=125 | 15=125 | 16=125.0
+[N. FUND] ROW 14: 0=11 | 1=Ashaiman | 2=zone 2 | 3=11 | 4=15 | 5=15 | 7=35 | 9=146 | 10=56 | 11=49 | 12=15 | 13=21 | 14=34 | 15=397 | 16=397.0
+[Sheet1] ROW 0: 1=TAKORADI CONTRIBUTION FOR 2026
+[Sheet1] ROW 2: 2=NATIONAL FUND
+[Sheet1] ROW 3: 1=JAN | 2=FEB | 3=MAR | 4=APRIL | 5=MAY | 6=JUNE | 7=JULY
+[Sheet1] ROW 4: 1=Paid | 2=0 | 3=0 | 4=0 | 5=0 | 6=paid | 7=0
+[Sheet1] ROW 7: 2=EVANGELICAL FUND
+[Sheet1] ROW 8: 1=JAN | 2=FEB | 3=MAR | 4=APRIL | 5=MAY | 6=JUNE | 7=JULY
+[Sheet1] ROW 9: 1=paid | 2=paid | 3=paid | 4=0 | 5=0 | 6=paid | 7=paid
+[DIRECT PAYMENT] ROW 0: 1=JANUARY
+[DIRECT PAYMENT] ROW 1: 0=DIRECT PAYMENTS THROUGH QUICK RETURNS FOR THE MONTH OF JANUARY
+[DIRECT PAYMENT] ROW 3: 0=Date | 1=Branch | 2=Amount | 3=N.fund | 4=Ev. Fund
+[DIRECT PAYMENT] ROW 4: 0=2024-01-07 00:00:00 | 1=J. service-Accra | 2=599 | 4=599
+[DIRECT PAYMENT] ROW 5: 0=2024-01-09 00:00:00 | 1=Gyamase | 2=20 | 4=20
+[DIRECT PAYMENT] ROW 6: 0=2024-01-09 00:00:00 | 1=Cape coast | 2=131 | 4=131
+[DIRECT PAYMENT] ROW 7: 0=2024-01-09 00:00:00 | 1=Dabaa/Esaase | 2=30 | 4=30
+[DIRECT PAYMENT] ROW 8: 0=2024-01-09 00:00:00 | 1=Ewusiejo | 2=49 | 4=49
+[DIRECT PAYMENT] ROW 9: 0=2024-01-09 00:00:00 | 1=Ashaiman | 2=15 | 4=15
+[DIRECT PAYMENT] ROW 10: 0=2024-01-14 00:00:00 | 1=Amfaso | 2=35 | 4=35
+[DIRECT PAYMENT] ROW 11: 0=2024-01-14 00:00:00 | 1=Coaltar | 2=60 | 4=60
+[DIRECT PAYMENT] ROW 12: 0=2024-01-14 00:00:00 | 1=Otoase | 2=134 | 4=134
+[DIRECT PAYMENT] ROW 13: 0=2024-01-14 00:00:00 | 1=Mbem-15/10/23 | 2=50 | 4=50
+[DIRECT PAYMENT] ROW 14: 1=Mbem-22/10/23 | 2=40 | 4=40
+[MOMO PAYMENTS] ROW 0: 2=JANUARY
+[MOMO PAYMENTS] ROW 1: 1=WEEKLY MOMO CONTRIBUTIONS FROM BRANCHES FOR JANUARY 2024
+[MOMO PAYMENTS] ROW 2: 3=SUNDAY 14TH JANUARY TO 20TH JANUARY 2024
+[MOMO PAYMENTS] ROW 3: 0=DATE | 1=BRANCH | 2=AMOUNT | 3=NAT. FUND | 4=EV. FUND | 5=DESCRIPTION | 6=TOTAL
+[MOMO PAYMENTS] ROW 4: 2=MOMO | 6=NAT.& EV. F
+[MOMO PAYMENTS] ROW 5: 0=14TH | 1=DABAA | 2=10 | 4=10 | 6=10
+[MOMO PAYMENTS] ROW 6: 0=16TH | 1=MARFO | 2=100 | 3=50 | 4=50 | 6=100
+[MOMO PAYMENTS] ROW 7: 0=14TH | 1=COALTAR | 2=45 | 4=45 | 6=45
+[MOMO PAYMENTS] ROW 8: 0=16TH | 1=NKAWKAW | 2=190 | 3=100 | 4=90 | 5=EVF - for 21st | 6=190
+[MOMO PAYMENTS] ROW 9: 0=16TH | 1=ELUBO | 2=700 | 3=350 | 4=350 | 6=700
+[MOMO PAYMENTS] ROW 10: 0=16TH | 1=KONONGO | 2=14.5 | 4=14.5 | 6=14.5
+[MOMO PAYMENTS] ROW 11: 0=16TH | 1=ONWE | 2=51 | 3=51 | 6=51
+[MOMO PAYMENTS] ROW 12: 0=16TH | 1=CAPE COAST | 2=141 | 4=141 | 5=2 WEEKS | 6=141
+[MOMO PAYMENTS] ROW 13: 0=14TH | 1=AMFASO | 2=15 | 4=15 | 6=15
+[MOMO PAYMENTS] ROW 14: 0=16TH | 1=NSAWAM | 2=42 | 3=42 | 6=42
+[EV. FUND] ROW 1: 0=2024
+[EV. FUND] ROW 2: 1=Region / Branch | 3=JANUARY | 11=Region / Branch | 13=FEBRUARY | 22=Region / Branch | 24=MARCH | 35=Region / Branch | 37=APRIL | 46=Region / Branch | 48=MAY | 56=Region / Branch | 58=JUNE | 65=Region / Branch | 67=JULY | 75=Region / Branch | 77=AUGUST | 85=Region / Branch | 87=SEPTEMBER | 95=Region / Branch | 97=OCTOBER | 105=Region / Branch | 107=NOVEMBER | 115=Region / Branch | 117=DECEMBER
+[EV. FUND] ROW 3: 1=Greater Accra | 2=Zone | 3=7TH | 4=14TH | 5=21ST | 6=28TH | 7=T | 11=Greater Accra | 12=Zone | 13=4TH | 14=11TH | 15=18TH | 16=25TH | 17=T | 22=Greater Accra | 23=Zone | 24=3RD | 25=10TH | 26=17TH | 27=24TH | 29=31ST | 30=T | 35=Greater Accra | 36=Zone | 37=2004-03-31 00:00:00 | 38=7TH | 39=14TH | 40=21ST | 41=28TH | 42=T | 46=Greater Accra | 47=Zone | 48=5TH | 49=12TH | 50=19 | 51=26TH | 52=T | 56=Greater Accra | 57=Zone | 58=2ND | 59=9TH | 60=16TH | 61=23TH | 62=T | 65=Greater Accra | 66=Zone | 67=30TH | 68=7TH | 69=14TH | 70=21ST | 71=28TH | 72=T | 75=Greater Accra | 76=Zone | 77=4TH | 78=11TH | 79=18TH | 80=25TH | 82=T | 85=Greater Accra | 86=Zone | 87=1ST | 88=8TH | 89=15TH | 90=22ND | 91=29TH | 92=T | 95=Greater Accra | 96=Zone | 97=6TH | 98=13TH | 99=20TH | 100=27TH | 102=T | 105=Greater Accra | 106=Zone | 107=3RD | 108=10TH | 109=17TH | 110=24TH | 111=30TH | 112=T | 115=Greater Accra | 116=Zone | 117=1ST | 118=8TH | 119=15TH | 120=22 | 121=29 | 122=T
+[EV. FUND] ROW 4: 0=1 | 1=Accra Newtown | 2=zone 1 | 4=120 | 7=120 | 10=1.0 | 11=Accra Newtown | 12=zone 1 | 15=140 | 17=140 | 21=1.0 | 22=Accra Newtown | 23=zone 1 | 27=50 | 30=50 | 34=1.0 | 35=Accra Newtown | 36=zone 1 | 38=80 | 42=80 | 46=Accra Newtown | 47=zone 1 | 48=80 | 49=80 | 52=160 | 56=Accra Newtown | 57=zone 1 | 58=100 | 59=80 | 61=73 | 62=253 | 65=Accra Newtown | 66=zone 1 | 68=70 | 69=95 | 70=50 | 72=215 | 75=Accra Newtown | 76=zone 1 | 80=80 | 82=80 | 85=Accra Newtown | 86=zone 1 | 89=110 | 90=95 | 92=205 | 95=Accra Newtown | 96=zone 1 | 100=100 | 102=100 | 105=Accra Newtown | 106=zone 1 | 108=100 | 112=100 | 115=Accra Newtown | 116=zone 1 | 118=110 | 119=110 | 122=220
+[EV. FUND] ROW 5: 0=2 | 1=Kasoa | 2=zone 1 | 7=0 | 10=2.0 | 11=Kasoa | 12=zone 1 | 13=150 | 17=150 | 21=2.0 | 22=Kasoa | 23=zone 1 | 24=144 | 29=100 | 30=244 | 34=2.0 | 35=Kasoa | 36=zone 1 | 42=0 | 46=Kasoa | 47=zone 1 | 48=150 | 52=150 | 56=Kasoa | 57=zone 1 | 58=100 | 61=170 | 62=270 | 65=Kasoa | 66=zone 1 | 71=81 | 72=81 | 75=Kasoa | 76=zone 1 | 77=45 | 78=45 | 79=44 | 80=44 | 82=178 | 85=Kasoa | 86=zone 1 | 88=95 | 89=90 | 91=92 | 92=277 | 95=Kasoa | 96=zone 1 | 100=40 | 102=40 | 105=Kasoa | 106=zone 1 | 111=40 | 112=40 | 115=Kasoa | 116=zone 1 | 122=0
+[EV. FUND] ROW 6: 0=3 | 1=Sapeiman | 2=zone 1 | 4=19.5 | 5=20 | 7=39.5 | 10=3.0 | 11=Sapeiman | 12=zone 1 | 14=30 | 17=30 | 21=3.0 | 22=Sapeiman | 23=zone 1 | 24=20 | 25=30 | 30=50 | 34=3.0 | 35=Sapeiman | 36=zone 1 | 38=29 | 39=29 | 42=58 | 46=Sapeiman | 47=zone 1 | 48=20 | 49=24 | 51=30 | 52=74 | 56=Sapeiman | 57=zone 1 | 60=25 | 61=20 | 62=45 | 65=Sapeiman | 66=zone 1 | 72=0 | 75=Sapeiman | 76=zone 1 | 77=20 | 82=20 | 85=Sapeiman | 86=zone 1 | 87=39 | 92=39 | 95=Sapeiman | 96=zone 1 | 102=0 | 105=Sapeiman | 106=zone 1 | 108=50 | 110=39 | 112=89 | 115=Sapeiman | 116=zone 1 | 122=0
+[EV. FUND] ROW 7: 0=4 | 1=Oshuiman | 2=zone 1 | 5=19.7 | 7=19.7 | 10=4.0 | 11=Oshuiman | 12=zone 1 | 15=29 | 17=29 | 21=4.0 | 22=Oshuiman | 23=zone 1 | 24=24.5 | 30=24.5 | 34=4.0 | 35=Oshuiman | 36=zone 1 | 38=29 | 41=29 | 42=58 | 46=Oshuiman | 47=zone 1 | 48=39 | 52=39 | 56=Oshuiman | 57=zone 1 | 58=29 | 62=29 | 65=Oshuiman | 66=zone 1 | 68=29 | 72=29 | 75=Oshuiman | 76=zone 1 | 77=29 | 82=29 | 85=Oshuiman | 86=zone 1 | 87=29 | 89=34 | 91=29 | 92=92 | 95=Oshuiman | 96=zone 1 | 99=29 | 102=29 | 105=Oshuiman | 106=zone 1 | 109=30 | 112=30 | 115=Oshuiman | 116=zone 1 | 119=39 | 122=39
+[EV. FUND] ROW 8: 0=5 | 1=Taifa | 2=zone 1 | 5=20 | 6=17 | 7=37 | 10=5.0 | 11=Taifa | 12=zone 1 | 15=20 | 17=20 | 21=5.0 | 22=Taifa | 23=zone 1 | 24=20 | 26=30 | 30=50 | 34=5.0 | 35=Taifa | 36=zone 1 | 39=20 | 40=42 | 42=62 | 46=Taifa | 47=zone 1 | 48=54 | 51=25 | 52=79 | 56=Taifa | 57=zone 1 | 59=10 | 60=30 | 62=40 | 65=Taifa | 66=zone 1 | 70=20 | 72=20 | 75=Taifa | 76=zone 1 | 77=22 | 78=31 | 82=53 | 85=Taifa | 86=zone 1 | 88=40 | 90=27 | 91=30 | 92=97 | 95=Taifa | 96=zone 1 | 99=34 | 100=30 | 102=64 | 105=Taifa | 106=zone 1 | 109=21 | 112=21 | 115=Taifa | 116=zone 1 | 121=30 | 122=30
+[EV. FUND] ROW 9: 0=6 | 1=Nyanyano | 2=zone 1 | 5=20 | 6=20 | 7=40 | 10=6.0 | 11=Nyanyano | 12=zone 1 | 15=20 | 16=20 | 17=40 | 21=6.0 | 22=Nyanyano | 23=zone 1 | 24=10 | 30=10 | 34=6.0 | 35=Nyanyano | 36=zone 1 | 38=20 | 40=20 | 41=20 | 42=60 | 46=Nyanyano | 47=zone 1 | 50=20 | 51=20 | 52=40 | 56=Nyanyano | 57=zone 1 | 58=20 | 60=20 | 61=20 | 62=60 | 65=Nyanyano | 66=zone 1 | 71=20 | 72=20 | 75=Nyanyano | 76=zone 1 | 82=0 | 85=Nyanyano | 86=zone 1 | 87=20 | 89=25 | 91=20 | 92=65 | 95=Nyanyano | 96=zone 1 | 100=20 | 102=20 | 105=Nyanyano | 106=zone 1 | 110=20 | 112=20 | 115=Nyanyano | 116=zone 1 | 118=20 | 122=20
+[EV. FUND] ROW 10: 0=7 | 1=Teshie | 2=zone2 | 7=0 | 10=7.0 | 11=Teshie | 12=zone2 | 13=20.3 | 17=20.3 | 21=7.0 | 22=Teshie | 23=zone2 | 24=35 | 25=10 | 30=45 | 34=7.0 | 35=Teshie | 36=zone2 | 38=10 | 40=15 | 42=25 | 46=Teshie | 47=zone2 | 50=10 | 51=29 | 52=39 | 56=Teshie | 57=zone2 | 60=20 | 61=10 | 62=30 | 65=Teshie | 66=zone2 | 68=25 | 72=25 | 75=Teshie | 76=zone2 | 78=19 | 82=19 | 85=Teshie | 86=zone2 | 87=30 | 90=20 | 92=50 | 95=Teshie | 96=zone2 | 99=30 | 102=30 | 105=Teshie | 106=zone2 | 108=20 | 112=20 | 115=Teshie | 116=zone2 | 119=30 | 122=30
+[EV. FUND] ROW 11: 0=8 | 1=Madina | 2=zone 2 | 3=54 | 4=25 | 5=26.7 | 7=105.7 | 10=8.0 | 11=Madina | 12=zone 2 | 13=30 | 14=25.7 | 17=55.7 | 21=8.0 | 22=Madina | 23=zone 2 | 24=56 | 25=30 | 27=40 | 30=126 | 34=8.0 | 35=Madina | 36=zone 2 | 38=31 | 39=28 | 41=29 | 42=88 | 46=Madina | 47=zone 2 | 48=34 | 49=34 | 52=68 | 56=Madina | 57=zone 2 | 58=54 | 59=26 | 60=30 | 62=110 | 65=Madina | 66=zone 2 | 68=20 | 69=29 | 72=49 | 75=Madina | 76=zone 2 | 77=27 | 78=31 | 82=58 | 85=Madina | 86=zone 2 | 88=35 | 89=30 | 90=37 | 92=102 | 95=Madina | 96=zone 2 | 98=20 | 99=22 | 102=42 | 105=Madina | 106=zone 2 | 109=30 | 112=30 | 115=Madina | 116=zone 2 | 117=39 | 118=25 | 119=39 | 122=103
+[EV. FUND] ROW 12: 0=9 | 1=Prampram | 2=zone 2 | 7=0 | 10=9.0 | 11=Prampram | 12=zone 2 | 17=0 | 21=9.0 | 22=Prampram | 23=zone 2 | 30=0 | 34=9.0 | 35=Prampram | 36=zone 2 | 42=0 | 46=Prampram | 47=zone 2 | 52=0 | 56=Prampram | 57=zone 2 | 62=0 | 65=Prampram | 66=zone 2 | 72=0 | 75=Prampram | 76=zone 2 | 82=0 | 85=Prampram | 86=zone 2 | 92=0 | 95=Prampram | 96=zone 2 | 102=0 | 105=Prampram | 106=zone 2 | 112=0 | 115=Prampram | 116=zone 2 | 122=0
+[EV. FUND] ROW 13: 0=10 | 1=Mampong | 2=zone 2 | 7=0 | 10=10.0 | 11=Mampong | 12=zone 2 | 17=0 | 21=10.0 | 22=Mampong | 23=zone 2 | 30=0 | 34=10.0 | 35=Mampong | 36=zone 2 | 42=0 | 46=Mampong | 47=zone 2 | 48=30 | 52=30 | 56=Mampong | 57=zone 2 | 62=0 | 65=Mampong | 66=zone 2 | 72=0 | 75=Mampong | 76=zone 2 | 82=0 | 85=Mampong | 86=zone 2 | 92=0 | 95=Mampong | 96=zone 2 | 102=0 | 105=Mampong | 106=zone 2 | 112=0 | 115=Mampong | 116=zone 2 | 122=0
+[EV. FUND] ROW 14: 0=11 | 1=Ashaiman | 2=zone 2 | 3=15 | 4=13 | 5=15 | 7=43 | 10=11.0 | 11=Ashaiman | 12=zone 2 | 13=15 | 14=10 | 15=9 | 17=34 | 21=11.0 | 22=Ashaiman | 23=zone 2 | 24=10 | 25=5 | 30=15 | 34=11.0 | 35=Ashaiman | 36=zone 2 | 40=10 | 42=10 | 46=Ashaiman | 47=zone 2 | 49=20 | 50=10 | 52=30 | 56=Ashaiman | 57=zone 2 | 59=12 | 60=16 | 62=28 | 65=Ashaiman | 66=zone 2 | 68=12 | 72=12 | 75=Ashaiman | 76=zone 2 | 77=15 | 80=14 | 82=29 | 85=Ashaiman | 86=zone 2 | 87=39 | 88=26 | 89=17 | 91=7 | 92=89 | 95=Ashaiman | 96=zone 2 | 99=14 | 102=14 | 105=Ashaiman | 106=zone 2 | 108=21 | 112=21 | 115=Ashaiman | 116=zone 2 | 117=30 | 119=16 | 122=46
+[Payment analysis] ROW 0: 1=2024
+[Payment analysis] ROW 5: 1=Greater Accra
+[Payment analysis] ROW 6: 1=Accra Newtown | 2=1723.0
+[Payment analysis] ROW 7: 1=Kasoa | 2=1430.0
+[Payment analysis] ROW 8: 1=Sapeiman | 2=445.0
+[Payment analysis] ROW 9: 1=Oshuiman | 2=447.0
+[Payment analysis] ROW 10: 1=Taifa | 2=573.0
+[Payment analysis] ROW 11: 1=Nyanyano | 2=395.0
+[Payment analysis] ROW 12: 1=Teshie | 2=333.0
+[Payment analysis] ROW 13: 1=Madina | 2=937.0
+[Payment analysis] ROW 14: 1=Mampong | 2=30.0
+[EVG FUND REPORT] ROW 0: 1=EVANGELICAL FUND FOR 2024
+[EVG FUND REPORT] ROW 1: 1=Region / Branch | 3=JANUARY | 8=FEBRUARY | 13=MARCH | 19=APRIL | 25=MAY | 30=JUNE | 36=JULY | 42=AUGUST | 47=SEPTEMBER | 53=OCTOBER | 58=NOVEMBER | 64=DECEMBER
+[EVG FUND REPORT] ROW 2: 1=Greater Accra | 2=Zone | 3=7TH | 4=14TH | 5=21ST | 6=28TH | 7=T | 8=4TH | 9=11TH | 10=18TH | 11=25TH | 12=T | 13=3RD | 14=10TH | 15=17TH | 16=24TH | 17=31ST | 18=T | 19=MAR | 20=7TH | 21=14TH | 22=21ST | 23=28TH | 24=T | 25=5TH | 26=12TH | 27=19 | 28=26TH | 29=T | 30=2ND | 31=9TH | 32=16TH | 33=23TH | 34=T | 36=30TH | 37=7TH | 38=14TH | 39=21ST | 40=28TH | 41=T | 42=4TH | 43=11TH | 44=18TH | 45=25TH | 46=T | 47=1ST | 48=8TH | 49=15TH | 50=22ND | 51=29TH | 52=T | 53=6TH | 54=13TH | 55=20TH | 56=27TH | 57=T | 58=3RD | 59=10TH | 60=17TH | 61=24TH | 62=30TH | 63=T | 64=1ST | 65=8TH | 66=15TH | 67=22ND | 68=29 | 69=T | 70=G.TOTAL | 75=Greater Accra
+[EVG FUND REPORT] ROW 3: 0=1 | 1=Accra Newtown | 2=zone 1 | 4=120 | 7=120 | 10=140 | 12=140 | 16=50 | 18=50 | 20=80 | 24=80 | 25=80 | 26=80 | 29=160 | 30=100 | 31=80 | 33=73 | 34=253 | 37=70 | 38=95 | 39=50 | 41=215 | 45=80 | 46=80 | 49=110 | 50=95 | 52=205 | 56=100 | 57=100 | 59=100 | 63=100 | 65=110 | 66=110 | 69=220 | 70=1723 | 74=1.0 | 75=Accra Newtown | 76=1723.0
+[EVG FUND REPORT] ROW 4: 0=2 | 1=Kasoa | 2=zone 1 | 7=0 | 8=150 | 12=150 | 13=144 | 17=100 | 18=244 | 24=0 | 25=150 | 29=150 | 30=100 | 33=170 | 34=270 | 40=81 | 41=81 | 42=45 | 43=45 | 44=44 | 45=44 | 46=178 | 48=95 | 49=90 | 51=92 | 52=277 | 56=40 | 57=40 | 62=40 | 63=40 | 69=0 | 70=1430 | 74=2.0 | 75=Kasoa | 76=1430.0
+[EVG FUND REPORT] ROW 5: 0=3 | 1=Sapeiman | 2=zone 1 | 4=19.5 | 5=20 | 7=39.5 | 9=30 | 12=30 | 13=20 | 14=30 | 18=50 | 20=29 | 21=29 | 24=58 | 25=20 | 26=24 | 28=30 | 29=74 | 32=25 | 33=20 | 34=45 | 41=0 | 42=20 | 46=20 | 47=39 | 52=39 | 57=0 | 59=50 | 61=39 | 63=89 | 69=0 | 70=444.5 | 74=3.0 | 75=Sapeiman | 76=445.0
+[EVG FUND REPORT] ROW 6: 0=4 | 1=Oshuiman | 2=zone 1 | 5=19.7 | 7=19.7 | 10=29 | 12=29 | 13=24.5 | 18=24.5 | 20=29 | 23=29 | 24=58 | 25=39 | 29=39 | 30=29 | 34=29 | 37=29 | 41=29 | 42=29 | 46=29 | 47=29 | 49=34 | 51=29 | 52=92 | 55=29 | 57=29 | 60=30 | 63=30 | 66=39 | 69=39 | 70=447.2 | 74=4.0 | 75=Oshuiman | 76=447.0
+[EVG FUND REPORT] ROW 7: 0=5 | 1=Taifa | 2=zone 1 | 5=20 | 6=17 | 7=37 | 10=20 | 12=20 | 13=20 | 15=30 | 18=50 | 21=20 | 22=42 | 24=62 | 25=54 | 28=25 | 29=79 | 31=10 | 32=30 | 34=40 | 39=20 | 41=20 | 42=22 | 43=31 | 46=53 | 48=40 | 50=27 | 51=30 | 52=97 | 55=34 | 56=30 | 57=64 | 60=21 | 63=21 | 68=30 | 69=30 | 70=573 | 74=5.0 | 75=Taifa | 76=573.0
+[EVG FUND REPORT] ROW 8: 0=6 | 1=Nyanyano | 2=zone 1 | 5=20 | 6=20 | 7=40 | 10=20 | 11=20 | 12=40 | 13=10 | 18=10 | 20=20 | 22=20 | 23=20 | 24=60 | 27=20 | 28=20 | 29=40 | 30=20 | 32=20 | 33=20 | 34=60 | 40=20 | 41=20 | 46=0 | 47=20 | 49=25 | 51=20 | 52=65 | 56=20 | 57=20 | 61=20 | 63=20 | 65=20 | 69=20 | 70=395 | 74=6.0 | 75=Nyanyano | 76=395.0
+[EVG FUND REPORT] ROW 9: 0=7 | 1=Teshie | 2=zone2 | 7=0 | 8=20.3 | 12=20.3 | 13=35 | 14=10 | 18=45 | 20=10 | 22=15 | 24=25 | 27=10 | 28=29 | 29=39 | 32=20 | 33=10 | 34=30 | 37=25 | 41=25 | 43=19 | 46=19 | 47=30 | 50=20 | 52=50 | 55=30 | 57=30 | 59=20 | 63=20 | 66=30 | 69=30 | 70=333.3 | 74=7.0 | 75=Teshie | 76=333.0
+[EVG FUND REPORT] ROW 10: 0=8 | 1=Madina | 2=zone 2 | 3=54 | 4=25 | 5=26.7 | 7=105.7 | 8=30 | 9=25.7 | 12=55.7 | 13=56 | 14=30 | 16=40 | 18=126 | 20=31 | 21=28 | 23=29 | 24=88 | 25=34 | 26=34 | 29=68 | 30=54 | 31=26 | 32=30 | 34=110 | 37=20 | 38=29 | 41=49 | 42=27 | 43=31 | 46=58 | 48=35 | 49=30 | 50=37 | 52=102 | 54=20 | 55=22 | 57=42 | 60=30 | 63=30 | 64=39 | 65=25 | 66=39 | 69=103 | 70=937.4 | 74=8.0 | 75=Madina | 76=937.0
+[EVG FUND REPORT] ROW 11: 0=9 | 1=Prampram | 2=zone 2 | 7=0 | 12=0 | 18=0 | 24=0 | 29=0 | 34=0 | 41=0 | 46=0 | 52=0 | 57=0 | 63=0 | 69=0 | 70=0 | 74=9.0 | 75=Prampram | 76=0.0
+[EVG FUND REPORT] ROW 12: 0=10 | 1=Mampong | 2=zone 2 | 7=0 | 12=0 | 18=0 | 24=0 | 25=30 | 29=30 | 34=0 | 41=0 | 46=0 | 52=0 | 57=0 | 63=0 | 69=0 | 70=30 | 74=10.0 | 75=Mampong | 76=30.0
+[EVG FUND REPORT] ROW 13: 0=11 | 1=Ashaiman | 2=zone 2 | 3=15 | 4=13 | 5=15 | 7=43 | 8=15 | 9=10 | 10=9 | 12=34 | 13=10 | 14=5 | 18=15 | 22=10 | 24=10 | 26=20 | 27=10 | 29=30 | 31=12 | 32=16 | 34=28 | 37=12 | 41=12 | 42=15 | 45=14 | 46=29 | 47=39 | 48=26 | 49=17 | 51=7 | 52=89 | 55=14 | 57=14 | 59=21 | 63=21 | 64=30 | 66=16 | 69=46 | 70=371 | 74=11.0 | 75=Ashaiman | 76=371.0
+[EVG FUND REPORT] ROW 14: 0=12 | 1=Larteh | 2=zone 2 | 7=0 | 12=0 | 18=0 | 24=0 | 29=0 | 34=0 | 41=0 | 46=0 | 52=0 | 57=0 | 63=0 | 69=0 | 70=0 | 74=12.0 | 75=Larteh | 76=0.0
+[ATTENDANCE  REGISTER] ROW 0: 1=2024 ATTENDANCE
+[ATTENDANCE  REGISTER] ROW 2: 2=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 24=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 46=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 73=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 95=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 117=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 144=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 166=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 193=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 220=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 243=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024 | 270=ATTENDANCE REGISTER FOR ALL BRANCHES FOR 2024
+[ATTENDANCE  REGISTER] ROW 4: 1=Region / Branch | 3=7TH Jan | 8=14TH Jan | 13=21st Jan | 18=28TH Jan | 23=Region / Branch | 25=4th FEB | 30=11TH FEB | 35=18TH FEB | 40=24TH FEB | 45=Region / Branch | 47=3RD MARCH | 52=10TH MARCH | 57=17TH MARCH | 62=24TH MARCH | 67=31ST MARCH | 72=Region / Branch | 74=7TH APRIL | 79=14TH APRIL | 84=21ST APRIL | 89=28TH APRIL | 94=Region / Branch | 96=5TH MAY | 101=12TH MAY | 106=19TH MAY | 111=26TH MAY | 116=Region / Branch | 118=2ND JUNE | 123=9TH JUNE | 128=16TH JUNE | 133=23RD JUNE | 138=30th JUNE | 143=Region / Branch | 145=7TH JULY | 150=14TH JULY | 155=21ST JULY | 160=28TH JULY | 165=Region / Branch | 167=4TH AUGUST | 172=11TH AUGUST | 177=18TH  AUGUST | 182=25TH AUGUST | 192=Region / Branch | 194=1ST SEPTEMBER | 199=8TH SEPTEMBER | 204=15TH  SEPTEMBER | 209=22ND SEPTEMBER | 214=29TH SEPTEMBER | 219=Region / Branch | 221=6TH OCTOBER | 226=13TH OCTOBER | 231=20TH  OCTOBER | 236=27TH OCTOBER | 242=Region / Branch | 244=3RD NOVEMBER | 249=10TH NOVEMBER | 254=17TH NOVEMBER | 259=24TH NOVEMBER | 269=Region / Branch | 271=1ST DECEMBER | 276=8TH DECEMBER | 281=15TH DECEMBER | 286=22ND DECEMBER | 291=29TH DECEMBER
+[ATTENDANCE  REGISTER] ROW 5: 1=Greater Accra | 2=Zone | 3=M | 4=F | 5=T | 6=CH | 8=M | 9=F | 10=T | 11=CH | 13=M | 14=F | 15=T | 16=CH | 18=M | 19=F | 20=T | 21=CH | 23=Greater Accra | 24=Zone | 25=M | 26=F | 27=T | 28=CH | 30=M | 31=F | 32=T | 33=CH | 35=M | 36=F | 37=T | 38=CH | 40=M | 41=F | 42=T | 43=CH | 45=Greater Accra | 46=Zone | 47=M | 48=F | 49=T | 50=CH | 52=M | 53=F | 54=T | 55=CH | 57=M | 58=F | 59=T | 60=CH | 62=M | 63=F | 64=T | 65=CH | 67=M | 68=F | 69=T | 70=CH | 72=Greater Accra | 73=Zone | 74=M | 75=F | 76=T | 77=CH | 79=M | 80=F | 81=T | 82=CH | 84=M | 85=F | 86=T | 87=CH | 89=M | 90=F | 91=T | 92=CH | 94=Greater Accra | 95=Zone | 96=M | 97=F | 98=T | 99=CH | 101=M | 102=F | 103=T | 104=CH | 106=M | 107=F | 108=T | 109=CH | 111=M | 112=F | 113=T | 114=CH | 116=Greater Accra | 117=Zone | 118=M | 119=F | 120=T | 121=CH | 123=M | 124=F | 125=T | 126=CH | 128=M | 129=F | 130=T | 131=CH | 133=M | 134=F | 135=T | 136=CH | 138=M | 139=F | 140=T | 141=CH | 143=Greater Accra | 144=Zone | 145=M | 146=F | 147=T | 148=CH | 150=M | 151=F | 152=T | 153=CH | 155=M | 156=F | 157=T | 158=CH | 160=M | 161=F | 162=T | 163=CH | 165=Greater Accra | 166=Zone | 167=M | 168=F | 169=T | 170=CH | 172=M | 173=F | 174=T | 175=CH | 177=M | 178=F | 179=T | 180=CH | 182=M | 183=F | 184=T | 185=CH | 192=Greater Accra | 193=Zone | 194=M | 195=F | 196=T | 197=CH | 199=M | 200=F | 201=T | 202=CH | 204=M | 205=F | 206=T | 207=CH | 209=M | 210=F | 211=T | 212=CH | 214=M | 215=F | 216=T | 217=CH | 219=Greater Accra | 220=Zone | 221=M | 222=F | 223=T | 224=CH | 226=M | 227=F | 228=T | 229=CH | 231=M | 232=F | 233=T | 234=CH | 236=M | 237=F | 238=T | 239=CH | 242=Greater Accra | 243=Zone | 244=M | 245=F | 246=T | 247=CH | 249=M | 250=F | 251=T | 252=CH | 254=M | 255=F | 256=T | 257=CH | 259=M | 260=F | 261=T | 262=CH | 269=Greater Accra | 270=Zone | 271=M | 272=F | 273=T | 274=CH | 276=M | 277=F | 278=T | 279=CH | 281=M | 282=F | 283=T | 284=CH | 286=M | 287=F | 288=T | 289=CH | 291=M | 292=F | 293=T | 294=CH
+[ATTENDANCE  REGISTER] ROW 6: 1=Sowutuom - H/Q | 8=89 | 9=113 | 10=202 | 11=50 | 13=98 | 14=125 | 15=223 | 16=95 | 18=87 | 19=111 | 20=198 | 21=70 | 23=Sowutuom - H/Q | 25=91 | 26=117 | 27=208 | 28=90 | 30=68 | 31=55 | 32=123 | 33=37 | 35=125 | 36=160 | 37=285 | 38=50 | 40=82 | 41=92 | 42=174 | 43=60 | 45=Sowutuom - H/Q | 47=90 | 48=80 | 49=170 | 50=50 | 52=80 | 53=100 | 54=180 | 55=48 | 57=84 | 58=84 | 59=168 | 62=94 | 63=111 | 64=205 | 65=70 | 66=JS | 67=218 | 68=276 | 69=494 | 70=120 | 72=Sowutuom - H/Q | 74=96 | 75=122 | 76=218 | 77=55 | 79=107 | 80=132 | 81=239 | 82=60 | 84=80 | 85=93 | 86=173 | 87=65 | 89=153 | 90=125 | 91=278 | 92=114 | 94=Sowutuom - H/Q | 96=90 | 97=86 | 98=176 | 99=59 | 101=217 | 102=122 | 103=339 | 104=67 | 106=78 | 107=96 | 108=184 | 109=80 | 111=77 | 112=92 | 113=169 | 114=51 | 116=Sowutuom - H/Q | 118=61 | 119=69 | 120=130 | 121=48 | 123=72 | 124=91 | 125=183 | 126=55 | 128=85 | 129=86 | 130=171 | 131=57 | 133=96 | 134=115 | 135=211 | 136=64 | 138=217 | 139=222 | 140=439 | 141=120 | 143=Sowutuom - H/Q | 145=107 | 146=157 | 147=264 | 148=78 | 150=78 | 151=90 | 152=168 | 153=63 | 155=90 | 156=103 | 157=193 | 158=65 | 165=Sowutuom - H/Q | 167=24 | 168=17 | 169=41 | 170=3 | 172=72 | 173=78 | 174=150 | 175=69 | 177=92 | 178=112 | 179=204 | 180=88 | 182=73 | 183=107 | 184=180 | 185=63 | 192=Sowutuom - H/Q | 194=75 | 195=93 | 196=168 | 197=57 | 199=72 | 200=87 | 201=159 | 202=62 | 204=98 | 205=108 | 206=206 | 207=61 | 209=70 | 210=78 | 211=148 | 212=56 | 214=87 | 215=94 | 216=181 | 217=61 | 219=Sowutuom - H/Q | 221=262 | 222=283 | 223=545 | 224=212 | 226=81 | 227=87 | 228=168 | 229=68 | 231=83 | 232=80 | 233=163 | 234=53 | 236=93 | 237=105 | 238=198 | 239=55 | 242=Sowutuom - H/Q | 244=86 | 245=101 | 246=187 | 247=62 | 249=84 | 250=92 | 251=176 | 252=61 | 254=84 | 255=104 | 256=188 | 257=71 | 259=73 | 260=104 | 261=177 | 262=61 | 269=Sowutuom - H/Q | 276=81 | 277=97 | 278=178 | 279=55 | 281=92 | 282=132 | 283=224 | 284=72 | 290=JS | 291=302 | 292=311 | 293=613 | 294=207
+[ATTENDANCE  REGISTER] ROW 7: 1=English Service | 8=39 | 9=14 | 10=53 | 11=4 | 13=35 | 14=12 | 15=47 | 16=8 | 18=35 | 19=20 | 20=55 | 21=9 | 23=English Service | 25=28 | 26=19 | 27=47 | 28=10 | 35=35 | 36=21 | 37=56 | 38=10 | 40=32 | 41=16 | 42=48 | 43=6 | 45=English Service | 47=34 | 48=21 | 49=56 | 50=7 | 52=35 | 53=25 | 54=60 | 55=9 | 57=40 | 58=20 | 59=60 | 60=7 | 62=29 | 63=14 | 64=43 | 65=5 | 72=English Service | 74=35 | 75=16 | 76=51 | 77=6 | 79=39 | 80=13 | 81=52 | 82=11 | 84=37 | 85=20 | 86=57 | 87=11 | 89=34 | 90=11 | 91=45 | 92=5 | 94=English Service | 111=23 | 112=11 | 113=34 | 114=3 | 116=English Service | 118=30 | 119=12 | 120=42 | 121=5 | 123=32 | 124=16 | 125=48 | 126=9 | 128=27 | 129=16 | 130=43 | 131=3 | 133=39 | 134=12 | 135=51 | 136=5 | 143=English Service | 150=7 | 151=9 | 152=16 | 153=1 | 155=29 | 156=19 | 157=58 | 158=5 | 165=English Service | 172=26 | 173=16 | 174=42 | 177=17 | 178=13 | 179=30 | 182=26 | 183=12 | 184=38 | 185=3 | 192=English Service | 194=23 | 195=11 | 196=34 | 197=4 | 199=31 | 200=17 | 201=48 | 202=7 | 204=32 | 205=17 | 206=49 | 207=7 | 209=27 | 210=17 | 211=44 | 212=7 | 214=30 | 215=16 | 216=46 | 217=11 | 219=English Service | 226=22 | 227=14 | 228=36 | 229=4 | 231=25 | 232=19 | 233=44 | 234=3 | 236=36 | 237=15 | 238=51 | 239=10 | 242=English Service | 244=28 | 245=21 | 246=49 | 247=11 | 249=25 | 250=20 | 251=45 | 252=6 | 254=14 | 255=20 | 256=34 | 257=2 | 259=26 | 260=18 | 261=44 | 262=9 | 269=English Service | 271=27 | 272=19 | 273=46 | 274=4 | 276=25 | 277=16 | 278=41 | 279=3 | 281=21 | 282=27 | 283=48 | 284=13
+[ATTENDANCE  REGISTER] ROW 8: 0=1.0 | 1=Accra Newtown | 2=zone 1 | 18=39 | 19=38 | 20=77 | 21=49 | 22=1.0 | 23=Accra Newtown | 24=zone 1 | 27=77 | 30=25 | 31=30 | 32=55 | 33=56 | 35=39 | 36=41 | 37=80 | 38=26 | 40=20 | 41=22 | 42=42 | 43=59 | 44=1.0 | 45=Accra Newtown | 46=zone 1 | 47=27 | 48=41 | 49=68 | 50=38 | 52=22 | 53=35 | 54=57 | 55=41 | 57=35 | 58=40 | 59=75 | 60=69 | 62=34 | 63=44 | 64=78 | 65=56 | 72=Accra Newtown | 73=zone 1 | 74=25 | 75=32 | 76=57 | 77=43 | 79=26 | 80=29 | 81=55 | 82=49 | 94=Accra Newtown | 95=zone 1 | 96=28 | 97=36 | 98=64 | 99=65 | 101=29 | 102=38 | 103=67 | 104=56 | 106=33 | 107=45 | 108=78 | 109=48 | 111=45 | 112=45 | 113=90 | 114=63 | 116=Accra Newtown | 117=zone 1 | 118=36 | 119=44 | 120=80 | 121=62 | 123=40 | 124=51 | 125=91 | 126=72 | 128=30 | 129=39 | 130=69 | 131=41` | 133=38 | 134=47 | 135=85 | 136=50 | 143=Accra Newtown | 144=zone 1 | 145=38 | 146=43 | 147=81 | 148=40 | 150=25 | 151=30 | 152=55 | 153=33 | 155=35 | 156=37 | 157=72 | 158=34 | 165=Accra Newtown | 166=zone 1 | 172=40 | 173=43 | 174=83 | 175=35 | 177=25 | 178=33 | 179=58 | 180=28 | 182=25 | 183=30 | 184=55 | 192=Accra Newtown | 193=zone 1 | 194=29 | 195=34 | 196=63 | 197=26 | 199=28 | 200=30 | 201=58 | 202=23 | 204=35 | 205=45 | 206=80 | 207=50 | 209=35 | 210=42 | 211=77 | 212=42 | 219=Accra Newtown | 220=zone 1 | 221=32 | 222=45 | 223=77 | 224=40 | 226=30 | 227=39 | 228=69 | 229=41 | 231=30 | 232=35 | 233=65 | 234=30 | 236=38 | 237=50 | 238=88 | 239=27 | 242=Accra Newtown | 243=zone 1 | 244=JS | 249=32 | 250=38 | 251=70 | 252=46 | 254=38 | 255=50 | 256=88 | 257=44 | 259=41 | 260=50 | 261=91 | 262=52 | 269=Accra Newtown | 270=zone 1 | 271=ZS | 276=32 | 277=46 | 278=78 | 279=43 | 281=42 | 282=45 | 283=87 | 284=68 | 286=44 | 287=46 | 288=90 | 289=65
+[ATTENDANCE  REGISTER] ROW 9: 0=2.0 | 1=Kasoa | 2=zone 1 | 8=24 | 9=34 | 10=58 | 11=21 | 13=27 | 14=49 | 15=76 | 16=34 | 18=22 | 19=28 | 20=50 | 21=45 | 22=2.0 | 23=Kasoa | 24=zone 1 | 27=26 | 30=23 | 31=22 | 32=45 | 33=29 | 35=27 | 36=28 | 37=55 | 38=37 | 40=23 | 41=27 | 42=50 | 43=41 | 44=2.0 | 45=Kasoa | 46=zone 1 | 47=16 | 48=22 | 49=38 | 50=24 | 52=27 | 53=33 | 54=60 | 55=47 | 72=Kasoa | 73=zone 1 | 74=19 | 75=22 | 76=41 | 77=24 | 79=31 | 80=34 | 81=65 | 82=36 | 89=25 | 90=31 | 91=56 | 92=25 | 94=Kasoa | 95=zone 1 | 96=24 | 97=33 | 98=57 | 99=26 | 106=22 | 107=32 | 108=54 | 109=27 | 111=17 | 112=21 | 113=38 | 114=29 | 116=Kasoa | 117=zone 1 | 118=19 | 119=22 | 120=41 | 121=19 | 123=20 | 124=28 | 125=48 | 126=31 | 128=17 | 129=25 | 130=42 | 131=21 | 133=19 | 134=26 | 135=45 | 136=25 | 143=Kasoa | 144=zone 1 | 150=24 | 151=27 | 152=51 | 153=36 | 165=Kasoa | 166=zone 1 | 167=26 | 168=25 | 169=51 | 170=13 | 172=21 | 173=23 | 174=44 | 175=29 | 177=19 | 178=31 | 179=50 | 180=27 | 182=21 | 183=34 | 184=55 | 185=29 | 192=Kasoa | 193=zone 1 | 194=18 | 195=23 | 196=41 | 197=22 | 199=21 | 200=24 | 201=45 | 202=29 | 209=18 | 210=28 | 211=46 | 212=28 | 214=19 | 215=31 | 216=50 | 217=34 | 219=Kasoa | 220=zone 1 | 231=20 | 232=30 | 233=50 | 234=34 | 236=26 | 237=41 | 238=67 | 239=24 | 242=Kasoa | 243=zone 1 | 249=24 | 250=38 | 251=62 | 252=35 | 254=24 | 255=35 | 256=59 | 257=35 | 259=23 | 260=33 | 261=56 | 262=39 | 269=Kasoa | 270=zone 1 | 271=ZS | 276=23 | 277=28 | 278=51 | 279=34 | 281=23 | 282=29 | 283=52 | 284=36
+[ATTENDANCE  REGISTER] ROW 10: 0=3.0 | 1=Sapeiman | 2=zone 1 | 8=14 | 9=21 | 10=35 | 11=23 | 13=22 | 14=23 | 15=55 | 16=24 | 22=3.0 | 23=Sapeiman | 24=zone 1 | 27=10 | 30=21 | 31=18 | 32=39 | 33=21 | 35=17 | 36=15 | 37=32 | 38=22 | 40=14 | 41=21 | 42=35 | 44=3.0 | 45=Sapeiman | 46=zone 1 | 47=14 | 48=14 | 49=28 | 50=17 | 52=14 | 53=20 | 54=34 | 55=25 | 57=30 | 58=31 | 59=61 | 60=36 | 72=Sapeiman | 73=zone 1 | 74=13 | 75=8 | 76=21 | 77=14 | 84=13 | 85=21 | 86=34 | 87=17 | 89=10 | 90=16 | 91=26 | 92=23 | 94=Sapeiman | 95=zone 1 | 96=17 | 97=23 | 98=40 | 99=24 | 101=17 | 102=26 | 103=43 | 104=26 | 106=18 | 107=21 | 108=39 | 109=25 | 111=13 | 112=13 | 113=26 | 114=13 | 116=Sapeiman | 117=zone 1 | 118=17 | 119=28 | 120=45 | 121=22 | 123=18 | 124=25 | 125=43 | 126=19 | 128=18 | 129=25 | 130=43 | 131=19 | 133=15 | 134=20 | 135=35 | 136=27 | 143=Sapeiman | 144=zone 1 | 145=16 | 146=24 | 147=40 | 148=32 | 150=19 | 151=25 | 152=44 | 153=24 | 165=Sapeiman | 166=zone 1 | 172=14 | 173=16 | 174=30 | 175=26 | 177=16 | 178=26 | 179=42 | 180=31 | 192=Sapeiman | 193=zone 1 | 194=19 | 195=22 | 196=41 | 197=22 | 199=19 | 200=29 | 201=39 | 202=24 | 204=20 | 205=20 | 206=40 | 207=25 | 209=14 | 210=23 | 211=37 | 212=26 | 214=17 | 215=18 | 216=35 | 217=20 | 219=Sapeiman | 220=zone 1 | 226=12 | 227=14 | 228=26 | 229=21 | 231=15 | 232=24 | 233=39 | 234=22 | 236=14 | 237=28 | 238=42 | 239=31 | 242=Sapeiman | 243=zone 1 | 244=14 | 245=28 | 246=42 | 247=31 | 249=17 | 250=24 | 251=41 | 252=20 | 254=16 | 255=24 | 256=40 | 257=30 | 259=15 | 260=21 | 261=36 | 262=24 | 269=Sapeiman | 270=zone 1 | 271=ZS | 276=13 | 277=22 | 278=35 | 279=31
+[ATTENDANCE  REGISTER] ROW 11: 0=4.0 | 1=Oshuiman | 2=zone 1 | 13=8 | 14=7 | 15=15 | 16=3 | 22=4.0 | 23=Oshuiman | 24=zone 1 | 27=6 | 30=13 | 31=7 | 32=20 | 44=4.0 | 45=Oshuiman | 46=zone 1 | 47=9 | 48=6 | 49=15 | 52=17 | 53=8 | 54=25 | 55=13 | 57=8 | 58=7 | 59=15 | 60=13 | 72=Oshuiman | 73=zone 1 | 79=11 | 80=7 | 81=18 | 82=18 | 84=14 | 85=14 | 86=28 | 87=17 | 89=10 | 90=9 | 91=19 | 92=1`6 | 94=Oshuiman | 95=zone 1 | 96=15 | 97=8 | 98=23 | 99=14 | 101=7 | 102=10 | 103=17 | 104=15 | 106=9 | 107=7 | 108=16 | 109=14 | 111=10 | 112=6 | 113=16 | 114=9 | 116=Oshuiman | 117=zone 1 | 123=10 | 124=5 | 125=15 | 126=11 | 133=10 | 134=8 | 135=18 | 136=15 | 143=Oshuiman | 144=zone 1 | 145=11 | 146=7 | 147=18 | 148=16 | 155=11 | 156=6 | 157=17 | 158=10 | 165=Oshuiman | 166=zone 1 | 167=11 | 168=5 | 169=16 | 170=18 | 172=15 | 173=6 | 174=21 | 175=13 | 177=12 | 178=3 | 179=15 | 180=16 | 192=Oshuiman | 193=zone 1 | 194=11 | 195=3 | 196=14 | 197=11 | 199=11 | 200=3 | 201=14 | 202=11 | 204=13 | 205=8 | 206=21 | 207=13 | 209=10 | 210=5 | 211=15 | 212=12 | 214=11 | 219=Oshuiman | 220=zone 1 | 226=8 | 227=6 | 228=14 | 229=15 | 231=12 | 232=4 | 233=16 | 234=13 | 236=8 | 237=6 | 238=14 | 239=7 | 242=Oshuiman | 243=zone 1 | 249=11 | 250=2 | 251=13 | 252=10 | 254=8 | 255=4 | 256=12 | 257=12 | 259=10 | 260=4 | 261=14 | 262=13 | 269=Oshuiman | 270=zone 1 | 271=ZS | 276=7 | 277=2 | 278=9 | 279=14 | 281=12 | 282=4 | 283=16 | 284=13 | 286=12 | 287=9 | 288=21 | 289=14
+[ATTENDANCE  REGISTER] ROW 12: 0=5.0 | 1=Taifa | 2=zone 1 | 8=8 | 9=12 | 10=20 | 13=7 | 14=7 | 15=14 | 18=8 | 19=8 | 20=18 | 21=9 | 22=5.0 | 23=Taifa | 24=zone 1 | 27=11 | 30=9 | 31=9 | 32=18 | 33=10 | 35=9 | 36=7 | 37=16 | 38=10 | 40=9 | 41=7 | 42=16 | 43=11 | 44=5.0 | 45=Taifa | 46=zone 1 | 47=10 | 48=8 | 49=18 | 50=12 | 52=11 | 53=8 | 54=19 | 55=14 | 62=11 | 63=9 | 64=20 | 65=10 | 72=Taifa | 73=zone 1 | 74=5 | 75=10 | 76=15 | 77=4 | 79=11 | 80=8 | 81=19 | 82=9 | 84=11 | 85=11 | 86=22 | 87=8 | 89=10 | 90=10 | 91=20 | 92=11 | 94=Taifa | 95=zone 1 | 96=13 | 97=9 | 98=21 | 99=12 | 101=13 | 102=11 | 103=24 | 104=10 | 111=12 | 112=9 | 113=21 | 114=6 | 116=Taifa | 117=zone 1 | 123=9 | 124=4 | 125=13 | 126=10 | 128=9 | 129=9 | 130=18 | 131=11 | 133=8 | 134=8 | 135=16 | 136=7 | 143=Taifa | 144=zone 1 | 145=9 | 146=7 | 147=16 | 148=9 | 150=11 | 151=10 | 152=21 | 153=12 | 165=Taifa | 166=zone 1 | 167=10 | 168=8 | 169=18 | 170=12 | 172=11 | 173=9 | 174=20 | 175=11 | 192=Taifa | 193=zone 1 | 194=10 | 195=12 | 196=22 | 197=15 | 199=12 | 200=10 | 201=22 | 202=15 | 204=11 | 205=10 | 206=21 | 207=11 | 209=16 | 210=11 | 211=27 | 212=13 | 219=Taifa | 220=zone 1 | 236=15 | 237=11 | 238=26 | 239=9 | 242=Taifa | 243=zone 1 | 259=9 | 260=7 | 261=16 | 262=4 | 269=Taifa | 270=zone 1 | 271=ZS | 276=8 | 277=11 | 278=19 | 279=4 | 281=11 | 282=11 | 283=22 | 284=5 | 286=12 | 287=17 | 288=29 | 289=12
+[ATTENDANCE  REGISTER] ROW 13: 0=6.0 | 1=Nyanyano | 2=zone 1 | 8=10 | 9=9 | 10=19 | 11=5 | 13=9 | 14=9 | 15=18 | 16=10 | 18=10 | 19=6 | 20=16 | 21=4 | 22=6.0 | 23=Nyanyano | 24=zone 1 | 27=13 | 30=10 | 31=6 | 32=16 | 40=9 | 41=8 | 42=17 | 43=4 | 44=6.0 | 45=Nyanyano | 46=zone 1 | 47=9 | 48=6 | 49=15 | 50=5 | 52=10 | 53=11 | 54=21 | 55=3 | 57=10 | 58=9 | 59=19 | 60=5 | 72=Nyanyano | 73=zone 1 | 74=14 | 75=10 | 76=24 | 77=6 | 79=14 | 80=8 | 81=22 | 82=6 | 89=10 | 90=4 | 91=14 | 92=3 | 94=Nyanyano | 95=zone 1 | 96=13 | 97=8 | 98=21 | 99=5 | 111=11 | 112=7 | 113=18 | 116=Nyanyano | 117=zone 1 | 143=Nyanyano | 144=zone 1 | 145=11 | 146=9 | 147=20 | 150=14 | 151=16 | 152=30 | 153=3 | 155=14 | 156=8 | 157=22 | 158=3 | 160=13 | 161=9 | 162=22 | 163=4 | 165=Nyanyano | 166=zone 1 | 167=13 | 168=9 | 169=22 | 170=4 | 172=14 | 173=8 | 174=22 | 175=3 | 177=13 | 178=7 | 179=20 | 180=5 | 182=12 | 183=10 | 184=22 | 185=4 | 192=Nyanyano | 193=zone 1 | 194=14 | 195=9 | 196=23 | 197=3 | 199=15 | 200=10 | 201=25 | 202=4 | 204=14 | 205=8 | 206=22 | 207=4 | 209=12 | 210=9 | 211=21 | 212=5 | 214=12 | 215=10 | 216=22 | 217=5 | 219=Nyanyano | 220=zone 1 | 226=13 | 227=9 | 228=22 | 229=5 | 231=14 | 232=8 | 233=13 | 234=5 | 236=10 | 237=5 | 238=15 | 242=Nyanyano | 243=zone 1 | 254=13 | 255=2 | 256=15 | 259=11 | 260=3 | 261=14 | 269=Nyanyano | 270=zone 1 | 281=10 | 282=5 | 283=15
+[ATTENDANCE  REGISTER] ROW 14: 0=7.0 | 1=Teshie | 2=zone2 | 8=11 | 9=7 | 10=18 | 11=5 | 13=11 | 14=7 | 15=18 | 16=13 | 18=11 | 19=9 | 20=20 | 21=14 | 22=7.0 | 23=Teshie | 24=zone2 | 25=13 | 26=5 | 27=18 | 28=3 | 30=10 | 31=8 | 32=18 | 33=8 | 35=8 | 36=11 | 37=19 | 38=5 | 40=10 | 41=12 | 42=22 | 43=13 | 44=7.0 | 45=Teshie | 46=zone2 | 47=6 | 48=9 | 49=15 | 50=5 | 72=Teshie | 73=zone2 | 74=7 | 75=6 | 76=13 | 77=6 | 79=10 | 80=14 | 81=24 | 82=11 | 84=4 | 85=8 | 86=12 | 87=8 | 89=7 | 90=7 | 91=14 | 92=5 | 94=Teshie | 95=zone2 | 101=11 | 102=5 | 103=16 | 104=11 | 106=8 | 107=6 | 108=14 | 109=5 | 111=9 | 112=9 | 113=18 | 114=4 | 116=Teshie | 117=zone2 | 128=9 | 129=12 | 130=21 | 131=12 | 133=10 | 134=9 | 135=19 | 136=11 | 143=Teshie | 144=zone2 | 145=12 | 146=7 | 147=19 | 148=5 | 165=Teshie | 166=zone2 | 192=Teshie | 193=zone2 | 219=Teshie | 220=zone2 | 242=Teshie | 243=zone2 | 269=Teshie | 270=zone2
+[PAYMENT SCHEDULE] ROW 0: 0=JAN | 3=7TH | 4=14TH | 5=21ST | 6=28TH | 8=TOTAL
+[PAYMENT SCHEDULE] ROW 1: 1=Marfo | 2=zone A | 3=0 | 4=50 | 5=0 | 6=0 | 7=0 | 8=50
+[PAYMENT SCHEDULE] ROW 2: 10=EVANGELICAL FUND PAYMENTS FROM JANUARY TO JULY
+[PAYMENT SCHEDULE] ROW 3: 0=FEB | 3=4TH | 4=11TH | 5=18TH | 6=25TH | 10=JAN | 11=7TH | 12=14TH | 13=21ST | 14=28TH | 16=TOTAL
+[PAYMENT SCHEDULE] ROW 4: 1=Marfo | 2=zone A | 3=29.5 | 4=0 | 5=0 | 6=0 | 7=0 | 8=29.5 | 10=MANKESSIM | 11=49 | 13=50 | 14=40 | 16=139
+[PAYMENT SCHEDULE] ROW 6: 0=MAR | 3=3RD | 4=10TH | 5=17TH | 6=24TH | 7=31ST | 10=FEB | 11=4TH | 12=11TH | 13=18TH | 14=25TH
+[PAYMENT SCHEDULE] ROW 7: 1=Marfo | 2=zone A | 3=42 | 4=0 | 5=0 | 6=0 | 7=0 | 8=42 | 10=MANKESSIM | 12=60 | 16=60
+[PAYMENT SCHEDULE] ROW 9: 0=APR | 3=7TH | 4=14TH | 5=21ST | 6=28TH | 10=MAR | 11=3RD | 12=10TH | 13=17TH | 14=24TH | 15=31ST
+[PAYMENT SCHEDULE] ROW 10: 1=Marfo | 2=zone A | 3=0 | 4=94 | 5=0 | 6=0 | 7=0 | 8=94 | 10=MANKESSIM | 11=28 | 12=20 | 16=48
+[PAYMENT SCHEDULE] ROW 12: 0=MAY | 3=5TH | 4=12TH | 5=19TH | 6=26TH | 10=APR | 11=7TH | 12=14TH | 13=21ST | 14=28TH
+[PAYMENT SCHEDULE] ROW 13: 1=Marfo | 2=zone A | 3=0 | 4=59 | 5=0 | 6=0 | 7=0 | 8=59 | 10=MANKESSIM | 11=49 | 13=99 | 16=148
+[J. SERVICE ATTND] ROW 0: 0=6
+[J. SERVICE ATTND] ROW 1: 0=BRANCH | 1=PRESENT | 2=ABSENT | 3=PRESENT | 4=ABSENT
+[J. SERVICE ATTND] ROW 2: 1=MEN | 2=MEN | 3=WOMEN | 4=WOMEN
+[J. SERVICE ATTND] ROW 3: 0=Nyanyano | 1=2 | 2=13 | 3=0 | 4=9
+[J. SERVICE ATTND] ROW 4: 0=Odorkor | 1=10 | 2=14 | 3=7 | 4=18
+[J. SERVICE ATTND] ROW 5: 0=Kasoa | 1=7 | 2=21 | 3=12 | 4=26
+[J. SERVICE ATTND] ROW 6: 0=Taifa | 1=4 | 2=5 | 3=4 | 4=6
+[J. SERVICE ATTND] ROW 7: 0=Ashaiman | 1=3 | 2=6 | 3=3 | 4=10
+[REMINDERS] ROW 0: 0=july ending | 1=joint service at Asamankese area
+[REMINDERS] ROW 1: 0=May 19th | 1=joint service at Oda area
+[REMINDERS] ROW 2: 0=Central: | 1=Agona Swedru and Agona Duakwa needs to be visited
+[REMINDERS] ROW 3: 1=swedru members-15 ; project - putting up a church building
+[REMINDERS] ROW 4: 1=laid the foundation & constructing the platform
+[ADMI EXPENSES] ROW 0: 0=DATE | 1=DETAILS | 2=AMOUNT
+[ADMI EXPENSES] ROW 1: 0=2024-01-29 00:00:00 | 1=Printing of register /secretaries & cashiers list | 2=16
+[ADMI EXPENSES] ROW 2: 0=2024-03-11 00:00:00 | 1=printing and photocopy of national & evangelical fund statement | 2=10
+[ADMI EXPENSES] ROW 3: 0=2024-03-14 00:00:00 | 1=printing and photocpy of general council minutes | 2=80
+[ADMI EXPENSES] ROW 4: 0=2024-03-22 00:00:00 | 1=printing and photocopy of handing over forms | 2=12
+[ADMI EXPENSES] ROW 5: 0=2024-07-30 00:00:00 | 1=printing of baptism certificate for Germany Assembly | 2=40
+[ADMI EXPENSES] ROW 6: 0=2024-08-14 00:00:00 | 1=printing of baptism certificate for new converts - 10 | 2=40
+[ADMI EXPENSES] ROW 8: 0=2025-01-22 00:00:00 | 1=printing of reports for pastors and deacons conference | 2=200
+[ADMI EXPENSES] ROW 13: 2=398
+[AIR CON FUNDRAISING] ROW 0: 0=DATE | 1=NAME | 2=AMOUNT
+[AIR CON FUNDRAISING] ROW 1: 0=2026-08-02 00:00:00 | 1=JOSEPH BLAY ARMAH | 2=500
+[AIR CON FUNDRAISING] ROW 2: 0=2026-08-02 00:00:00 | 1=JOHN YAWSON | 2=200
+[AIR CON FUNDRAISING] ROW 3: 0=2026-08-02 00:00:00 | 1=SAMUEL NYARKO | 2=50
+[AIR CON FUNDRAISING] ROW 4: 0=2026-08-02 00:00:00 | 1=EMMANUEL YEBOAH | 2=30
+[AIR CON FUNDRAISING] ROW 5: 0=2026-08-02 00:00:00 | 1=DEBORAH AKOTUAH | 2=100
+[AIR CON FUNDRAISING] ROW 6: 0=2026-08-02 00:00:00 | 1=GT BANK | 2=100
+[AIR CON FUNDRAISING] ROW 8: 1=AMOUNT TRANSFERRED TO MR. NYARKO | 2=980
+[LIST] ROW 0: 0=BRANCH | 1=PASTOR IN CHARGE | 2=NUMBER | 3=SECRETARIES / ELDERS | 4=NUMBER
+[LIST] ROW 2: 0=Greater Accra
+[LIST] ROW 3: 0=Accra Newtown | 1=Apostle Samuel Amoako | 2=0507391400 | 3=Abel Adjei | 4=0277407651 | 5=INFO
+[LIST] ROW 4: 0=Kasoa | 1=Stephen Amaning | 2=0242171815 | 3=Barnabas Manu | 4=0244733654 | 5=INFO
+[LIST] ROW 5: 0=Sapeiman | 1=Apostle Peter Addison | 2=0244874644 | 3=David Agyekum | 4=0557373558 | 5=INFO
+[LIST] ROW 6: 0=Oshuiman | 1=John Bentum | 2=0597992231 | 3=Simon Lamptey | 4=0244762418 | 5=INFO
+[LIST] ROW 7: 0=Taifa | 1=Job Mintah | 3=Nehemiah Toah | 4=0260847806 | 5=INFO
+[LIST] ROW 8: 0=Nyanyano | 1=Abel Acheampong | 2=0548417078 | 3=Noah Buabeng | 4=0558766115 | 5=INFO
+[LIST] ROW 9: 0=Teshie | 1=Paul Agyapong | 2=0242707947 | 3=James Asiamah | 4=0247630376
+[LIST] ROW 10: 0=Madina | 1=Apostle Paul Ottopah | 2=0240246143 | 3=Mark Oweredu | 4=0276246991
+[LIST] ROW 11: 0=Prampram | 1=Emmanuel Adjei | 2=0241117988
+[LIST] ROW 12: 0=Mampong | 1=Mark Anim | 2=0243154852 | 3=Joseph | 4=0248710535
+[LIST] ROW 13: 0=Ashaiman | 1=James Segah | 2=0596016442 | 3=Samuel Nartey | 4=0249970547 | 5=INFO
+[LIST] ROW 14: 0=Larteh | 1=Mark Anim | 2=0247577916
+[ STATEMENT OF ACCOUNT] ROW 0: 0=NATIONAL AND EVANGELICAL FUND INCOME STATEMENT FOR JANUARY 2024
+[ STATEMENT OF ACCOUNT] ROW 2: 3=MOMO INCOME | 4=DIRECT | 5=TOTAL
+[ STATEMENT OF ACCOUNT] ROW 3: 3=charges inclusive | 4=INCOME
+[ STATEMENT OF ACCOUNT] ROW 4: 0=Evangelical fund | 3=2391 | 4=2500 | 5=4891
+[ STATEMENT OF ACCOUNT] ROW 6: 0=National fund | 3=2015.5 | 4=3391 | 5=5406.5
+[ STATEMENT OF ACCOUNT] ROW 8: 0=TOTAL INCOME | 3=4406.5 | 4=5891 | 5=10297.5
+[ STATEMENT OF ACCOUNT] ROW 10: 0=LESS EXPECTED MOMO CHARGES | 5=-51.600000000000364
+[ STATEMENT OF ACCOUNT] ROW 12: 0=Total expected income | 5=10245.9
+[TRANSFERS] ROW 0: 0=2024 | 11=OTHER TRANSACTIONS
+[TRANSFERS] ROW 1: 1=NATIONAL AND EVANGELICAL FUND ACCOUNT | 7=CASH OUT TO | 19=MOMO PROJECT ACCOUNT OUTFLOWS
+[TRANSFERS] ROW 2: 0=DATE | 1=RECIPIENT | 2=AMOUNT | 3=FEE CHG | 4=TAX | 5=TOTAL | 6=NARRATION | 9=DATE | 10=FROM | 11=TO | 12=DESCRIPTION | 13=AMOUNT | 16=DATE | 17=RECIPIENT | 18=AMOUNT | 19=FEE CHG | 20=TAX | 21=TOTAL | 22=NARRATION
+[TRANSFERS] ROW 3: 0=2024-02-22 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=2000 | 3=7.5 | 4=19 | 5=2026.5 | 6=TRIP TO SUNYANI | 7=DIRECT TRANSFER | 9=2024-02-19 00:00:00 | 10=SOWUTUOM A/C- HUBTEL | 11=MOMO PROJECT WALLET | 13=363 | 16=2024-07-19 00:00:00 | 17=PS. JOSEPH B. ARMAH | 18=2800 | 20=28 | 21=2828 | 22=TRIP TO TAKORADI
+[TRANSFERS] ROW 4: 0=2024-02-23 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=1010 | 3=7.5 | 4=9.1 | 5=1026.6 | 6=TRIP TO SUNYANI | 7=DIRECT TRANSFER | 9=2024-03-22 00:00:00 | 10=AXIM A/C- HUBTEL | 11=NATIONAL FUND | 12=Amount wrongly sent thru the USS Code | 13=90 | 16=2024-07-19 00:00:00 | 17=AP. MICHAEL ANKRAH | 18=1300 | 20=13 | 21=1313 | 22=TRIP TO TAKORADI
+[TRANSFERS] ROW 5: 0=2024-04-18 00:00:00 | 1=MR JAMES AGYEKUM | 2=3040 | 3=7.5 | 4=29.4 | 5=3076.9 | 6=MRS EDUSEI'S FUNERAL | 7=DIRECT TRANSFER | 10=KOFORIDUA A/C -HUBTEL | 11=A. RAHMAN ENT. | 12=reversal of wrong transaction to koforidua a/c | 13=20000 | 16=2024-07-19 00:00:00 | 17=MR JOSEPH ADDO | 18=500 | 20=5 | 21=505 | 22=TRIP TO TAKORADI
+[TRANSFERS] ROW 6: 0=2024-08-14 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=700 | 3=5.25 | 4=6 | 5=711.25 | 6=TRIP TO ELUBO | 7=DIRECT TRANSFER | 9=2024-04-02 00:00:00 | 10=ELUBO A/C - HUBTEL | 11=EVANGELICAL FUND | 12=wrongly using the momo code for evang. Fund | 13=50 | 16=2024-07-19 00:00:00 | 17=MR MALAKI FODJOUR | 18=500 | 20=5 | 21=505 | 22=TRIP TO TAKORADI
+[TRANSFERS] ROW 7: 0=2024-08-14 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=300 | 3=3 | 5=303 | 6=TRIP TO ELUBO | 7=GOLDMAN | 9=2024-05-09 00:00:00 | 10=MTN | 11=NATIONAL FUND | 12=JAN TO MARCH INTEREST | 13=122.62 | 16=2024-07-21 00:00:00 | 17=PS. JOSEPH B. ARMAH | 18=700 | 20=6 | 21=706 | 22=TRIP TO TAKORADI
+[TRANSFERS] ROW 8: 0=2004-08-30 00:00:00 | 1=QUICK RETURNS | 2=5000 | 3=20 | 5=5020 | 6=QUICK RETURNS | 7=GOLDMAN | 9=2024-08-15 00:00:00 | 10=MTN | 11=NATIONAL FUND | 12=APRIL TO JUNE INTEREST | 13=303.38 | 16=2024-07-25 00:00:00 | 17=PS. JOSEPH B. ARMAH | 18=1000 | 20=10 | 21=1010 | 22=TRIP TO TAKORADI
+[TRANSFERS] ROW 9: 0=2004-09-03 00:00:00 | 1=QUICK RETURNS | 2=10050 | 3=20 | 5=10070 | 6=QUICK RETURNS | 7=GOLDMAN | 9=2024-10-31 00:00:00 | 10=MTN | 11=NATIONAL FUND | 12=JULY TO SEPTEMBER INTEREST | 13=479.78 | 16=2024-07-30 00:00:00 | 17=AUNTY NAOMI | 18=4300 | 19=10 | 20=43 | 21=4353 | 22=FOOD - NATIONAL CONFERENCE
+[TRANSFERS] ROW 10: 0=2024-09-11 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=3000 | 3=20 | 5=3020 | 6=TRIP TO  ELUBO | 7=GOLDMAN | 11=NATIONAL FUND | 12=OCTOBER TO DECEMBER | 13=534.04 | 16=2024-11-01 00:00:00 | 17=JOSEPH ADDO | 18=900 | 20=8 | 21=908 | 22=TRIP TO SUNYANI
+[TRANSFERS] ROW 11: 0=2024-10-11 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=500 | 3=3.75 | 4=5 | 5=508.75 | 6=TO OPANYIN MOSES FUNERAL | 7=DIRECT TRANSFER | 16=2024-11-01 00:00:00 | 17=AP. DAVID AGYEMANG | 18=900 | 20=9 | 21=909 | 22=TRIP  TO SUNYANI
+[TRANSFERS] ROW 12: 0=2024-11-13 00:00:00 | 1=QUICK RETURNS | 2=5000 | 3=20 | 5=5020 | 6=QUICK RETURNS | 7=GOLDMAN | 16=2024-11-15 00:00:00 | 17=MR JOSEPH ADDO | 18=500 | 19=5 | 21=505 | 22=TRIP TO BOGOSO
+[TRANSFERS] ROW 13: 0=2024-11-15 00:00:00 | 1=PS. JOSEPH BLAY-ARMAH | 2=2000 | 3=20 | 5=2020 | 6=BOGOSO JOINT SERVICE | 16=2024-11-15 00:00:00 | 17=MR MALAKI FODJOUR | 18=500 | 19=5 | 21=505 | 22=TRIP TO BOGOSO
+[NEW COMMERS] ROW 0: 0=NAME | 1=NUMBER | 2=DATE
+[NEW COMMERS] ROW 1: 0=KOBENA BOATENG | 1=508704148
+[NEW COMMERS] ROW 2: 0=BENETT A. OKAN | 1=244055427
+[NEW COMMERS] ROW 3: 0=STEPHEN AGYAPONG | 1=550710359 | 2=2025-06-22 00:00:00
+[NEW COMMERS] ROW 4: 0=GRACE OFIRIWAA | 1=542164062 | 2=2025-06-22 00:00:00
+[NEW COMMERS] ROW 5: 0=COLLINS ODURO | 1=554070939 | 2=2025-06-22 00:00:00
+[Hubtel momo transfer] ROW 1: 0=DATE | 1=S.TUOM | 2=N.TOWN | 3=KASOA | 4=N.NYANO | 5=TAIFA | 6=S.PEIMA | 7=OSHUIMA | 8=ACHIM | 9=MADINA | 10=TESHIE | 11=0NWE | 12=CAPE | 13=TAKORAD | 14=ASHAI | 15=ODORKOR | 16=NYENKYE | 17=DABAA | 18=BOGOSO | 19=ELUBO | 20=KOFORID | 21=NSAWAM | 22=OTOASE | 23=COALTAR | 24=JAMASI | 25=ODA | 26=T.FA/MKS | 27=SHAMA | 28=MAMPON | 29=NKAWKAW | 30=TOTAL
+[Hubtel momo transfer] ROW 2: 0=2024-02-19 00:00:00 | 1=363 | 30=363
+[Hubtel momo transfer] ROW 3: 0=2024-05-24 00:00:00 | 1=2255.5 | 2=751 | 3=661 | 4=169 | 5=149 | 6=736.5 | 7=261 | 8=476 | 9=154 | 10=200 | 11=135 | 12=235 | 13=284 | 30=6467
+[Hubtel momo transfer] ROW 4: 0=2024-06-26 00:00:00 | 1=1060 | 2=169 | 3=99 | 4=60 | 5=70 | 6=10 | 7=16 | 8=74 | 9=35 | 10=10 | 11=10 | 14=20 | 15=173 | 16=22 | 17=31 | 18=24 | 19=20 | 20=2 | 21=17 | 22=30 | 23=35 | 24=48 | 25=46 | 26=1 | 28=76 | 30=2158
+[Hubtel momo transfer] ROW 5: 0=2024-09-04 00:00:00 | 1=2926 | 30=2926
+[Hubtel momo transfer] ROW 6: 0=2024-09-19 00:00:00 | 1=350 | 2=110 | 4=15 | 5=20 | 8=319 | 9=45 | 12=110 | 18=16 | 20=40 | 22=10 | 23=10 | 29=50 | 30=1095
+[Hubtel momo transfer] ROW 7: 0=2025-01-03 00:00:00 | 1=1871 | 2=90 | 8=369 | 12=58 | 30=2388
+[Hubtel momo transfer] ROW 8: 0=2025-01-08 00:00:00 | 1=50 | 18=60 | 19=50 | 26=2 | 27=4 | 29=70 | 30=236
+[Hubtel momo transfer] ROW 9: 1=8875.5 | 2=1120 | 3=760 | 4=244 | 5=239 | 6=746.5 | 7=277 | 8=1238 | 9=234 | 10=210 | 11=145 | 12=403 | 13=284 | 14=20 | 15=173 | 16=22 | 17=31 | 18=100 | 19=70 | 20=42 | 21=17 | 22=40 | 23=45 | 24=48 | 25=46 | 26=3 | 27=4 | 28=76 | 29=120 | 30=15633
+[Hubtel momo transfer] ROW 11: 1=TOTAL | 3=15633
+[Hubtel momo transfer] ROW 12: 1=SOWUTUOM-DIRECT | 3=3889
+[Hubtel momo transfer] ROW 14: 3=19522
+[MOMO-SOWUTUOM] ROW 0: 0=SOWUTUOM DIRECT OFFERING
+[MOMO-SOWUTUOM] ROW 1: 0=DATE | 1=AMOUNT | 2=DETAIL
+[MOMO-SOWUTUOM] ROW 2: 0=2004-03-10 00:00:00 | 1=602.5 | 2=H/O
+[MOMO-SOWUTUOM] ROW 3: 0=2004-03-17 00:00:00 | 1=133 | 2=ENGLISH
+[MOMO-SOWUTUOM] ROW 4: 0=2004-03-17 00:00:00 | 1=766.5 | 2=H/O
+[MOMO-SOWUTUOM] ROW 5: 0=2004-04-14 00:00:00 | 1=251 | 2=ENGLISH
+[MOMO-SOWUTUOM] ROW 6: 0=2004-04-21 00:00:00 | 1=634 | 2=H/O
+[MOMO-SOWUTUOM] ROW 7: 0=2024-08-11 00:00:00 | 1=255 | 2=ENGLISH
+[MOMO-SOWUTUOM] ROW 8: 0=2004-06-16 00:00:00 | 1=898 | 2=H/O
+[MOMO-SOWUTUOM] ROW 9: 0=2004-06-16 00:00:00 | 1=349 | 2=ENGLISH
+[MOMO-SOWUTUOM] ROW 12: 1=3889
+[B. Sheet] ROW 0: 0=YEAR | 1=AMOUNT | 2=YEAR | 3=AMOUNT | 4=YEAR | 5=AMOUNT
+[B. Sheet] ROW 1: 0=2024 | 2=2025 | 4=2026
+[B. Sheet] ROW 2: 0=2024-01-14 00:00:00 | 1=1987.5 | 2=2025-01-05 00:00:00 | 3=287 | 4=2026-01-04 00:00:00 | 5=1150.5
+[B. Sheet] ROW 3: 0=2024-01-21 00:00:00 | 1=1468.5 | 2=2025-01-12 00:00:00 | 3=1975.5 | 4=2026-01-11 00:00:00 | 5=2471.5
+[B. Sheet] ROW 4: 0=2024-01-28 00:00:00 | 1=950 | 2=2025-01-19 00:00:00 | 3=528 | 4=2026-01-18 00:00:00 | 5=1352
+[B. Sheet] ROW 5: 0=2024-02-04 00:00:00 | 1=1174 | 2=2025-01-26 00:00:00 | 3=660 | 4=2026-01-25 00:00:00 | 5=1326.5
+[B. Sheet] ROW 6: 0=2024-02-11 00:00:00 | 1=1324.1 | 2=2025-02-02 00:00:00 | 3=2991 | 4=2026-02-01 00:00:00 | 5=1978.5
+[B. Sheet] ROW 7: 0=2024-02-18 00:00:00 | 1=496 | 2=2025-02-09 00:00:00 | 3=2089 | 4=2026-02-08 00:00:00 | 5=2318.5
+[B. Sheet] ROW 8: 0=2024-02-25 00:00:00 | 1=855.5 | 2=2025-02-16 00:00:00 | 3=977.5 | 4=2026-02-15 00:00:00 | 5=1739
+[B. Sheet] ROW 9: 0=2024-03-03 00:00:00 | 1=1378 | 2=2025-02-23 00:00:00 | 3=2602.5 | 4=2026-02-22 00:00:00 | 5=1681
+[B. Sheet] ROW 10: 0=2024-03-10 00:00:00 | 1=1530.5 | 2=2025-03-02 00:00:00 | 3=1470.5 | 4=2026-03-01 00:00:00 | 5=1679.5
+[B. Sheet] ROW 11: 0=2024-03-17 00:00:00 | 1=1002.5 | 2=2025-03-09 00:00:00 | 3=2060.5 | 4=2026-03-08 00:00:00 | 5=1289
+[B. Sheet] ROW 12: 0=2024-03-24 00:00:00 | 1=968 | 2=2025-03-16 00:00:00 | 3=650.5 | 4=2026-03-15 00:00:00 | 5=1476
+[B. Sheet] ROW 13: 0=2024-03-31 00:00:00 | 1=901 | 2=2025-03-23 00:00:00 | 3=2003.5 | 4=2026-03-22 00:00:00 | 5=1642.5
+[B. Sheet] ROW 14: 0=2024-04-07 00:00:00 | 1=903.5 | 2=2025-03-30 00:00:00 | 3=3278.5 | 4=2026-03-29 00:00:00 | 5=1075
+[BAPTISM] ROW 0: 0=NO. | 1=NAME | 2=DATE OF BAPTISM | 3=DATE OF BIRTH | 4=PLACE OF BIRTH | 5=FATHERS` NAME | 6=MOTHERS` NAME | 7=HOME TOWN | 8=BRANCH | 9=BAPTISM NAME
+[BAPTISM] ROW 1: 0=1 | 1=DAVID ARYEEQUAYE TETTEH | 2=2024-08-10 00:00:00 | 3=2003-06-12 00:00:00 | 4=ACCRA | 5=STEPHEN TETTEY TETTEH | 6=RACHAEL TETTEH | 8=ODORKOR
+[BAPTISM] ROW 2: 0=2 | 1=EMMANUEL BAFFOUR | 2=2024-08-10 00:00:00 | 3=1964-05-19 00:00:00 | 4=WA | 5=KWAKU ANTWI | 6=YAA FRIMPOMAA | 7=DERMAA | 8=SOWUTUOM
+[BAPTISM] ROW 3: 0=3 | 1=MATTHEW KWAKU ASAMOAH | 2=2024-08-10 00:00:00 | 3=1986-12-02 00:00:00 | 4=AKUAPEM MANFI | 5=KWAKU ASAMOAH | 6=ABENA AZALAGO | 7=AVEDAKPA | 8=SOWUTUOM
+[BAPTISM] ROW 4: 0=4 | 1=BENJAMIN WEIR | 2=2024-08-10 00:00:00 | 3=1958-01-27 00:00:00 | 4=WINNEBA | 5=SAMUEL WEIR | 6=SARAH DICKSON | 7=WINNEBA | 8=SOWUTUOM
+[BAPTISM] ROW 5: 0=5 | 1=EUNICE NKETIA DASITEY | 2=2024-08-10 00:00:00 | 3=2024-03-22 00:00:00 | 4=ACCRA | 5=NATAHN DASITEY | 6=RUTH DASITEY | 7=AYIKUMA | 8=SOWUTUOM
+[BAPTISM] ROW 6: 0=6 | 1=ATITSO MARY | 2=2024-08-10 00:00:00 | 3=2024-11-12 00:00:00 | 4=ACCRA | 5=PHILIP ATITSO | 6=DINA ADUTWUMUA | 7=OSIEM | 8=SAPEIMAN
+[BAPTISM] ROW 7: 0=7 | 1=VERONICA GEORGINA ADAMS | 2=2024-08-10 00:00:00 | 3=1979-03-06 00:00:00 | 4=MANKESSIM | 5=KWAKU ABUDU | 6=ABA TEKYIWAA | 7=MANKESSIM | 8=SOWUTUOM
+[BAPTISM] ROW 8: 0=8 | 1=GRACE ALICE OKYERE | 2=2024-08-10 00:00:00 | 3=1986 | 4=AYIREBI | 5=KWAKU APPIAH | 6=AMA ATTA | 7=AYIREBI | 8=SOWUTUOM
+[BAPTISM] ROW 9: 0=9 | 1=SALOMEY AMISSAH | 2=2024-08-10 00:00:00 | 3=2001-02-05 00:00:00 | 4=ACCRA | 5=ISAAC AMISSAH | 6=HANNAH NYAMEKYE AMISSAH | 7=ELMINA | 8=KASOA
+[BAPTISM] ROW 10: 0=10 | 1=MIRIAM AMISSAH | 2=2024-08-10 00:00:00 | 3=2006-07-04 00:00:00 | 4=TAKORADI | 5=ISAAC AMISSAH | 6=HANNAH NYAMEKYE AMISSAH | 7=ELMINA | 8=KASOA
+[BAPTISM] ROW 12: 1=NAME | 2=DATE OF BAPTISM | 3=DATE OF BIRTH | 4=PLACE OF BIRTH | 5=FATHERS` NAME | 6=MOTHERS` NAME | 7=HOME TOWN | 8=BRANCH | 9=BAPTISM NAME
+[BAPTISM] ROW 13: 0=1 | 1=JACOB OWUSU KUFFOUR | 2=2025-04-12 00:00:00 | 3=1952-12-27 00:00:00 | 5=NANA KWABENA 0WUSU | 6=EFIA SARPONG | 7=TREDE | 8=SOWUTUOM
+[BAPTISM] ROW 14: 0=2 | 1=AGYEI ISAAC FIANKO | 2=2025-04-12 00:00:00 | 3=1997-05-16 00:00:00 | 5=GODWIN FIANKO | 6=HANNAH WIAFE | 7=ADUKROM | 8=SOWUTUOM
+[RENTALS] ROW 0: 0=DATE OF PAYMEMT | 1=AMOUNT PAID(GHC) | 2=ACTUAL DAY | 3=PURPOSE
+[RENTALS] ROW 1: 0=2024-08-16 00:00:00 | 1=500 | 2=2024-08-25 00:00:00 | 3=MEETING
+[RENTALS] ROW 2: 0=2024-10-05 00:00:00 | 1=1000 | 3=FUNERAL
+[RENTALS] ROW 3: 0=2024-11-01 00:00:00 | 1=500 | 2=2024-11-01 00:00:00
+[RENTALS] ROW 4: 0=2025-02-22 00:00:00 | 1=1000 | 2=2025-02-22 00:00:00 | 3=FUNERAL
+[RENTALS] ROW 5: 0=2025-04-02 00:00:00 | 1=300 | 2=2025-04-02 00:00:00 | 3=MEETING
+[RENTALS] ROW 6: 0=2025-04-08 00:00:00 | 1=700 | 2=2025-04-26 00:00:00 | 3=FUNERAL
+[RENTALS] ROW 7: 0=2025-07-26 00:00:00 | 1=1000 | 3=FUNERAL
+[RENTALS] ROW 8: 0=2025-07-25 00:00:00 | 1=2000 | 2=2025-08-23 00:00:00 | 3=FUNERAL
+[RENTALS] ROW 9: 0=2025-08-24 00:00:00 | 1=2000 | 2=2025-10-11 00:00:00 | 3=FUNERAL
+[RENTALS] ROW 10: 0=2025-09-26 00:00:00 | 1=2000 | 2=2025-10-18 00:00:00 | 3=FUNERAL
+[RENTALS] ROW 11: 0=2025-10-23 00:00:00 | 1=4000 | 2=15&16/11/2025 | 3=FUNERAL
+[RENTALS] ROW 12: 0=2025-12-24 00:00:00 | 1=500 | 2=2025-12-24 00:00:00 | 3=MEETING
+[RENTALS] ROW 14: 1=15500
+[BUILDING PROJ.] ROW 0: 0=DATE | 1=SENDER | 2=AMOUNT | 3=PURPOSE
+[BUILDING PROJ.] ROW 1: 0=2026-02-01 00:00:00 | 1=PAUL TOMMY | 2=100 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 2: 0=2026-02-01 00:00:00 | 1=SIMON NYARKO | 2=1000 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 3: 0=2026-02-01 00:00:00 | 1=JACOB KOBLA | 2=100 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 4: 0=2026-02-01 00:00:00 | 1=MARY AGYAPOMAA MENSAH | 2=1000 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 5: 0=2026-02-01 00:00:00 | 1=ENOCK SAGOE | 2=1200 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 6: 0=2026-02-01 00:00:00 | 1=DUODU RITA FREMAH | 2=600 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 7: 0=2026-02-01 00:00:00 | 1=JAMES BOTCHEY | 2=600 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 8: 0=2026-02-01 00:00:00 | 1=PRINCE APPIAH KOOMSON | 2=1000 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 9: 0=2026-02-01 00:00:00 | 1=PAUL AGYAPONG SIAW | 2=50 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 11: 2=5650
+[BUILDING PROJ.] ROW 13: 0=2026-02-08 00:00:00 | 1=KWESI ERNEST | 2=200 | 3=CHURCH BUILDING
+[BUILDING PROJ.] ROW 14: 0=2026-02-08 00:00:00 | 1=DANIEL OWUSU ANSAH | 2=600 | 3=CHURCH BUILDING

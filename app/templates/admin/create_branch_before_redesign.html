@@ -1,0 +1,251 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Add Branch | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link active">
+                Branches
+            </a>
+
+            <a href="#" class="nav-link">Funds</a>
+            <a href="#" class="nav-link">Attendance</a>
+            <a href="#" class="nav-link">Analytics</a>
+            <a href="#" class="nav-link">Reports</a>
+            <a href="#" class="nav-link">Users</a>
+            <a href="#" class="nav-link">Settings</a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+                <h1>Add Church Branch</h1>
+
+                <p>
+                    Create a branch and its login account.
+                </p>
+            </div>
+
+            <a
+                href="{{ url_for('admin.branches') }}"
+                class="secondary-button"
+            >
+                ← Back to Branches
+            </a>
+
+        </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div class="flash flash-{{ category }}">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <h2>Branch Information</h2>
+
+                <p>
+                    All fields marked with * are required.
+                </p>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('admin.create_branch') }}"
+                class="branch-form"
+            >
+
+                <div class="form-section">
+
+                    <h3>Branch Details</h3>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="name">
+                                Branch Name *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="name"
+                                name="name"
+                                placeholder="e.g. Accra Branch"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="location">
+                                Location
+                            </label>
+
+                            <input
+                                type="text"
+                                id="location"
+                                name="location"
+                                placeholder="e.g. Accra"
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="code">
+                                Branch Code *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="code"
+                                name="code"
+                                placeholder="e.g. ACC001"
+                                required
+                            >
+
+                            <small>
+                                Use a unique code for this branch.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-section">
+
+                    <h3>Branch Login Account</h3>
+
+                    <p class="form-help">
+                        This username and password will be used by the
+                        branch to access its own dashboard.
+                    </p>
+
+                    <div class="form-grid">
+
+                        <div class="form-group">
+
+                            <label for="username">
+                                Branch Username *
+                            </label>
+
+                            <input
+                                type="text"
+                                id="username"
+                                name="username"
+                                placeholder="e.g. accra_branch"
+                                required
+                            >
+
+                        </div>
+
+
+                        <div class="form-group">
+
+                            <label for="password">
+                                Branch Password *
+                            </label>
+
+                            <input
+                                type="password"
+                                id="password"
+                                name="password"
+                                placeholder="Minimum 8 characters"
+                                minlength="8"
+                                required
+                            >
+
+                            <small>
+                                Minimum 8 characters.
+                            </small>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <a
+                        href="{{ url_for('admin.branches') }}"
+                        class="secondary-button"
+                    >
+                        Cancel
+                    </a>
+
+                    <button
+                        type="submit"
+                        class="action-button"
+                    >
+                        Create Branch
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+

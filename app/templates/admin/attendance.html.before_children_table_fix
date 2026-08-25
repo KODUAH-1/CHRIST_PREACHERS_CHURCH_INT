@@ -46,168 +46,6 @@
     {% endwith %}
 
 
-        <div class="panel" style="margin-bottom:24px;">
-
-            <div class="panel-header">
-
-                <div>
-
-                    <div class="section-label">
-                        NEW ATTENDANCE
-                    </div>
-
-                    <h2>Record Attendance</h2>
-
-                    <p>
-                        Enter weekly attendance for a branch.
-                    </p>
-
-                </div>
-
-            </div>
-
-
-            <form
-                method="POST"
-                action="{{ url_for('admin.create_attendance') }}"
-            >
-
-                <div class="form-group">
-
-                    <label for="branch_id">
-                        Branch
-                    </label>
-
-                    <select
-                        id="branch_id"
-                        name="branch_id"
-                        required
-                    >
-
-                        <option value="">
-                            Select Branch
-                        </option>
-
-                        {% for branch in branches %}
-
-                            <option value="{{ branch.id }}">
-                                {{ branch.name }}
-                                {% if branch.code %}
-                                    - {{ branch.code }}
-                                {% endif %}
-                            </option>
-
-                        {% endfor %}
-
-                    </select>
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="record_date">
-                        Attendance Date
-                    </label>
-
-                    <input
-                        type="date"
-                        id="record_date"
-                        name="record_date"
-                        value="{{ today.isoformat() }}"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="male">
-                        Male
-                    </label>
-
-                    <input
-                        type="number"
-                        id="male"
-                        name="male"
-                        min="0"
-                        value="0"
-                        required
-                        oninput="calculateAttendanceTotal()"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="female">
-                        Female
-                    </label>
-
-                    <input
-                        type="number"
-                        id="female"
-                        name="female"
-                        min="0"
-                        value="0"
-                        required
-                        oninput="calculateAttendanceTotal()"
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="children">
-                        Children
-                    </label>
-
-                    <input
-                        type="number"
-                        id="children"
-                        name="children"
-                        min="0"
-                        value="0"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
-                    <label for="attendance_total">
-                        Adult Total
-                    </label>
-
-                    <input
-                        type="number"
-                        id="attendance_total"
-                        value="0"
-                        readonly
-                    >
-
-                </div>
-
-
-                <div class="form-actions">
-
-                    <button
-                        type="submit"
-                        class="btn btn-primary"
-                    >
-                        Save Attendance
-                    </button>
-
-                </div>
-
-            </form>
-
-        </div>
-
     <section class="dashboard-section">
 
 
@@ -254,10 +92,6 @@
 
                             <th>
                                 Female
-                            </th>
-
-                            <th>
-                                Children
                             </th>
 
                             <th>
@@ -309,12 +143,7 @@
 
 
                                     <td>
-                                        {{ record.female }}
-                                    </td>
-
-
-                                    <td>
-                                        {{ record.children }}
+                                        {{ record.female }}</td><td>{{ record.children }}
                                     </td>
 
 
@@ -383,7 +212,7 @@
                             <tr>
 
                                 <td
-                                    colspan="7"
+                                    colspan="6"
                                     style="text-align:center;"
                                 >
                                     No attendance records have been entered yet.
@@ -434,9 +263,5 @@ calculateAttendanceTotal();
 </script>
 
 {% endblock %}
-
-
-
-
 
 

@@ -4,62 +4,212 @@
 
 {% block content %}
 
-<div class="dashboard-main">
+<div class="dashboard-layout">
 
-    <div class="dashboard-header">
+    <aside class="sidebar">
 
-        <div>
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
 
-            <div class="page-kicker">
-                CHURCH ADMINISTRATION
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                <span>▦</span>
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span>
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link active">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <div class="page-kicker">
+                    CHURCH ADMINISTRATION
+                </div>
+
+                <h1>Attendance Management</h1>
+
+                <p>
+                    Record and monitor male, female and total church attendance
+                    across all branches.
+                </p>
+
             </div>
 
-            <h1>Attendance</h1>
-
-            <p>
-                Record and manage church attendance by branch and date.
-            </p>
+            <div class="branch-date">
+                {{ today.strftime("%d %B %Y") }}
+            </div>
 
         </div>
 
-    </div>
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div class="flash flash-{{ category }}">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
 
 
-    {% with messages = get_flashed_messages(with_categories=true) %}
+        <div class="branch-summary-grid">
 
-        {% if messages %}
+            <div class="branch-summary-card">
 
-            <div class="flash-container">
+                <div class="summary-icon">
+                    ♂
+                </div>
 
-                {% for category, message in messages %}
+                <div>
 
-                    <div class="flash flash-{{ category }}">
-                        {{ message }}
-                    </div>
+                    <span class="summary-label">
+                        MALE
+                    </span>
 
-                {% endfor %}
+                    <strong>
+                        {{ records|sum(attribute='male') }}
+                    </strong>
+
+                    <small>
+                        Total male attendance
+                    </small>
+
+                </div>
 
             </div>
 
-        {% endif %}
 
-    {% endwith %}
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ♀
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        FEMALE
+                    </span>
+
+                    <strong>
+                        {{ records|sum(attribute='female') }}
+                    </strong>
+
+                    <small>
+                        Total female attendance
+                    </small>
+
+                </div>
+
+            </div>
 
 
-        <div class="panel" style="margin-bottom:24px;">
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        TOTAL
+                    </span>
+
+                    <strong>
+                        {{ records|sum(attribute='attendance') }}
+                    </strong>
+
+                    <small>
+                        Total church attendance
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
 
             <div class="panel-header">
 
                 <div>
 
                     <div class="section-label">
-                        NEW ATTENDANCE
+                        NEW RECORD
                     </div>
 
-                    <h2>Record Attendance</h2>
+                    <h2>Record Church Attendance</h2>
 
                     <p>
-                        Enter weekly attendance for a branch.
+                        Enter the male and female attendance for a church branch.
+                        The total is calculated automatically.
                     </p>
 
                 </div>
@@ -70,6 +220,7 @@
             <form
                 method="POST"
                 action="{{ url_for('admin.create_attendance') }}"
+                class="form-grid"
             >
 
                 <div class="form-group">
@@ -85,16 +236,13 @@
                     >
 
                         <option value="">
-                            Select Branch
+                            Select branch
                         </option>
 
                         {% for branch in branches %}
 
                             <option value="{{ branch.id }}">
                                 {{ branch.name }}
-                                {% if branch.code %}
-                                    - {{ branch.code }}
-                                {% endif %}
                             </option>
 
                         {% endfor %}
@@ -107,7 +255,7 @@
                 <div class="form-group">
 
                     <label for="record_date">
-                        Attendance Date
+                        Date
                     </label>
 
                     <input
@@ -161,26 +309,8 @@
 
                 <div class="form-group">
 
-                    <label for="children">
-                        Children
-                    </label>
-
-                    <input
-                        type="number"
-                        id="children"
-                        name="children"
-                        min="0"
-                        value="0"
-                        required
-                    >
-
-                </div>
-
-
-                <div class="form-group">
-
                     <label for="attendance_total">
-                        Adult Total
+                        Total
                     </label>
 
                     <input
@@ -207,8 +337,6 @@
             </form>
 
         </div>
-
-    <section class="dashboard-section">
 
 
         <div class="panel">
@@ -257,15 +385,7 @@
                             </th>
 
                             <th>
-                                Children
-                            </th>
-
-                            <th>
                                 Total
-                            </th>
-
-                            <th>
-                                Actions
                             </th>
 
                         </tr>
@@ -285,93 +405,22 @@
                                         {{ record.record_date.strftime("%d %B %Y") }}
                                     </td>
 
-
                                     <td>
-
-                                        <strong>
-                                            {{ record.branch.name }}
-                                        </strong>
-
-                                        {% if record.branch.code %}
-
-                                            <small>
-                                                {{ record.branch.code }}
-                                            </small>
-
-                                        {% endif %}
-
+                                        {{ record.branch.name }}
                                     </td>
-
 
                                     <td>
                                         {{ record.male }}
                                     </td>
 
-
                                     <td>
                                         {{ record.female }}
                                     </td>
 
-
                                     <td>
-                                        {{ record.children }}
-                                    </td>
-
-
-                                    <td>
-
                                         <strong>
                                             {{ record.attendance }}
                                         </strong>
-
-                                    </td>
-
-
-                                    <td>
-
-                                        <div
-                                            style="
-                                                display:flex;
-                                                gap:8px;
-                                                align-items:center;
-                                                flex-wrap:wrap;
-                                            "
-                                        >
-
-                                            <a
-                                                href="{{ url_for(
-                                                    'admin.edit_attendance',
-                                                    record_id=record.id
-                                                ) }}"
-                                                class="btn"
-                                            >
-                                                Edit
-                                            </a>
-
-
-                                            <form
-                                                method="POST"
-                                                action="{{ url_for(
-                                                    'admin.delete_attendance',
-                                                    record_id=record.id
-                                                ) }}"
-                                                style="display:inline;"
-                                                onsubmit="return confirm(
-                                                    'Delete this attendance record? This action cannot be undone.'
-                                                );"
-                                            >
-
-                                                <button
-                                                    type="submit"
-                                                    class="btn"
-                                                >
-                                                    Delete
-                                                </button>
-
-                                            </form>
-
-                                        </div>
-
                                     </td>
 
                                 </tr>
@@ -383,7 +432,7 @@
                             <tr>
 
                                 <td
-                                    colspan="7"
+                                    colspan="5"
                                     style="text-align:center;"
                                 >
                                     No attendance records have been entered yet.
@@ -412,20 +461,17 @@ function calculateAttendanceTotal() {
 
     const male =
         parseInt(
-            document.getElementById("male")?.value
+            document.getElementById("male").value
         ) || 0;
 
     const female =
         parseInt(
-            document.getElementById("female")?.value
+            document.getElementById("female").value
         ) || 0;
 
-    const total =
-        document.getElementById("attendance_total");
-
-    if (total) {
-        total.value = male + female;
-    }
+    document.getElementById(
+        "attendance_total"
+    ).value = male + female;
 
 }
 
@@ -434,9 +480,3 @@ calculateAttendanceTotal();
 </script>
 
 {% endblock %}
-
-
-
-
-
-

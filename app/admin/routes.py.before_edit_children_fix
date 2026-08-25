@@ -958,11 +958,6 @@ def edit_attendance(record_id):
             "0"
         )
 
-        children_value = request.form.get(
-            "children",
-            "0"
-        )
-
         try:
 
             branch_id = int(branch_id)
@@ -973,13 +968,8 @@ def edit_attendance(record_id):
 
             male_value = int(male_value or 0)
             female_value = int(female_value or 0)
-            children_value = int(children_value or 0)
 
-            if (
-                male_value < 0
-                or female_value < 0
-                or children_value < 0
-            ):
+            if male_value < 0 or female_value < 0:
                 raise ValueError
 
             attendance_value = male_value + female_value
@@ -1019,7 +1009,6 @@ def edit_attendance(record_id):
         record.record_date = record_date
         record.male = male_value
         record.female = female_value
-        record.children = children_value
         record.attendance = attendance_value
 
         db.session.commit()
@@ -1562,7 +1551,6 @@ def delete_fund(record_id):
     return redirect(
         url_for("admin.funds")
     )
-
 
 
 

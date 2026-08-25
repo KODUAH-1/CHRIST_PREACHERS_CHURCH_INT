@@ -1,0 +1,461 @@
+﻿{% extends "base.html" %}
+
+{% block title %}Attendance | CHRIST PREACHERS CHURCH INT{% endblock %}
+
+{% block content %}
+
+<div class="dashboard-layout">
+
+    <aside class="sidebar">
+
+        <div class="sidebar-brand">
+            <div class="sidebar-logo">CPC</div>
+
+            <div>
+                <strong>CPC INT</strong>
+                <small>Administration</small>
+            </div>
+        </div>
+
+        <nav class="sidebar-nav">
+
+            <a href="{{ url_for('admin.dashboard') }}" class="nav-link">
+                <span>⌂</span>
+                Dashboard
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}" class="nav-link">
+                <span>▦</span>
+                Branches
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}" class="nav-link">
+                <span>₵</span>
+                Funds
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}" class="nav-link active">
+                <span>✓</span>
+                Attendance
+            </a>
+
+            <a href="{{ url_for('admin.analytics') }}" class="nav-link">
+                <span>◈</span>
+                Analytics
+            </a>
+
+            <a href="{{ url_for('admin.reports') }}" class="nav-link">
+                <span>▤</span>
+                Reports
+            </a>
+
+            <a href="{{ url_for('admin.users') }}" class="nav-link">
+                <span>♙</span>
+                Users
+            </a>
+
+            <a href="{{ url_for('admin.settings') }}" class="nav-link">
+                <span>⚙</span>
+                Settings
+            </a>
+
+            <a href="{{ url_for('auth.logout') }}" class="nav-link logout-link">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </nav>
+
+    </aside>
+
+
+    <section class="dashboard-main">
+
+        <div class="dashboard-header">
+
+            <div>
+
+                <div class="page-kicker">
+                    CHURCH ADMINISTRATION
+                </div>
+
+                <h1>Attendance Management</h1>
+
+                <p>
+                    Record and monitor church attendance across all branches.
+                </p>
+
+            </div>
+
+            <div class="branch-date">
+                {{ today.strftime("%d %B %Y") }}
+            </div>
+
+        </div>
+
+
+        {% with messages = get_flashed_messages(with_categories=true) %}
+
+            {% if messages %}
+
+                <div class="flash-container">
+
+                    {% for category, message in messages %}
+
+                        <div class="flash flash-{{ category }}">
+                            {{ message }}
+                        </div>
+
+                    {% endfor %}
+
+                </div>
+
+            {% endif %}
+
+        {% endwith %}
+
+
+        <div class="branch-summary-grid">
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ✓
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        ATTENDANCE RECORDS
+                    </span>
+
+                    <strong>
+                        {{ records|length }}
+                    </strong>
+
+                    <small>
+                        Recorded attendance entries
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ▦
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        ACTIVE BRANCHES
+                    </span>
+
+                    <strong>
+                        {{ branches|length }}
+                    </strong>
+
+                    <small>
+                        Branches available for reporting
+                    </small>
+
+                </div>
+
+            </div>
+
+
+            <div class="branch-summary-card">
+
+                <div class="summary-icon">
+                    ◷
+                </div>
+
+                <div>
+
+                    <span class="summary-label">
+                        REPORTING
+                    </span>
+
+                    <strong>
+                        {{ records|length }}
+                    </strong>
+
+                    <small>
+                        Attendance reports in system
+                    </small>
+
+                </div>
+
+            </div>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <div class="section-label">
+                        NEW RECORD
+                    </div>
+
+                    <h2>Record Church Attendance</h2>
+
+                    <p>
+                        Enter the attendance figure for a church branch.
+                    </p>
+
+                </div>
+
+            </div>
+
+
+            <form
+                method="POST"
+                action="{{ url_for('admin.create_attendance') }}"
+                class="admin-form"
+            >
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label for="branch_id">
+                            Church Branch
+                        </label>
+
+                        <select
+                            id="branch_id"
+                            name="branch_id"
+                            required
+                        >
+
+                            <option value="">
+                                Select church branch
+                            </option>
+
+                            {% for branch in branches %}
+
+                            <option value="{{ branch.id }}">
+                                {{ branch.name }}
+                                {% if branch.code %}
+                                    — {{ branch.code }}
+                                {% endif %}
+                            </option>
+
+                            {% endfor %}
+
+                        </select>
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="record_date">
+                            Attendance Date
+                        </label>
+
+                        <input
+                            type="date"
+                            id="record_date"
+                            name="record_date"
+                            value="{{ today.isoformat() }}"
+                            required
+                        >
+
+                    </div>
+
+
+                    <div class="form-group">
+
+                        <label for="attendance">
+                            Number of People
+                        </label>
+
+                        <input
+                            type="number"
+                            id="attendance"
+                            name="attendance"
+                            min="0"
+                            step="1"
+                            value="0"
+                            required
+                        >
+
+                        <small>
+                            Enter the total attendance for the selected branch.
+                        </small>
+
+                    </div>
+
+                </div>
+
+
+                <div class="form-actions">
+
+                    <button
+                        type="submit"
+                        class="action-button"
+                    >
+                        ✓ Save Attendance
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
+
+                    <div class="section-label">
+                        ATTENDANCE HISTORY
+                    </div>
+
+                    <h2>Recorded Attendance</h2>
+
+                    <p>
+                        Review attendance records entered for all branches.
+                    </p>
+
+                </div>
+
+                <div class="branch-count">
+                    {{ records|length }}
+                    <span>records</span>
+                </div>
+
+            </div>
+
+
+            {% if records %}
+
+            <div class="table-wrapper">
+
+                <table class="data-table">
+
+                    <thead>
+
+                        <tr>
+                            <th>Date</th>
+                            <th>Branch</th>
+                            <th>Location</th>
+                            <th>Attendance</th>
+                            <th>Status</th>
+                        </tr>
+
+                    </thead>
+
+                    <tbody>
+
+                        {% for record in records %}
+
+                        <tr>
+
+                            <td>
+                                <strong>
+                                    {{ record.record_date.strftime("%d/%m/%Y") }}
+                                </strong>
+                            </td>
+
+                            <td>
+                                <strong>
+                                    {{ record.branch.name }}
+                                </strong>
+
+                                <small>
+                                    {{ record.branch.code }}
+                                </small>
+                            </td>
+
+                            <td>
+                                {{ record.branch.location or "—" }}
+                            </td>
+
+                            <td>
+                                <strong class="user-count">
+                                    {{ record.attendance }}
+                                </strong>
+                            </td>
+
+                            <td>
+
+                                <span class="professional-status active">
+                                    <span class="status-dot"></span>
+                                    Recorded
+                                </span>
+
+                            </td>
+
+                        </tr>
+
+                        {% endfor %}
+
+                    </tbody>
+
+                </table>
+
+            </div>
+
+            {% else %}
+
+            <div class="empty-state">
+
+                <div class="empty-icon">
+                    ✓
+                </div>
+
+                <h3>No attendance records yet</h3>
+
+                <p>
+                    Attendance records entered by the administrator
+                    will appear here.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+
+        <div class="branch-footer-note">
+
+            <div class="database-status">
+
+                <span class="online-dot"></span>
+
+                PostgreSQL Database Connected
+
+            </div>
+
+            <span>
+                Attendance management system is online
+            </span>
+
+        </div>
+
+    </section>
+
+</div>
+
+{% endblock %}
+
+
+
+
+
+
+
+

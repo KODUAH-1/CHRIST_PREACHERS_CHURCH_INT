@@ -1,0 +1,406 @@
+﻿{% extends "base.html" %}
+
+{% block title %}CPC INT | Administration{% endblock %}
+
+{% block content %}
+
+<div class="cpc-admin">
+
+    <!-- SIDEBAR -->
+    <aside class="cpc-sidebar">
+
+        <div class="cpc-brand">
+            <div class="cpc-logo">CPC</div>
+
+            <div class="cpc-brand-text">
+                <strong>CPC INT</strong>
+                <span>Administration</span>
+            </div>
+        </div>
+
+        <div class="cpc-nav-title">
+            MAIN MENU
+        </div>
+
+        <nav class="cpc-navigation">
+
+            <a href="{{ url_for('admin.dashboard') }}"
+               class="cpc-nav-item active">
+                <span class="nav-icon">⌂</span>
+                <span>Dashboard</span>
+            </a>
+
+            <a href="{{ url_for('admin.branches') }}"
+               class="cpc-nav-item">
+                <span class="nav-icon">▦</span>
+                <span>Branches</span>
+            </a>
+
+            <a href="{{ url_for('admin.funds') }}"
+               class="cpc-nav-item">
+                <span class="nav-icon">₵</span>
+                <span>Funds</span>
+            </a>
+
+            <a href="{{ url_for('admin.attendance') }}"
+               class="cpc-nav-item">
+                <span class="nav-icon">✓</span>
+                <span>Attendance</span>
+            </a>
+
+            <div class="cpc-nav-title">
+                MANAGEMENT
+            </div>
+
+            <a href="#" class="cpc-nav-item">
+                <span class="nav-icon">◈</span>
+                <span>Analytics</span>
+            </a>
+
+            <a href="#" class="cpc-nav-item">
+                <span class="nav-icon">▤</span>
+                <span>Reports</span>
+            </a>
+
+            <a href="#" class="cpc-nav-item">
+                <span class="nav-icon">♙</span>
+                <span>Users</span>
+            </a>
+
+            <a href="#" class="cpc-nav-item">
+                <span class="nav-icon">⚙</span>
+                <span>Settings</span>
+            </a>
+
+        </nav>
+
+        <div class="cpc-sidebar-bottom">
+
+            <div class="cpc-system-status">
+                <span class="status-dot"></span>
+
+                <div>
+                    <strong>System Online</strong>
+                    <small>PostgreSQL Connected</small>
+                </div>
+            </div>
+
+            <a href="{{ url_for('auth.logout') }}"
+               class="cpc-logout">
+                <span>↪</span>
+                Logout
+            </a>
+
+        </div>
+
+    </aside>
+
+
+    <!-- MAIN CONTENT -->
+    <main class="cpc-main">
+
+        <!-- TOP BAR -->
+        <header class="cpc-topbar">
+
+            <div>
+                <span class="cpc-page-label">
+                    CHURCH ADMINISTRATION
+                </span>
+
+                <h1>Dashboard</h1>
+            </div>
+
+            <div class="cpc-user">
+
+                <div class="cpc-avatar">
+                    {{ current_user.username[:1]|upper }}
+                </div>
+
+                <div>
+                    <strong>{{ current_user.username }}</strong>
+                    <span>Administrator</span>
+                </div>
+
+            </div>
+
+        </header>
+
+
+        <!-- WELCOME -->
+        <section class="cpc-welcome">
+
+            <div>
+                <span class="welcome-label">
+                    WELCOME BACK
+                </span>
+
+                <h2>
+                    {{ current_user.username }}
+                </h2>
+
+                <p>
+                    Manage church branches, funds and attendance
+                    from your central administration dashboard.
+                </p>
+            </div>
+
+            <div class="cpc-online-badge">
+                <span></span>
+                SYSTEM ONLINE
+            </div>
+
+        </section>
+
+
+        <!-- STATISTICS -->
+        <section class="cpc-stat-grid">
+
+            <div class="cpc-stat-card branches-card">
+
+                <div class="stat-top">
+                    <span class="stat-icon">▦</span>
+                    <span class="stat-tag">BRANCHES</span>
+                </div>
+
+                <div class="stat-number">
+                    {{ branches|length if branches is defined else 0 }}
+                </div>
+
+                <div class="stat-description">
+                    Registered church branches
+                </div>
+
+            </div>
+
+
+            <div class="cpc-stat-card evangelical-card">
+
+                <div class="stat-top">
+                    <span class="stat-icon">₵</span>
+                    <span class="stat-tag">EVANGELICAL FUND</span>
+                </div>
+
+                <div class="stat-number">
+                    GH₵ 0.00
+                </div>
+
+                <div class="stat-description">
+                    Total from all branches
+                </div>
+
+            </div>
+
+
+            <div class="cpc-stat-card national-card">
+
+                <div class="stat-top">
+                    <span class="stat-icon">₵</span>
+                    <span class="stat-tag">NATIONAL FUND</span>
+                </div>
+
+                <div class="stat-number">
+                    GH₵ 0.00
+                </div>
+
+                <div class="stat-description">
+                    Total from all branches
+                </div>
+
+            </div>
+
+
+            <div class="cpc-stat-card attendance-card">
+
+                <div class="stat-top">
+                    <span class="stat-icon">✓</span>
+                    <span class="stat-tag">ATTENDANCE</span>
+                </div>
+
+                <div class="stat-number">
+                    0
+                </div>
+
+                <div class="stat-description">
+                    Attendance records
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- QUICK ACTIONS -->
+        <section class="cpc-section">
+
+            <div class="cpc-section-heading">
+
+                <div>
+                    <span>MANAGEMENT</span>
+                    <h2>Quick Actions</h2>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-action-grid">
+
+                <a href="{{ url_for('admin.create_branch') }}"
+                   class="cpc-action-card action-branch">
+
+                    <div class="action-icon">+</div>
+
+                    <div class="action-content">
+                        <h3>Add Branch</h3>
+                        <p>Register a new church branch</p>
+                    </div>
+
+                    <div class="action-arrow">→</div>
+
+                </a>
+
+
+                <a href="{{ url_for('admin.funds') }}"
+                   class="cpc-action-card action-fund">
+
+                    <div class="action-icon">₵</div>
+
+                    <div class="action-content">
+                        <h3>Manage Funds</h3>
+                        <p>Enter and review fund records</p>
+                    </div>
+
+                    <div class="action-arrow">→</div>
+
+                </a>
+
+
+                <a href="{{ url_for('admin.attendance') }}"
+                   class="cpc-action-card action-attendance">
+
+                    <div class="action-icon">✓</div>
+
+                    <div class="action-content">
+                        <h3>Record Attendance</h3>
+                        <p>Manage church attendance</p>
+                    </div>
+
+                    <div class="action-arrow">→</div>
+
+                </a>
+
+            </div>
+
+        </section>
+
+
+        <!-- PERFORMANCE -->
+        <section class="cpc-section">
+
+            <div class="cpc-section-heading">
+
+                <div>
+                    <span>PERFORMANCE</span>
+                    <h2>Church Overview</h2>
+                </div>
+
+                <div class="cpc-periods">
+                    <button class="active">Daily</button>
+                    <button>Weekly</button>
+                    <button>Monthly</button>
+                </div>
+
+            </div>
+
+
+            <div class="cpc-overview-grid">
+
+                <div class="cpc-overview-card">
+
+                    <div class="overview-header">
+
+                        <div>
+                            <h3>Branch Performance</h3>
+                            <p>Funds and attendance by branch</p>
+                        </div>
+
+                        <span class="overview-icon">▥</span>
+
+                    </div>
+
+                    <div class="empty-overview">
+
+                        <div class="empty-icon">▥</div>
+
+                        <strong>No branch records yet</strong>
+
+                        <p>
+                            Branch performance will appear here
+                            after records are entered.
+                        </p>
+
+                    </div>
+
+                </div>
+
+
+                <div class="cpc-overview-card">
+
+                    <div class="overview-header">
+
+                        <div>
+                            <h3>Fund Distribution</h3>
+                            <p>Evangelical vs National Fund</p>
+                        </div>
+
+                        <span class="overview-icon">◕</span>
+
+                    </div>
+
+                    <div class="empty-overview">
+
+                        <div class="empty-icon">◕</div>
+
+                        <strong>No fund records yet</strong>
+
+                        <p>
+                            Fund distribution will appear once
+                            records are entered.
+                        </p>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+        <!-- FOOTER STATUS -->
+        <footer class="cpc-footer">
+
+            <div>
+                <span class="footer-status-dot"></span>
+
+                <strong>PostgreSQL Database Connected</strong>
+
+                <span>
+                    Church management system is ready
+                    for administration and record entry.
+                </span>
+            </div>
+
+            <strong>ONLINE</strong>
+
+        </footer>
+
+        <div class="cpc-copyright">
+            © 2026 CHRIST PREACHERS CHURCH INT • Administration System
+        </div>
+
+    </main>
+
+</div>
+
+{% endblock %}
+
