@@ -1,6 +1,266 @@
 ﻿{% extends "base.html" %}
 
-{% block title %}{{ branch.name }} Dashboard | CHRIST PREACHERS CHURCH INT{% endblock %}
+{% block title %}{{ branch.name }} Dashboard | CHRIST PREACHERS CHURCH INT<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.chart-card {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.chart-card h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.chart-container {
+    position: relative;
+    height: 320px;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 900px) {
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const labels = [
+        {% for record in recent_funds|reverse %}
+            "{{ record.record_date.strftime('%d/%m/%Y') }}"{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+
+    const evangelicalValues = [
+        {% for record in recent_funds|reverse %}
+            {{ record.evangelical_fund or 0 }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+
+    const nationalValues = [
+        {% for record in recent_funds|reverse %}
+            {{ record.national_fund or 0 }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+
+    const evangelicalPieCanvas =
+        document.getElementById("evangelicalPieChart");
+
+    const evangelicalBarCanvas =
+        document.getElementById("evangelicalBarChart");
+
+    const nationalPieCanvas =
+        document.getElementById("nationalPieChart");
+
+    const nationalBarCanvas =
+        document.getElementById("nationalBarChart");
+
+
+    if (evangelicalPieCanvas) {
+
+        new Chart(
+            evangelicalPieCanvas,
+            {
+                type: "pie",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "Evangelical Fund",
+                        data: evangelicalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        legend: {
+                            position: "bottom"
+                        },
+
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+
+                                    return " GH₵ " +
+                                        Number(context.raw).toFixed(2);
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+
+    if (evangelicalBarCanvas) {
+
+        new Chart(
+            evangelicalBarCanvas,
+            {
+                type: "bar",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "Evangelical Fund",
+                        data: evangelicalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+
+                            ticks: {
+                                callback: function (value) {
+                                    return "GH₵ " + value;
+                                }
+                            }
+                        }
+                    },
+
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+
+    if (nationalPieCanvas) {
+
+        new Chart(
+            nationalPieCanvas,
+            {
+                type: "pie",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "National Fund",
+                        data: nationalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        legend: {
+                            position: "bottom"
+                        },
+
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+
+                                    return " GH₵ " +
+                                        Number(context.raw).toFixed(2);
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+
+    if (nationalBarCanvas) {
+
+        new Chart(
+            nationalBarCanvas,
+            {
+                type: "bar",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "National Fund",
+                        data: nationalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+
+                            ticks: {
+                                callback: function (value) {
+                                    return "GH₵ " + value;
+                                }
+                            }
+                        }
+                    },
+
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+});
+
+</script>
+
+
+{% endblock %}
 
 {% block content %}
 
@@ -213,6 +473,76 @@
                 <div class="panel-header">
 
                     <div>
+                        <h2>Fund Analytics</h2>
+
+                        <p>
+                            Evangelical and National funds are displayed separately for this branch.
+                        </p>
+                    </div>
+
+                </div>
+
+
+                {% if recent_funds %}
+
+                <div class="charts-grid">
+
+                    <div class="chart-card">
+
+                        <h3>Evangelical Fund — Pie Chart</h3>
+
+                        <div class="chart-container">
+                            <canvas id="evangelicalPieChart"></canvas>
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-card">
+
+                        <h3>Evangelical Fund — Bar Chart</h3>
+
+                        <div class="chart-container">
+                            <canvas id="evangelicalBarChart"></canvas>
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-card">
+
+                        <h3>National Fund — Pie Chart</h3>
+
+                        <div class="chart-container">
+                            <canvas id="nationalPieChart"></canvas>
+                        </div>
+
+                    </div>
+
+
+                    <div class="chart-card">
+
+                        <h3>National Fund — Bar Chart</h3>
+
+                        <div class="chart-container">
+                            <canvas id="nationalBarChart"></canvas>
+                        </div>
+
+                    </div>
+
+                </div>
+
+                {% endif %}
+
+
+            </div>
+
+
+            <div class="panel">
+
+                <div class="panel-header">
+
+                    <div>
                         <h2>Recent Fund Records</h2>
 
                         <p>
@@ -368,5 +698,265 @@
     </section>
 
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+.charts-grid {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 24px;
+    margin-top: 20px;
+}
+
+.chart-card {
+    padding: 20px;
+    border-radius: 12px;
+    background: var(--card-bg, #ffffff);
+    border: 1px solid var(--border-color, #e5e7eb);
+}
+
+.chart-card h3 {
+    margin-top: 0;
+    margin-bottom: 18px;
+}
+
+.chart-container {
+    position: relative;
+    height: 320px;
+}
+
+.chart-container canvas {
+    max-width: 100%;
+    max-height: 100%;
+}
+
+@media (max-width: 900px) {
+
+    .charts-grid {
+        grid-template-columns: 1fr;
+    }
+
+}
+
+</style>
+
+
+<script>
+
+document.addEventListener("DOMContentLoaded", function () {
+
+    const labels = [
+        {% for record in recent_funds|reverse %}
+            "{{ record.record_date.strftime('%d/%m/%Y') }}"{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+
+    const evangelicalValues = [
+        {% for record in recent_funds|reverse %}
+            {{ record.evangelical_fund or 0 }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+
+    const nationalValues = [
+        {% for record in recent_funds|reverse %}
+            {{ record.national_fund or 0 }}{% if not loop.last %},{% endif %}
+        {% endfor %}
+    ];
+
+
+    const evangelicalPieCanvas =
+        document.getElementById("evangelicalPieChart");
+
+    const evangelicalBarCanvas =
+        document.getElementById("evangelicalBarChart");
+
+    const nationalPieCanvas =
+        document.getElementById("nationalPieChart");
+
+    const nationalBarCanvas =
+        document.getElementById("nationalBarChart");
+
+
+    if (evangelicalPieCanvas) {
+
+        new Chart(
+            evangelicalPieCanvas,
+            {
+                type: "pie",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "Evangelical Fund",
+                        data: evangelicalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        legend: {
+                            position: "bottom"
+                        },
+
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+
+                                    return " GH₵ " +
+                                        Number(context.raw).toFixed(2);
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+
+    if (evangelicalBarCanvas) {
+
+        new Chart(
+            evangelicalBarCanvas,
+            {
+                type: "bar",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "Evangelical Fund",
+                        data: evangelicalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+
+                            ticks: {
+                                callback: function (value) {
+                                    return "GH₵ " + value;
+                                }
+                            }
+                        }
+                    },
+
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+
+    if (nationalPieCanvas) {
+
+        new Chart(
+            nationalPieCanvas,
+            {
+                type: "pie",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "National Fund",
+                        data: nationalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    plugins: {
+                        legend: {
+                            position: "bottom"
+                        },
+
+                        tooltip: {
+                            callbacks: {
+                                label: function (context) {
+
+                                    return " GH₵ " +
+                                        Number(context.raw).toFixed(2);
+
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+
+    if (nationalBarCanvas) {
+
+        new Chart(
+            nationalBarCanvas,
+            {
+                type: "bar",
+
+                data: {
+                    labels: labels,
+
+                    datasets: [{
+                        label: "National Fund",
+                        data: nationalValues
+                    }]
+                },
+
+                options: {
+                    responsive: true,
+                    maintainAspectRatio: false,
+
+                    scales: {
+                        y: {
+                            beginAtZero: true,
+
+                            ticks: {
+                                callback: function (value) {
+                                    return "GH₵ " + value;
+                                }
+                            }
+                        }
+                    },
+
+                    plugins: {
+                        legend: {
+                            display: false
+                        }
+                    }
+                }
+            }
+        );
+
+    }
+
+});
+
+</script>
+
 
 {% endblock %}
