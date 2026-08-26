@@ -158,10 +158,6 @@
                 >
 
             </div>
-
-
-            <div class="form-group">
-
             <div class="form-group">
 
                 <label for="children">
@@ -175,10 +171,13 @@
                     min="0"
                     value="{{ record.children or 0 }}"
                     required
+                    oninput="calculateAttendanceTotal()"
                 >
 
             </div>
 
+
+            <div class="form-group">
 
                 <label for="attendance_total">
                     Total
@@ -233,9 +232,14 @@ function calculateAttendanceTotal() {
             document.getElementById("female").value
         ) || 0;
 
+    const children =
+        parseInt(
+            document.getElementById("children").value
+        ) || 0;
+
     document.getElementById(
         "attendance_total"
-    ).value = male + female;
+    ).value = male + female + children;
 
 }
 
@@ -244,4 +248,5 @@ calculateAttendanceTotal();
 </script>
 
 {% endblock %}
+
 

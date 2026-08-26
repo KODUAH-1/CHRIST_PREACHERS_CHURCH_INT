@@ -847,7 +847,9 @@ def create_attendance():
             raise ValueError
 
         attendance_value = (
-            male_value + female_value
+            male_value
+            + female_value
+            + children_value
         )
 
         week_number = (
@@ -982,7 +984,11 @@ def edit_attendance(record_id):
             ):
                 raise ValueError
 
-            attendance_value = male_value + female_value
+            attendance_value = (
+                male_value
+                + female_value
+                + children_value
+            )
 
         except (ValueError, TypeError):
 
@@ -1562,6 +1568,8 @@ def delete_fund(record_id):
     return redirect(
         url_for("admin.funds")
     )
+
+
 
 
 
