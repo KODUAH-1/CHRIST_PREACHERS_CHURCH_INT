@@ -1,8 +1,8 @@
-﻿import csv
+import csv
 import io
 from datetime import date, timedelta
 
-from flask import Blueprint, render_template, request, redirect, url_for, flash
+from flask import Blueprint, render_template, request, redirect, url_for, flash, make_response
 from flask_login import login_required, current_user
 
 from .. import db
@@ -1308,12 +1308,115 @@ def users():
     )
 
 
-@admin.route("/settings")
+@admin.route("/settings", methods=["GET", "POST"])
 @login_required
 def settings():
 
     if not admin_required():
         return "Administrator access required.", 403
+
+    if request.method == "POST":
+
+        current_password = request.form.get(
+            "current_password",
+            ""
+        )
+
+        new_username = request.form.get(
+            "new_username",
+            ""
+        ).strip()
+
+        new_password = request.form.get(
+            "new_password",
+            ""
+        )
+
+        confirm_password = request.form.get(
+            "confirm_password",
+            ""
+        )
+
+        if not current_user.check_password(current_password):
+
+            flash(
+                "Current password is incorrect.",
+                "danger"
+            )
+
+            return redirect(
+                url_for("admin.settings")
+            )
+
+        if not new_username and not new_password:
+
+            flash(
+                "Enter a new username or a new password.",
+                "danger"
+            )
+
+            return redirect(
+                url_for("admin.settings")
+            )
+
+        if new_username:
+
+            existing_user = User.query.filter(
+                User.username == new_username,
+                User.id != current_user.id
+            ).first()
+
+            if existing_user:
+
+                flash(
+                    "That username is already in use.",
+                    "danger"
+                )
+
+                return redirect(
+                    url_for("admin.settings")
+                )
+
+            current_user.username = new_username
+
+        if new_password:
+
+            if new_password != confirm_password:
+
+                flash(
+                    "The new passwords do not match.",
+                    "danger"
+                )
+
+                return redirect(
+                    url_for("admin.settings")
+                )
+
+            if len(new_password) < 8:
+
+                flash(
+                    "The new password must be at least 8 characters.",
+                    "danger"
+                )
+
+                return redirect(
+                    url_for("admin.settings")
+                )
+
+            current_user.set_password(
+                new_password
+            )
+
+        db.session.commit()
+
+        flash(
+            "Administrator account updated successfully.",
+            "success"
+        )
+
+        return redirect(
+            url_for("admin.settings")
+        )
 
     return render_template(
         "admin/settings.html"

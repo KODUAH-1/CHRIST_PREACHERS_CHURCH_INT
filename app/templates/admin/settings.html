@@ -150,6 +150,108 @@
             <div class="panel-header">
 
                 <div>
+                    <div class="section-label">ADMINISTRATOR ACCOUNT</div>
+
+                    <h2>Account Settings</h2>
+
+                    <p>
+                        Change the administrator username or password.
+                    </p>
+                </div>
+
+            </div>
+
+            <form method="POST" action="{{ url_for('admin.settings') }}">
+
+                <div class="form-grid">
+
+                    <div class="form-group">
+
+                        <label>Current Username</label>
+
+                        <input
+                            type="text"
+                            value="{{ current_user.username }}"
+                            readonly
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>New Username</label>
+
+                        <input
+                            type="text"
+                            name="new_username"
+                            placeholder="Enter new username"
+                            autocomplete="username"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Current Password</label>
+
+                        <input
+                            type="password"
+                            name="current_password"
+                            placeholder="Enter current password"
+                            required
+                            autocomplete="current-password"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>New Password</label>
+
+                        <input
+                            type="password"
+                            name="new_password"
+                            placeholder="Enter new password"
+                            autocomplete="new-password"
+                        >
+
+                    </div>
+
+                    <div class="form-group">
+
+                        <label>Confirm New Password</label>
+
+                        <input
+                            type="password"
+                            name="confirm_password"
+                            placeholder="Confirm new password"
+                            autocomplete="new-password"
+                        >
+
+                    </div>
+
+                </div>
+
+                <div style="margin-top: 20px;">
+
+                    <button
+                        type="submit"
+                        class="btn btn-primary"
+                    >
+                        Update Account
+                    </button>
+
+                </div>
+
+            </form>
+
+        </div>
+
+        <div class="panel">
+
+            <div class="panel-header">
+
+                <div>
                     <div class="section-label">SYSTEM STATUS</div>
 
                     <h2>System Information</h2>
